@@ -73,9 +73,16 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 新規追加Gem
 gem 'devise'
+# 日本語化
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
+# 画像アップロード
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
+# レイアウト
 gem 'bootstrap', '~> 4.1.1'
+# deviseレイアウト
+gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
 gem 'ransack'
