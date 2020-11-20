@@ -58,7 +58,6 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
-  gem 'overcommit'
 end
 
 group :test do
@@ -81,8 +80,6 @@ gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 # レイアウト
 gem 'bootstrap', '~> 4.1.1'
-# deviseレイアウト
-gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
 gem 'ransack'
