@@ -18,17 +18,22 @@
       </li>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <a href="#">投稿する</a>
+          <%= link_to '投稿する', new_post_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <a href="#">質問する</a>
+          <%= link_to '質問する', new_question_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
           <a href="#">通知</a>
+        </span>
+      </li>
+      <li class="nav-item active mr-2">
+        <span class="badge badge-pill badge-light">
+          <%= link_to 'マイページ', user_path(current_user) %>
         </span>
       </li>
       <li class="nav-item active mr-2">

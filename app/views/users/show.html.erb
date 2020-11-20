@@ -1,2 +1,19 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
+  <div class="col-lg-3">
+  <% if @user.id == current_user.id %>
+    <h1 class="text-left">マイページ</h1>
+  <% else %>
+    <h1 class="text-left">ユーザー情報</h1>
+  <% end %>
+    <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no_image.jpg", size: "200x200" %><br>
+    <%= @user.name %><br>
+    <%= @user.occupation %><br>
+    <%= @user.work_history %><br>
+    <%= @user.profile %><br>
+    <%= link_to "プロフィール編集", edit_user_path(@user), class:"btn btn-primary btn-block" %><br>
+    <%= link_to "アカウント設定", edit_user_registration_path(@user), class:"btn btn-primary btn-block" %>
+  </div>
+  <div class="col-lg-9">
+    <%= render 'shared/timeline' %>
+  </div>
+</div>
