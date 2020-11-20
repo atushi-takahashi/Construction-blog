@@ -1,0 +1,17 @@
+<h1 class="text-center">投稿・質問一覧</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>本文</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @timeline.each do |timeline| %>
+        <tr>
+            <td><%= timeline.title %></td>
+            <td><%= timeline.body %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

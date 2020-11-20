@@ -58,7 +58,6 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
-  gem 'overcommit'
 end
 
 group :test do
@@ -73,8 +72,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 新規追加Gem
 gem 'devise'
+# 日本語化
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
+# 画像アップロード
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
+# レイアウト
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
