@@ -35,7 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :occupation
       t.string :work_history
       t.string :profile
-      t.string :image
+      t.string :image_id
       t.boolean :withdrawal_status, default: false
 
       t.timestamps null: false

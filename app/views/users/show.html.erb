@@ -1,19 +1,36 @@
 <div class="row">
-  <div class="col-lg-3">
-  <% if @user.id == current_user.id %>
-    <h1 class="text-left">マイページ</h1>
-  <% else %>
-    <h1 class="text-left">ユーザー情報</h1>
-  <% end %>
-    <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no_image.jpg", size: "200x200" %><br>
-    <%= @user.name %><br>
-    <%= @user.occupation %><br>
-    <%= @user.work_history %><br>
-    <%= @user.profile %><br>
-    <%= link_to "プロフィール編集", edit_user_path(@user), class:"btn btn-primary btn-block" %><br>
-    <%= link_to "アカウント設定", edit_user_registration_path(@user), class:"btn btn-primary btn-block" %>
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-3">
+        <%= attachment_image_tag @user, :image_id, :fill, 200, 200, fallback: "no_image.jpg", size: "200x200" %>
+      </div>
+      <div class="col-lg-3">
+        <div class="row">
+          <div class="col-lg-7"><%= @user.name %></div>
+          <% if @user.id == current_user.id %>
+          <div class="col-lg-4">
+            <%= link_to "編集", edit_user_path(@user), class:"btn btn-primary" %>
+          </div>
+          <% end %>
+          <div class="col-lg-12">フォロー</div>
+          <div class="col-lg-12">フォロワー</div>
+          <div class="col-lg-12">ダイレクトメッセージ</div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="row">
+          <div class="col-lg-4"><%= @user.occupation %></div>
+          <div class="col-lg-4"><%= @user.work_history %></div>
+        </div>
+        <h5>自己紹介</h5>
+        <div class="col-lg-12"><%= @user.profile %></div>
+      </div>
+    </div>
   </div>
-  <div class="col-lg-9">
-    <%= render 'shared/timeline' %>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary">これまでの投稿</button>
+    <button type="button" class="btn btn-secondary">これまでの質問</button>
+    <button type="button" class="btn btn-secondary">いいねした記事</button>
   </div>
+  <%= render 'shared/timeline' %>
 </div>

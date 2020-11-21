@@ -8,10 +8,13 @@ class PostsController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    @categories = Category.all
+  end
 
   def new
     @post = Post.new
+    @categories = Category.all
   end
 
   def create
@@ -27,7 +30,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to posts_path(@post), notice: '更新に成功しました'
+      redirect_to post_path(@post), notice: '更新に成功しました'
     else
       flash.now[:alert] = '入力に不備があります'
       render 'posts/edit'
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if @post.destroy(post_params)
+    if @post.destroy
       redirect_to posts_path, notice: '削除に成功しました'
     else
       redirect_to posts_path, alert: '削除できませんでした'
@@ -45,7 +48,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :post_image_id, :body, :user_id)
+    params.require(:post).permit(:title, :image, :body, :category_id, :status)
   end
 
   def find_post

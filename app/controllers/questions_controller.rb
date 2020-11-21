@@ -8,10 +8,13 @@ class QuestionsController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    @categories = Category.all
+  end
 
   def new
     @question = Question.new
+    @categories = Category.all
   end
 
   def create
@@ -27,7 +30,12 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to questions_path(@question), notice: '更新に成功しました'
+      if @question.solution_flag == true
+        @question.update(status: '質問/解決済み')
+      elsif @question.solution_flag == false
+        @question.update(status: '質問')
+      end
+      redirect_to question_path(@question), notice: '更新に成功しました'
     else
       flash.now[:alert] = '入力に不備があります'
       render 'questions/edit'
@@ -35,7 +43,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    if @question.destroy(question_params)
+    if @question.destroy
       redirect_to questions_path, notice: '削除に成功しました'
     else
       redirect_to questions_path, alert: '削除できませんでした'
@@ -45,7 +53,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :body, :image, :user_id, :solution_flag)
+    params.require(:question).permit(:title, :body, :image, :solution_flag, :category_id, :status)
   end
 
   def find_question

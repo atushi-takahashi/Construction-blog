@@ -1,24 +1,7 @@
-<h1 class="text-center">投稿・質問一覧</h1>
 <div class="row">
-  <table class="table">
-      <thead>
-          <tr>
-              <th class="col-lg-2">投稿・質問者</th>
-              <th class="col-lg-3">タイトル</th>
-              <th class="col-lg-7">本文</th>
-          </tr>
-      </thead>
-      <% @timeline_all.each do |all| %>
-      <tbody class="row">
-          <tr>
-              <td class="col-lg-2">
-                  <%= attachment_image_tag all.user, :image, :fill, 100, 100, fallback: "no_image.jpg", size: "100x100" %><br>
-                  <%= all.user.name %>
-              </td>
-              <td class="col-lg-3"><%= all.title %></td>
-              <td class="col-lg-7"><%= all.body %></td>
-          </tr>
-      </tbody>
-      <% end %>
-  </table>
+  <div>新規投稿</div>
+  <div>人気投稿</div>
+  <div>カテゴリ</div>
+  <div>未解決の質問</div>
 </div>
+<%= render 'shared/timeline' %>
