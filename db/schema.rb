@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(version: 2020_11_20_133036) do
     t.integer "category_id", null: false
     t.string "title", null: false
     t.text "body", null: false
-    t.string "image"
+    t.string "image_id"
+    t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,7 +34,8 @@ ActiveRecord::Schema.define(version: 2020_11_20_133036) do
     t.integer "category_id", null: false
     t.string "title", null: false
     t.text "body", null: false
-    t.string "image"
+    t.string "image_id"
+    t.string "status", null: false
     t.boolean "solution_flag", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_11_20_133036) do
     t.string "occupation"
     t.string "work_history"
     t.string "profile"
-    t.string "image"
+    t.string "image_id"
     t.boolean "withdrawal_status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

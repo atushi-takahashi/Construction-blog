@@ -5,7 +5,8 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.integer :category_id, null: false
       t.string :title, null: false
       t.text :body, null: false
-      t.string :image
+      t.string :image_id
+      t.string :status, null:false
       t.boolean :solution_flag, default: false
       t.timestamps
     end

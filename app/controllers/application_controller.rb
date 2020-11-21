@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   def timeline_all
     posts = Post.all.order(created_at: :desc)
     questions = Question.all.order(created_at: :desc)
-    @timeline_all = posts | questions
-    @timeline_all.sort! { |a, b| b.created_at <=> a.created_at }
+    @timeline = posts | questions
+    @timeline.sort! { |a, b| b.created_at <=> a.created_at }
   end
 
   private

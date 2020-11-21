@@ -1,17 +1,47 @@
-<h1 class="text-center">投稿・質問一覧</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>タイトル</th>
-            <th>本文</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @timeline.each do |timeline| %>
-        <tr>
-            <td><%= timeline.title %></td>
-            <td><%= timeline.body %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+<div class="row">
+  <% @timeline.each do |all| %>
+    <% if all.status == "質問" %>
+      <%= link_to question_path(all) do %>
+      <div class="item">
+        <div class="item_head">
+          <div class="item__status"><%= all.status %></div>
+          <div class="item__category">カテゴリ： <%= all.category.name %></div>
+        </div>
+        <div class="item__title"><%= all.title %></div>
+        <div class="item__imege">
+          <%= attachment_image_tag all, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+        </div>
+        <div class="item__body"><%= all.body %></div>
+      </div>
+      <% end %>
+    <% elsif all.status == "質問/解決済み" %>
+      <%= link_to question_path(all) do %>
+      <div class="item">
+        <div class="item_head">
+          <div class="item__status"><%= all.status %></div>
+          <div class="item__category">カテゴリ： <%= all.category.name %></div>
+        </div>
+        <div class="item__title"><%= all.title %></div>
+        <div class="item__imege">
+          <%= attachment_image_tag all, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+        </div>
+        <div class="item__body"><%= all.body %></div>
+      </div>
+      <% end %>
+    <% else %>
+      <%= link_to post_path(all) do %>
+      <div class="item">
+        <div class="item_head">
+          <div class="item__status"><%= all.status %></div>
+          <div class="item__category">カテゴリ： <%= all.category.name %></div>
+        </div>
+        <div class="item__title"><%= all.title %></div>
+        <div class="item__imege">
+          <%= attachment_image_tag all, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+        </div>
+        <div class="item__body"><%= all.body %></div>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
