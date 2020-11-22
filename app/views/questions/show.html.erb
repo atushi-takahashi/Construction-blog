@@ -24,6 +24,7 @@
           <% end %>
         <% end %>
       <% end %>
+      <div class="col-lg-4 qshow__like"><%= render partial: 'questions/question_like', question: @question %></div>
     </div>
   </div>
   <div class="col-lg-11 qshow__title text-center">
@@ -34,7 +35,7 @@
   </div>
   <div class="col-lg-6 qshow__body">
     <div><%= @question.body %></div>
-    <div class="text-right">質問日時：<%= @question.updated_at %></div>
+    <div class="text-right">質問日時：<%= @question.updated_at.to_s(:datetime_jp) %></div>
   </div>
   <div class="col-lg-11">
     <% (1..3).each do %>
