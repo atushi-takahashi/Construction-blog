@@ -9,6 +9,7 @@
       <% end %>
       </div>
       <div class="col-lg-4 pshow__category">カテゴリ：<%= @post.category.name %></div>
+      <div class="col-lg-4 pshow__like"><%= render partial: 'posts/post_like', post: @post %></div>
     </div>
   </div>
   <div class="col-lg-11 pshow__title text-center">
@@ -19,7 +20,7 @@
   </div>
   <div class="col-lg-6 pshow__body">
     <div><%= @post.body %></div>
-    <div class="text-right">投稿日時：<%= @post.updated_at %></div>
+    <div class="text-right">投稿日時：<%= @post.updated_at.to_s(:datetime_jp) %></div>
   </div>
   <div class="col-lg-11">
     <% (1..3).each do %>
