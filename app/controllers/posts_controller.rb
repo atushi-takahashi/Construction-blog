@@ -6,7 +6,10 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show; end
+  def show
+    @post_comment = Comment.new
+    @post_comments = @post.comments.order(created_at: :desc)
+  end
 
   def edit
     @categories = Category.all

@@ -6,7 +6,10 @@ class QuestionsController < ApplicationController
     @question = Question.all
   end
 
-  def show; end
+  def show
+    @question_comment = Comment.new
+    @question_comments = @question.comments.order(created_at: :desc)
+  end
 
   def edit
     @categories = Category.all
