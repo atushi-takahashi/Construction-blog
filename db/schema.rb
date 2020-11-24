@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_043910) do
+ActiveRecord::Schema.define(version: 2020_11_24_061436) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 2020_11_23_043910) do
     t.string "image_id"
     t.string "status", null: false
     t.boolean "solution_flag", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

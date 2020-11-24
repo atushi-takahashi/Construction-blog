@@ -9,7 +9,7 @@
       <% end %>
       </div>
       <div class="col-lg-4 qshow__category">カテゴリ：<%= @question.category.name %></div>
-      <% if @question.user_id = current_user.id %>
+      <% if @question.user_id == current_user.id %>
         <%= form_with model:@question, method: :patch, local: true do |f| %>
           <% if @question.solution_flag == false %>
             <div class="col-lg-4 qshow__solution">

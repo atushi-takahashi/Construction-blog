@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_user
+  before_action :find_user, only: [:show, :edit, :update]
 
   def show
     posts = Post.where(user_id: @user.id).order(created_at: :desc)
@@ -18,6 +18,18 @@ class UsersController < ApplicationController
       flash.now[:alert] = '入力に不備があります'
       render 'users/edit'
     end
+  end
+
+  # 自分がフォローしているユーザー一覧
+  def following
+    @user = User.find(params[:user_id])
+    @followings = @user.following_user
+  end
+
+  # 自分をフォローしているユーザー一覧
+  def follower
+    @user = User.find(params[:user_id])
+    @followers = @user.follower_user
   end
 
   private
