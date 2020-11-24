@@ -1,0 +1,5 @@
+<!-- コメント入力フォーム ------------------------------------------------------------>
+<%= form_with(model: [question, comment], url: question_create_comment_path(@question) ) do |f| %>
+    <%= f.text_area :message, class: "input-mysize" %>
+    <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
+<% end %>

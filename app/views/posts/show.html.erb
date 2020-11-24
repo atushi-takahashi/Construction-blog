@@ -23,15 +23,23 @@
     <div class="text-right">投稿日時：<%= @post.updated_at.to_s(:datetime_jp) %></div>
   </div>
   <div class="col-lg-11">
-    <% (1..3).each do %>
     <div class="row">
-      <div class="col-lg-3">
-        <div class="pshow__cuser">アイコン：ユーザー名</div>
-        <div class="pshow__cdelete">削除</div>
-      </div>
-      <div class="col-lg-8">コメント、右下コメント日時</div>
+        <ul>
+          <li class="comment-create">
+              <h3 class="text-left title">レビュー</h3>
+          </li>
+          <li id="post_comments_area">
+            <%= render partial: 'comments/post_index', locals: { comments: @post_comments } %>
+          </li>
+        </ul>
+        <hr>
+        <% if user_signed_in? %>
+            <div class="comment-create">
+                <h3 class="text-left">コメントする</h3>
+                <%= render partial: 'comments/post_form', locals: { comment: @post_comment, post: @post } %>
+            </div>
+        <% end %>
     </div>
-    <% end %>
   </div>
   <% if @post.user_id == current_user.id %>
   <div class="col-lg-11">
