@@ -1,0 +1,44 @@
+<div class="row follower border border-dark">
+  <h4 class="col-lg-3">フォロワー</h4>
+  <% @followers.each do |follower|%>
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="row">
+          <div class="col-lg-11">
+            <%= attachment_image_tag follower, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+            <%= link_to "#{follower.name}",user_path(follower) %>
+          </div>
+          <div class="col-lg-11">
+            <% if follower.id != current_user.id %>
+              <% if current_user.following?(follower) %>
+                <%= link_to "フォロー解除",user_unfollow_path(follower.id,follower.id), method: :post, class: 'btn btn-info', remote: true %>
+              <% else %>
+                <%= link_to "フォローする",user_follow_path(follower.id,follower.id), method: :post, class: 'btn btn-default', remote: true %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="row">
+          <div class="col-lg-11">
+            <%= follower.occupation %>
+          </div>
+          <div class="col-lg-11">
+            <%= follower.work_history %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <%= follower.profile %>
+      </div>
+      <% if follower.id != current_user.id %>
+      <div class="col-lg-1">
+        DM
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

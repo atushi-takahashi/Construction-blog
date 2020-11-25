@@ -1,0 +1,24 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  # 除外するファイル
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/application.rb'
+    - 'config/initializers/*'
+    - 'config/spring.rb'
+    - 'lib/tasks/*'
+    - 'vendor/**/*'
+    - 'path/ruby'
+    
+Style/HashEachMethods:   
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+    
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
