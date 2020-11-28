@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_061436) do
+ActiveRecord::Schema.define(version: 2020_11_28_030559) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2020_11_24_061436) do
     t.integer "user_id", null: false
     t.integer "post_id"
     t.integer "question_id"
+    t.text "message", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "direct_messages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,6 +69,18 @@ ActiveRecord::Schema.define(version: 2020_11_24_061436) do
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

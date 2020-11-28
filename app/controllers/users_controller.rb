@@ -3,10 +3,30 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update]
 
   def show
+    # 投稿及び質問を更新順に表示
     posts = Post.where(user_id: @user.id).order(created_at: :desc)
     questions = Question.where(user_id: @user.id).order(created_at: :desc)
     @timeline = posts | questions
     @timeline.sort! { |a, b| b.created_at <=> a.created_at }
+    # ダイレクトメッセージ
+    @current_user_room = UserRoom.where(user_id: current_user.id)
+    @another_user_room = UserRoom.where(user_id: @user.id)
+    unless @user.id == current_user.id
+      @current_user_room.each do |current|
+        @another_user_room.each do |another|
+          # ルームが存在する時
+          if current.room_id == another.room_id
+            @is_room = true
+            @room_id = current.room_id
+          end
+        end
+      end
+      # ルームが存在しない時
+      unless @is_room
+        @room = Room.new
+        @user_room = UserRoom.new
+      end
+    end
   end
 
   def edit; end

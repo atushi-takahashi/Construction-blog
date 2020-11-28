@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rooms/index'
+  get 'rooms/show'
   root to: 'homes#top'
   get 'homes/about'
   devise_for :users
@@ -20,4 +22,6 @@ Rails.application.routes.draw do
     post   '/comment/:id' => 'comments#question_create', as: 'create_comment'
     delete '/comment/:id' => 'comments#question_destroy', as: 'destroy_comment'
   end
+  resources :direct_messages, only: [:create, :destroy]
+  resources :rooms, only: [:create, :index, :show]
 end
