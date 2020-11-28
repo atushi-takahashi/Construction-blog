@@ -1,0 +1,23 @@
+<div class="row follower border border-dark">
+  <h4 class="col-lg-3">ダイレクトメッセージ</h4>
+  <% @another_user_rooms.each do |user_room| %>
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="row">
+          <div class="col-lg-11">
+            <%= attachment_image_tag user_room.user.image, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+            <%= link_to "#{user_room.user.name}",user_path(user_room.user) %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <%= DirectMessage.find_by(id: user_room.room.direct_message_ids.last)&.message %>
+      </div>
+      <div class="col-lg-1">
+        <%= link_to "DM", room_path(user_room.room.id), class:"btn-sm btn-success" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
