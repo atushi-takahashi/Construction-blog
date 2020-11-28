@@ -12,9 +12,10 @@
         </div>
       </div>
       <div class="col-lg-8">
-        <%= DirectMessage.find_by(id: user_room.room.message_ids.last)&.message %>
+        <%= DirectMessage.find_by(id: user_room.room.direct_message_ids.last)&.message %>
       </div>
       <div class="col-lg-1">
+        <%= link_to "DM", room_path(user_room.room.id), class:"btn-sm btn-success" %>
       </div>
     </div>
   </div>

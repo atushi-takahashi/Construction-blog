@@ -27,14 +27,16 @@
             <% if @user.id == current_user.id %>
               <%= link_to "ダイレクトメッセージ", rooms_path, class:"btn-sm btn-success" %>
             <% else %>
-              <% if @is_room == true %>
-                <%= link_to "ダイレクトメッセージ", room_path(@room_id), class:"btn-sm btn-success" %>
-              <% else %>
-                <%= form_with model:@room, url: rooms_path, local: true do |f| %>
-                  <%= fields_for @user_room do |user_room| %>
-                    <%= user_room.hidden_field :user_id, value: @user.id %>
+              <% if (current_user.following? @user) && (@user.following? current_user) %>
+                <% if @is_room == true %>
+                  <%= link_to "ダイレクトメッセージ", room_path(@room_id), class:"btn-sm btn-success" %>
+                <% else %>
+                  <%= form_with model:@room, url: rooms_path, local: true do |f| %>
+                    <%= fields_for @user_room do |user_room| %>
+                      <%= user_room.hidden_field :user_id, value: @user.id %>
+                    <% end %>
+                    <%= f.submit "ダイレクトメッセージ", class: 'btn-sm btn-success' %>
                   <% end %>
-                  <%= f.submit "ダイレクトメッセージ", class: 'btn-sm btn-success' %>
                 <% end %>
               <% end %>
             <% end %>

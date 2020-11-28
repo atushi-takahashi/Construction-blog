@@ -11,13 +11,13 @@ class UsersController < ApplicationController
     # ダイレクトメッセージ
     @current_user_room = UserRoom.where(user_id: current_user.id)
     @another_user_room = UserRoom.where(user_id: @user.id)
-    unless @user.id == current_user.id
-      @current_user_room.each do |current|
-        @another_user_room.each do |another|
+    if @user.id != current_user.id
+      @current_user_room.each do |cu|
+        @another_user_room.each do |u|
           # ルームが存在する時
-          if current.room_id == another.room_id
+          if cu.room_id == u.room_id
             @is_room = true
-            @room_id = current.room_id
+            @room_id = cu.room_id
           end
         end
       end
