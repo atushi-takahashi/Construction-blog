@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   end
   resources :direct_messages, only: [:create, :destroy]
   resources :rooms, only: [:create, :index, :show]
+  resources :notifications, only: :index
+  delete '/notifications' => 'notifications#destroy_all', as: 'all_destroy'
 end

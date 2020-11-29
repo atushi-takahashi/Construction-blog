@@ -3,8 +3,12 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post_comment = @post.comments.build(comment_params)
     @post_comment.user_id = current_user.id
-    @post_comment.save
-    render :post_index
+    if @post_comment.save
+      #通知の作成
+      @comment_post = @post_comment.post
+      @comment_post.post_create_notification_comment!(current_user, @post_comment.id)
+      render :post_index
+    end
   end
 
   def post_destroy
@@ -17,8 +21,12 @@ class CommentsController < ApplicationController
     @question = Question.find(params[:question_id])
     @question_comment = @question.comments.build(comment_params)
     @question_comment.user_id = current_user.id
-    @question_comment.save
-    render :question_index
+    if @question_comment.save
+      #通知の作成
+      @comment_question = @question_comment.question
+      @comment_question.question_create_notification_comment!(current_user, @question_comment.id)
+      render :question_index
+    end
   end
 
   def question_destroy
