@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
     room = Room.create
     @current_user_room = UserRoom.create(user_id: current_user.id, room_id: room.id)
     @another_user_room = UserRoom.create((user_room_params).merge(room_id: room.id))
-    redirect_to room_path(@room)
+    redirect_to room_path(room)
   end
 
   def index
