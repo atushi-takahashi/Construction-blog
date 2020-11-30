@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  get 'rooms/index'
-  get 'rooms/show'
+  devise_for :users ,controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+  }
+  devise_for :admins  ,controllers: {
+    sessions: 'admins/sessions'
+  }
   root to: 'homes#top'
   get 'homes/about'
-  devise_for :users
   resources :users, only: [:show, :edit, :update] do
     post 'follow/:id', to: 'relationships#follow', as: 'follow'
     post 'unfollow/:id', to: 'relationships#unfollow', as: 'unfollow'
@@ -26,4 +31,5 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :index, :show]
   resources :notifications, only: :index
   delete '/notifications' => 'notifications#destroy_all', as: 'all_destroy'
+
 end
