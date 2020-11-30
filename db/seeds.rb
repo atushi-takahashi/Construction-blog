@@ -12,3 +12,7 @@ Category.create([
     { name: "書類ー工程関係"},
     { name: "書類ー検査関係"}
     ])
+Admin.create!(
+    email: "ats19960723@icloud.com",
+    password: "adminpass"
+    )
