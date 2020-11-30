@@ -1,0 +1,9 @@
+<%= form_with model:@question, local: true do |f| %>
+<div class="row border border-dark">
+<h3 class="col-lg-12 mt-4 text-center"><span class="border border-dark">　質問の編集　</span></h3>
+  <%= render "shared/post-question_form", f: f %>
+  <div class="col-lg-11">
+    <%= f.submit "更新する", class: 'btn btn-primary btn-block mb-4' %>
+  </div>
+</div>
+<% end %>
