@@ -34,9 +34,11 @@
         <%= follower.profile %>
       </div>
       <% if follower.id != current_user.id %>
-      <div class="col-lg-1">
-        DM
-      </div>
+        <% if (current_user.following? follower) && (follower.following? current_user) %>
+          <div class="col-lg-1">
+              DM
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_user, only: [:show, :edit, :update]
+  before_action :find_user_id, only: [:following, :follower]
 
   def show
     # 投稿及び質問を更新順に表示
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
     questions = Question.where(user_id: @user.id).order(created_at: :desc)
     @timeline = posts | questions
     @timeline.sort! { |a, b| b.created_at <=> a.created_at }
-    # ダイレクトメッセージ
+     # ダイレクトメッセージ
     @current_user_room = UserRoom.where(user_id: current_user.id)
     @another_user_room = UserRoom.where(user_id: @user.id)
     if @user.id != current_user.id
@@ -42,13 +43,11 @@ class UsersController < ApplicationController
 
   # 自分がフォローしているユーザー一覧
   def following
-    @user = User.find(params[:user_id])
     @followings = @user.following_user
   end
 
   # 自分をフォローしているユーザー一覧
   def follower
-    @user = User.find(params[:user_id])
     @followers = @user.follower_user
   end
 
@@ -61,4 +60,9 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find(params[:id])
   end
+
+  def find_user_id
+    @user = User.find(params[:user_id])
+  end
+  
 end

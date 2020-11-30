@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_11_28_135043) do
     t.integer "question_id"
     t.integer "comment_id"
     t.integer "direct_message_id"
+    t.integer "room_id"
     t.string "action"
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
