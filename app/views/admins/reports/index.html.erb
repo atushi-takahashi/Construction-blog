@@ -1,0 +1,58 @@
+<h4 class="col-lg-3">通報一覧</h4>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">通報したユーザー</th>
+      <th scope="col">通報されたユーザー</th>
+      <th scope="col">該当記事</th>
+      <th scope="col">カテゴリ</th>
+      <th scope="col">通報詳細</th>
+      <th scope="col">記事の状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |report|%>
+    <tr>
+      <th scope="row">
+        <%= attachment_image_tag report.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+        <%= link_to "#{report.user.name}",admins_user_path(report.user_id) %>
+      </th>
+      <th scope="row">
+        <% if report.question_id == nil %>
+          <%= link_to "#{report.post.user.name}",admins_user_path(report.post.user.id) %>
+        <% elsif report.post_id == nil %>
+          <%= link_to "#{report.question.user.name}",admins_user_path(report.question.user.id) %>
+        <% end %>
+      </th>
+      <td>
+        <% if report.question_id == nil %>
+          <%= link_to "通報された記事", admins_post_path(report.post_id) %>
+        <% elsif report.post_id == nil %>
+          <%= link_to "通報された記事", admins_question_path(report.question_id) %>
+        <% end %>
+      </td>
+      <td>
+        <%= report.category %>
+      </td>
+      <td>
+        <%= link_to "こちら", admins_report_path(report) %>
+      </td>
+      <td>
+        <% if report.question_id == nil %>
+          <% if report.post.delete_flag == true %>
+            非表示中
+          <% elsif report.post.delete_flag == false %>
+            表示中
+          <% end %>
+        <% elsif report.post_id == nil %>
+          <% if report.question.delete_flag == true %>
+            非表示中
+          <% elsif report.question.delete_flag == false %>
+            表示中
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

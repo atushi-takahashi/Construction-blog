@@ -8,6 +8,8 @@ class CreateNotifications < ActiveRecord::Migration[5.2]
       t.integer :comment_id
       t.integer :direct_message_id
       t.integer :room_id
+      t.integer :report_id
+      t.integer :admin_id
       t.string :action
       t.boolean :checked, default: false, null: false
       t.timestamps

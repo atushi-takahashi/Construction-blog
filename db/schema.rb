@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_162103) do
+ActiveRecord::Schema.define(version: 2020_12_01_021508) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2020_11_30_162103) do
     t.integer "comment_id"
     t.integer "direct_message_id"
     t.integer "room_id"
+    t.integer "report_id"
+    t.integer "admin_id"
     t.string "action"
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_162103) do
     t.text "body", null: false
     t.string "image_id"
     t.string "status", null: false
+    t.boolean "delete_flag", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -88,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_162103) do
     t.string "image_id"
     t.string "status", null: false
     t.boolean "solution_flag", default: false
+    t.boolean "delete_flag", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,6 +99,16 @@ ActiveRecord::Schema.define(version: 2020_11_30_162103) do
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.integer "question_id"
+    t.integer "category"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

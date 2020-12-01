@@ -1,0 +1,114 @@
+<div class="row pshow border border-dark">
+  <div class="col-lg-11">
+    <h4>通報詳細</h4>
+    <div class="row">
+      <div class="col-lg-1">通報者</div>
+      <div class="col-lg-3 pshow__user">
+      <%= link_to admins_user_path(@report.user_id) do %>
+        <span class="report__user_image"><%= attachment_image_tag @report.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></span>
+        <span class="report__user_name ml-2"><%= @report.user.name %></span>
+      <% end %>
+      </div>
+      <div class="col-lg-7 report__category">
+        <div>カテゴリ：<%= @report.category %></div>
+        <div><%= @report.message %></div>
+        <div class="text-right">通報日時：<%= @report.created_at.to_s(:datetime_jp) %></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-11">
+    <h4>通報された記事</h4>
+    <div class="row">
+      <div class="col-lg-1 pshow__status">
+        <% if @report.question_id == nil %>
+          <%= @report.post.status %>
+        <% elsif @report.post_id == nil %>
+          <%= @report.question.status %>
+        <% end %>
+      </div>
+      <div class="col-lg-3 pshow__user">
+        <% if @report.question_id == nil %>
+          <%= link_to admins_user_path(@report.post.user.id) do %>
+            <span class="pshow__user_image">
+              <%= attachment_image_tag @report.post.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+            </span>
+            <span class="pshow__user_name ml-2">
+              <%= @report.post.user.name %>
+            </span>
+          <% end %>
+        <% elsif @report.post_id == nil %>
+          <%= link_to admins_user_path(@report.question.user.id) do %>
+            <span class="pshow__user_image">
+              <%= attachment_image_tag @report.question.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+            </span>
+            <span class="pshow__user_name ml-2">
+              <%= @report.question.user.name %>
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-lg-4 pshow__category">
+        <% if @report.question_id == nil %>
+          カテゴリ：<%= @report.post.category.name %>
+        <% elsif @report.post_id == nil %>
+          カテゴリ：<%= @report.question.category.name %>
+        <% end %>
+      </div>
+    </div>
+    <h5 class="col-lg-11 pshow__title text-center">
+      <% if @report.question_id == nil %>
+        <%= @report.post.title %>
+      <% elsif @report.post_id == nil %>
+        <%= @report.question.title %>
+      <% end %>
+    </h5>
+    <div class="row">
+      <div class="col-lg-4 pshow__image">
+        <% if @report.question_id == nil %>
+          <%= attachment_image_tag @report.post, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+        <% elsif @report.post_id == nil %>
+          <%= attachment_image_tag @report.question, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+        <% end %>
+      </div>
+      <div class="col-lg-7 pshow__body">
+        <div>
+          <% if @report.question_id == nil %>
+            <%= @report.post.body %>
+          <% elsif @report.post_id == nil %>
+            <%= @report.question.body %>
+          <% end %>
+        </div>
+        <div class="text-right">
+          <% if @report.question_id == nil %>
+            投稿日時：<%= @report.post.updated_at.to_s(:datetime_jp) %>
+          <% elsif @report.post_id == nil %>
+            質問日時：<%= @report.question.updated_at.to_s(:datetime_jp) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-11">
+      <% if @report.question_id == nil %>
+        <%= form_with model: @post, url: admins_post_path(@report.post_id), method: :patch, local: true do |f|%>
+          <% if @report.post.delete_flag == false %>
+            <%= f.hidden_field :delete_flag, value: 'true' %>
+            <%= f.submit "記事を非表示にする", class: 'btn btn-danger btn-block' %>
+          <% elsif @report.post.delete_flag == true %>
+            <%= f.hidden_field :delete_flag, value: 'false' %>
+            <%= f.submit "記事を表示する", class: 'btn btn-info btn-block' %>
+          <% end %>
+        <% end %>
+      <% elsif @report.post_id == nil %>
+        <%= form_with model: @question, url: admins_question_path(@report.question_id), method: :patch, local: true do |f|%>
+          <% if @report.question.delete_flag == false %>
+            <%= f.hidden_field :delete_flag, value: 'true' %>
+            <%= f.submit "記事を非表示にする", class: 'btn btn-danger btn-block' %>
+          <% elsif @report.question.delete_flag == true %>
+            <%= f.hidden_field :delete_flag, value: 'false' %>
+            <%= f.submit "記事を表示する", class: 'btn btn-info btn-block' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -53,10 +53,12 @@
       </div>
     </div>
   </div>
-  <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary">これまでの投稿</button>
-    <button type="button" class="btn btn-secondary">これまでの質問</button>
-    <button type="button" class="btn btn-secondary">いいねした記事</button>
+  <div class="col-lg-12">
+    <div class="row">
+      <button type="button" class="col-lg-4 btn btn-secondary btn-lg">これまでの投稿</button>
+      <button type="button" class="col-lg-4 btn btn-secondary btn-lg">これまでの質問</button>
+      <button type="button" class="col-lg-4 btn btn-secondary btn-lg">いいねした記事</button>
+    </div>
   </div>
   <%= render 'shared/timeline' %>
 </div>
