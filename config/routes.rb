@@ -21,17 +21,29 @@ Rails.application.routes.draw do
       delete '/like/:id' => 'likes#post_unlike', as: 'unlike'
       post   '/comment/:id' => 'comments#post_create', as: 'create_comment'
       delete '/comment/:id' => 'comments#post_destroy', as: 'destroy_comment'
+      get '/report/new' => 'reports#post_report_new', as: 'report_new'
+      post   '/report' => 'reports#post_report_create', as: 'report_create'
     end
     resources :questions do
       post   '/like/:id' => 'likes#question_like',   as: 'like'
       delete '/like/:id' => 'likes#question_unlike', as: 'unlike'
       post   '/comment/:id' => 'comments#question_create', as: 'create_comment'
       delete '/comment/:id' => 'comments#question_destroy', as: 'destroy_comment'
+      get '/report/new' => 'reports#question_report_new', as: 'report_new'
+      post   '/report' => 'reports#question_report_create', as: 'report_create'
     end
     resources :direct_messages, only: [:create, :destroy]
     resources :rooms, only: [:create, :index, :show]
     resources :notifications, only: :index
     delete '/notifications' => 'notifications#destroy_all', as: 'all_destroy'
+  end
+  namespace :admins do
+    resources :users, only: [:index, :show, :update]
+    resources :posts, only: [:index, :show, :update]
+    resources :questions, only: [:index, :show, :update]
+    resources :notifications, only: :index
+    delete '/notifications' => 'notifications#destroy_all', as: 'all_destroy'
+    resources :reports, only: [:index, :show, :destroy]
   end
 
 end

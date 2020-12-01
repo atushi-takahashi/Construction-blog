@@ -21,6 +21,7 @@
   <div class="col-lg-6 pshow__body">
     <div><%= @post.body %></div>
     <div class="text-right">投稿日時：<%= @post.updated_at.to_s(:datetime_jp) %></div>
+    <div class="text-right"><%= link_to "この記事を通報する",post_report_new_path(@post) %></div>
   </div>
   <div class="col-lg-11">
     <div class="row">

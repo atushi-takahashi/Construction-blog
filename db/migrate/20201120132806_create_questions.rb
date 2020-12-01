@@ -8,6 +8,7 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.string :status, null:false
       t.boolean :solution_flag, default: false
+      t.boolean :delete_flag, default: false
       t.timestamps
     end
   end
