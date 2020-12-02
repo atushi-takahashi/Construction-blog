@@ -8,6 +8,7 @@
       <th scope="col">カテゴリ</th>
       <th scope="col">通報詳細</th>
       <th scope="col">記事の状態</th>
+      <th scope="col">処理状況</th>
     </tr>
   </thead>
   <tbody>
@@ -50,6 +51,13 @@
           <% elsif report.question.delete_flag == false %>
             表示中
           <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% if report.processing_flag == false %>
+          <%= link_to "未処理", admins_report_path(report), method: :patch, class:"btn btn-danger"%>
+        <% elsif report.processing_flag == true %>
+          <%= link_to "処理済", admins_report_path(report), method: :patch, class:"btn btn-info"%>
         <% end %>
       </td>
     </tr>

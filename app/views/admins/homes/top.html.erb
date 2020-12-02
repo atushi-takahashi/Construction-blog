@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-lg-12">
+    <% if @reports.exists? %>
+      <h4>未処理の通報が<%= link_to "#{@reports.count}件", admins_reports_path %>あります</h4>
+    <% else %>
+      <h4>未処理の通報はありません</h4>
+    <% end %>
+  </div>
+</div>

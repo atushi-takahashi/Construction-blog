@@ -89,25 +89,17 @@
     </div>
     <div class="col-lg-11">
       <% if @report.question_id == nil %>
-        <%= form_with model: @post, url: admins_post_path(@report.post_id), method: :patch, local: true do |f|%>
           <% if @report.post.delete_flag == false %>
-            <%= f.hidden_field :delete_flag, value: 'true' %>
-            <%= f.submit "記事を非表示にする", class: 'btn btn-danger btn-block' %>
+            <%= link_to "記事を非表示にする", admins_delete_flag_update_path(@report), method: :patch, class:'btn btn-danger btn-block' %>
           <% elsif @report.post.delete_flag == true %>
-            <%= f.hidden_field :delete_flag, value: 'false' %>
-            <%= f.submit "記事を表示する", class: 'btn btn-info btn-block' %>
+            <%= link_to "記事を表示する", admins_delete_flag_update_path(@report), method: :patch, class:"btn btn-info btn-block" %>
           <% end %>
-        <% end %>
       <% elsif @report.post_id == nil %>
-        <%= form_with model: @question, url: admins_question_path(@report.question_id), method: :patch, local: true do |f|%>
           <% if @report.question.delete_flag == false %>
-            <%= f.hidden_field :delete_flag, value: 'true' %>
-            <%= f.submit "記事を非表示にする", class: 'btn btn-danger btn-block' %>
+            <%= link_to "記事を非表示にする", admins_delete_flag_update_path(@report), method: :patch, class:'btn btn-danger btn-block' %>
           <% elsif @report.question.delete_flag == true %>
-            <%= f.hidden_field :delete_flag, value: 'false' %>
-            <%= f.submit "記事を表示する", class: 'btn btn-info btn-block' %>
+            <%= link_to "記事を表示する", admins_delete_flag_update_path(@report), method: :patch, class:"btn btn-info btn-block" %>
           <% end %>
-        <% end %>
       <% end %>
     </div>
   </div>

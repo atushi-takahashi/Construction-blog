@@ -1,2 +1,39 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h4 class="col-lg-3">投稿一覧</h4>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">ユーザー名</th>
+      <th scope="col">カテゴリ</th>
+      <th scope="col">タイトル</th>
+      <th scope="col">通報された数</th>
+      <th scope="col">記事の状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post|%>
+    <tr>
+      <th scope="row">
+        <%= attachment_image_tag post.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+        <%= link_to "#{post.user.name}",admins_user_path(post.user_id) %>
+      </th>
+      <th>
+        <%= post.category.name %>
+      </th>
+      <td>
+        <%= link_to "#{post.title}", admins_post_path(post) %>
+        
+      </td>
+      <td>
+        <%= post.reports.count %>
+      </td>
+      <td>
+        <% if post.delete_flag == true %>
+          非表示
+        <% elsif post.delete_flag == false %>
+          表示中
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

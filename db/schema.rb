@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_021508) do
     t.integer "question_id"
     t.integer "category"
     t.text "message"
+    t.boolean "processing_flag", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

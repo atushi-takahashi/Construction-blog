@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'homes/top'
   devise_for :users ,controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -38,12 +39,14 @@ Rails.application.routes.draw do
     delete '/notifications' => 'notifications#destroy_all', as: 'all_destroy'
   end
   namespace :admins do
+    get 'homes/top', as: 'homes'
     resources :users, only: [:index, :show, :update]
     resources :posts, only: [:index, :show, :update]
     resources :questions, only: [:index, :show, :update]
     resources :notifications, only: :index
     delete '/notifications' => 'notifications#destroy_all', as: 'all_destroy'
-    resources :reports, only: [:index, :show, :destroy]
+    resources :reports, only: [:index, :show, :destroy, :update]
+    patch '/report/:id' => 'reports#delete_flag_update', as: 'delete_flag_update'
   end
 
 end

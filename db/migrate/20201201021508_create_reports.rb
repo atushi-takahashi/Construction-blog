@@ -6,6 +6,7 @@ class CreateReports < ActiveRecord::Migration[5.2]
       t.integer :question_id
       t.integer :category
       t.text :message
+      t.boolean :processing_flag, default: false
       t.timestamps
     end
   end

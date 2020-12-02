@@ -1,2 +1,62 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="row pshow border border-dark">
+  <div class="col-lg-11">
+    <div class="row">
+      <div class="col-lg-1 pshow__status"><%= @post.status %></div>
+      <div class="col-lg-3 pshow__user">
+      <%= link_to admins_user_path(@post.user_id) do %>
+        <span class="pshow__user_image"><%= attachment_image_tag @post.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></span>
+        <span class="pshow__user_name ml-2"><%= @post.user.name %></span>
+      <% end %>
+      </div>
+      <div class="col-lg-4 pshow__category">カテゴリ：<%= @post.category.name %></div>
+    </div>
+  </div>
+  <div class="col-lg-11 pshow__title text-center">
+    <%= @post.title %>
+  </div>
+  <div class="col-lg-4 pshow__image">
+    <%= attachment_image_tag @post, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+  </div>
+  <div class="col-lg-6 pshow__body">
+    <div><%= @post.body %></div>
+    <div class="text-right">投稿日時：<%= @post.updated_at.to_s(:datetime_jp) %></div>
+  </div>
+  <div class="col-lg-11">
+    <div class="row">
+        <ul>
+          <li id="post_comments_area">
+            <%= @post.comments.count %>件コメント
+            <% @post.comments.each do |comment| %>
+              <li class="comment-container">
+                <div class="comment-box">
+                  <div class="comment-avatar">
+                    <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class:"comment-image", size: "40x40" %>
+                  </div>
+                  <div class="comment-text">
+                    <p><%= link_to "@#{comment.user.name}", user_path(comment.user.id) %></p>
+                    <div class="comment-entry">
+                      <%= comment.message %>
+                    </div>
+                    <span class="comment-date pull-right">
+                      <%= comment.created_at.to_s(:datetime_jp) %>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="col-lg-11">
+  <%= form_with model: @post, url: admins_post_path(@post), method: :patch, local: true do |f|%>
+    <% if @post.delete_flag == false %>
+      <%= f.hidden_field :delete_flag, value: 'true' %>
+      <%= f.submit "記事を非表示にする", class: 'btn btn-danger btn-block' %>
+    <% elsif @post.delete_flag == true %>
+      <%= f.hidden_field :delete_flag, value: 'false' %>
+      <%= f.submit "記事を表示する", class: 'btn btn-info btn-block' %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
