@@ -2,9 +2,11 @@ class Admins::QuestionsController < ApplicationController
   before_action :find_question, only: [:show, :update]
   
   def index
+    @questions = Question.all.order(created_at: :desc)
   end
 
   def show
+    @question_comments = @question.comments.order(created_at: :desc)
   end
 
   def update
@@ -23,6 +25,6 @@ class Admins::QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
   def question_params
-    params.permit(:delete_flag)
+    params.require(:question).permit(:delete_flag)
   end
 end

@@ -1,0 +1,47 @@
+<div class="row">
+  <% @timeline.each do |all| %>
+    <% if all.status == "質問" %>
+      <%= link_to admins_question_path(all) do %>
+      <div class="item">
+        <div class="item_head">
+          <div class="item__status"><%= all.status %></div>
+          <div class="item__category">カテゴリ： <%= all.category.name %></div>
+        </div>
+        <div class="item__title"><%= all.title %></div>
+        <div class="item__imege">
+          <%= attachment_image_tag all, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+        </div>
+        <div class="item__body"><%= all.body %></div>
+      </div>
+      <% end %>
+    <% elsif all.status == "質問/解決済み" %>
+      <%= link_to admins_question_path(all) do %>
+      <div class="item">
+        <div class="item_head">
+          <div class="item__status"><%= all.status %></div>
+          <div class="item__category">カテゴリ： <%= all.category.name %></div>
+        </div>
+        <div class="item__title"><%= all.title %></div>
+        <div class="item__imege">
+          <%= attachment_image_tag all, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+        </div>
+        <div class="item__body"><%= all.body %></div>
+      </div>
+      <% end %>
+    <% else %>
+      <%= link_to admins_post_path(all) do %>
+      <div class="item">
+        <div class="item_head">
+          <div class="item__status"><%= all.status %></div>
+          <div class="item__category">カテゴリ： <%= all.category.name %></div>
+        </div>
+        <div class="item__title"><%= all.title %></div>
+        <div class="item__imege">
+          <%= attachment_image_tag all, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+        </div>
+        <div class="item__body"><%= all.body %></div>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

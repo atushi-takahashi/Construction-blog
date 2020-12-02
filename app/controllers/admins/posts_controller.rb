@@ -1,9 +1,11 @@
 class Admins::PostsController < ApplicationController
   before_action :find_post, only: [:show, :update]
   def index
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
+    @post_comments = @post.comments.order(created_at: :desc)
   end
   
   def update
@@ -22,6 +24,6 @@ class Admins::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
   def post_params
-    params.permit(:delete_flag)
+    params.require(:post).permit(:delete_flag)
   end
 end

@@ -3,7 +3,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <% if user_signed_in? %>
     <a class="navbar-brand" href="#"><%= link_to "監督のつぶやき", root_path ,class:"navbar-brand" %></a>
+    <% else %>
+    <a class="navbar-brand" href="#"><%= link_to "監督のつぶやき", admins_homes_path ,class:"navbar-brand" %></a>
+    <% end %>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     	<% if user_signed_in? %>
       <li class="nav-item active mr-2">
@@ -44,22 +48,27 @@
       <% elsif admin_signed_in? %>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <%= link_to 'ユーザー一覧', root_path %>
+          <%= link_to 'ユーザー一覧', admins_users_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <%= link_to '投稿一覧', new_post_path %>
+          <%= link_to '投稿一覧', admins_posts_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <%= link_to '質問一覧', new_question_path %>
+          <%= link_to '質問一覧', admins_questions_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <%= link_to '通報通知', notifications_path %>
+          <%= link_to '通報一覧', admins_reports_path %>
+        </span>
+      </li>
+      <li class="nav-item active mr-2">
+        <span class="badge badge-pill badge-light">
+          <%= link_to '通報通知', admins_notifications_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
