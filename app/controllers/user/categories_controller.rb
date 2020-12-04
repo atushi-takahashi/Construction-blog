@@ -1,5 +1,4 @@
 class User::CategoriesController < ApplicationController
-  before_action :search_method, only: [:show]
   def show
     @category = Category.find(params[:id])
     @categories = Category.all
