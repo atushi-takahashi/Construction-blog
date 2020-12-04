@@ -1,5 +1,5 @@
 class User::UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :update]
   before_action :find_user, only: [:show, :edit, :update]
   before_action :find_user_id, only: [:following, :follower]
 
@@ -10,22 +10,24 @@ class User::UsersController < ApplicationController
     @timeline = posts | questions
     @timeline.sort! { |a, b| b.created_at <=> a.created_at }
      # ダイレクトメッセージ
-    @current_user_room = UserRoom.where(user_id: current_user.id)
-    @another_user_room = UserRoom.where(user_id: @user.id)
-    if @user.id != current_user.id
-      @current_user_room.each do |cu|
-        @another_user_room.each do |u|
-          # ルームが存在する時
-          if cu.room_id == u.room_id
-            @is_room = true
-            @room_id = cu.room_id
+    if user_signed_in?
+      @current_user_room = UserRoom.where(user_id: current_user.id)
+      @another_user_room = UserRoom.where(user_id: @user.id)
+      if @user.id != current_user.id
+        @current_user_room.each do |cu|
+          @another_user_room.each do |u|
+            # ルームが存在する時
+            if cu.room_id == u.room_id
+              @is_room = true
+              @room_id = cu.room_id
+            end
           end
         end
-      end
-      # ルームが存在しない時
-      unless @is_room
-        @room = Room.new
-        @user_room = UserRoom.new
+        # ルームが存在しない時
+        unless @is_room
+          @room = Room.new
+          @user_room = UserRoom.new
+        end
       end
     end
   end
@@ -64,5 +66,5 @@ class User::UsersController < ApplicationController
   def find_user_id
     @user = User.find(params[:user_id])
   end
-  
+
 end

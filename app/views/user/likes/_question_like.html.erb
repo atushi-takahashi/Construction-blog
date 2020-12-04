@@ -1,11 +1,13 @@
 <div class="like-link" id="question_like-link-<%= question.id %>">
-  <% if current_user.likes.find_by(question_id: question.id) %>
-    <%= link_to question_unlike_path(question.id), method: :delete, remote: true do %>
-        <div class = "iine__button">❤️<%= question.likes.count %></div>
-    <% end %>
-  <% else %>
-    <%= link_to question_like_path(question.id), method: :post, remote: true do %>
-        <div class = "iine__button">♡️<%= question.likes.count %></div>
+  <% if user_signed_in? %>
+    <% if current_user.likes.find_by(question_id: question.id) %>
+      <%= link_to question_unlike_path(question.id), method: :delete, remote: true do %>
+          <div class = "iine__button">❤️<%= question.likes.count %></div>
+      <% end %>
+    <% else %>
+      <%= link_to question_like_path(question.id), method: :post, remote: true do %>
+          <div class = "iine__button">♡️<%= question.likes.count %></div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

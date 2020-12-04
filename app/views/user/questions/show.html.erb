@@ -9,18 +9,20 @@
       <% end %>
       </div>
       <div class="col-lg-4 qshow__category">カテゴリ：<%= @question.category.name %></div>
-      <% if @question.user_id == current_user.id %>
-        <%= form_with model:@question, method: :patch, local: true do |f| %>
-          <% if @question.solution_flag == false %>
-            <div class="col-lg-4 qshow__solution">
-              <%= f.hidden_field :solution_flag, value: true %>
-              <%= f.submit "解決済みにする", class: 'btn btn-primary' %>
-            </div>
-          <% elsif @question.solution_flag == true %>
-            <div class="col-lg-4 qshow__solution">
-              <%= f.hidden_field :solution_flag, value: false %>
-              <%= f.submit "解決済みを取り消す", class: 'btn btn-danger' %>
-            </div>
+      <% if user_signed_in? %>
+        <% if @question.user_id == current_user.id %>
+          <%= form_with model:@question, method: :patch, local: true do |f| %>
+            <% if @question.solution_flag == false %>
+              <div class="col-lg-4 qshow__solution">
+                <%= f.hidden_field :solution_flag, value: true %>
+                <%= f.submit "解決済みにする", class: 'btn btn-primary' %>
+              </div>
+            <% elsif @question.solution_flag == true %>
+              <div class="col-lg-4 qshow__solution">
+                <%= f.hidden_field :solution_flag, value: false %>
+                <%= f.submit "解決済みを取り消す", class: 'btn btn-danger' %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -36,7 +38,9 @@
   <div class="col-lg-6 qshow__body">
     <div><%= @question.body %></div>
     <div class="text-right">質問日時：<%= @question.updated_at.to_s(:datetime_jp) %></div>
-    <div class="text-right"><%= link_to "この記事を通報する",question_report_new_path(@question) %></div>
+    <% if user_signed_in? %>
+      <div class="text-right"><%= link_to "この記事を通報する",question_report_new_path(@question) %></div>
+    <% end %>
   </div>
   <div class="col-lg-11">
     <div class="row">
@@ -50,17 +54,19 @@
         </ul>
         <hr>
         <% if user_signed_in? %>
-            <div class="comment-create">
-                <h3 class="text-left">コメントする</h3>
-                <%= render partial: 'user/comments/question_form', locals: { comment: @question_comment, question: @question } %>
-            </div>
+          <div class="comment-create">
+            <h3 class="text-left">コメントする</h3>
+            <%= render partial: 'user/comments/question_form', locals: { comment: @question_comment, question: @question } %>
+          </div>
         <% end %>
     </div>
   </div>
-  <% if @question.user_id == current_user.id %>
-  <div class="col-lg-11">
-    <%= link_to "質問を編集する", edit_question_path(@question), class:"col-lg-3 btn btn-primary" %>
-    <%= link_to "質問を削除する", question_path(@question), method: :delete, data: {confirm: ('本当に削除してよろしいですか？')}, class:"col-lg-3 btn btn-danger" %>
-  </div>
+  <% if user_signed_in? %>
+    <% if @question.user_id == current_user.id %>
+    <div class="col-lg-11">
+      <%= link_to "質問を編集する", edit_question_path(@question), class:"col-lg-3 btn btn-primary" %>
+      <%= link_to "質問を削除する", question_path(@question), method: :delete, data: {confirm: ('本当に削除してよろしいですか？')}, class:"col-lg-3 btn btn-danger" %>
+    </div>
+    <% end %>
   <% end %>
 </div>
