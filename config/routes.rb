@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'homes/top'
   devise_for :users ,controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -11,12 +10,16 @@ Rails.application.routes.draw do
   scope module: :user do
     root to: 'homes#top'
     get 'homes/about'
+    get 'homes/search'
+    get 'homes/ranking_index'
+    get 'solution_index' => 'questions#solution_index'
     resources :users, only: [:show, :edit, :update] do
       post 'follow/:id', to: 'relationships#follow', as: 'follow'
       post 'unfollow/:id', to: 'relationships#unfollow', as: 'unfollow'
       get 'following/:user_id', to: 'users#following', as: 'following'
       get 'follower/:user_id', to: 'users#follower', as: 'follower'
     end
+    resources :categories, only: [:show]
     resources :posts do
       post   '/like/:id' => 'likes#post_like',   as: 'like'
       delete '/like/:id' => 'likes#post_unlike', as: 'unlike'
