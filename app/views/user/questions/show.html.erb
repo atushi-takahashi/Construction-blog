@@ -1,7 +1,7 @@
 <div class="row qshow border border-dark">
-  <div class="col-lg-11">
-    <div class="row">
-      <div class="col-lg-1 qshow__status"><%= @question.status %></div>
+  <div class="qshow__box col-lg-11">
+    <div class="qshow__box row">
+      <div class="col-lg-2 qshow__status"><%= @question.status %></div>
       <div class="col-lg-3 qshow__user">
       <%= link_to user_path(@question.user_id) do %>
         <span class="qshow__user_image"><%= attachment_image_tag @question.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></span>
@@ -9,24 +9,7 @@
       <% end %>
       </div>
       <div class="col-lg-4 qshow__category">カテゴリ：<%= @question.category.name %></div>
-      <% if user_signed_in? %>
-        <% if @question.user_id == current_user.id %>
-          <%= form_with model:@question, method: :patch, local: true do |f| %>
-            <% if @question.solution_flag == false %>
-              <div class="col-lg-4 qshow__solution">
-                <%= f.hidden_field :solution_flag, value: true %>
-                <%= f.submit "解決済みにする", class: 'btn btn-primary' %>
-              </div>
-            <% elsif @question.solution_flag == true %>
-              <div class="col-lg-4 qshow__solution">
-                <%= f.hidden_field :solution_flag, value: false %>
-                <%= f.submit "解決済みを取り消す", class: 'btn btn-danger' %>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
-      <div class="col-lg-4 qshow__like"><%= render partial: 'user/questions/question_like', question: @question %></div>
+      <div class="col-lg-1 qshow__like"><%= render partial: 'user/questions/question_like', question: @question %></div>
     </div>
   </div>
   <div class="col-lg-11 qshow__title text-center">
@@ -35,38 +18,38 @@
   <div class="col-lg-4 qshow__image">
     <%= attachment_image_tag @question, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
   </div>
-  <div class="col-lg-6 qshow__body">
-    <div><%= @question.body %></div>
+  <div class="col-lg-7 qshow__body">
+    <div class="qshow__body_hight"><%= @question.body %></div>
     <div class="text-right">質問日時：<%= @question.updated_at.to_s(:datetime_jp) %></div>
     <% if user_signed_in? %>
       <div class="text-right"><%= link_to "この記事を通報する",question_report_new_path(@question) %></div>
     <% end %>
   </div>
-  <div class="col-lg-11">
-    <div class="row">
-        <ul>
-          <li class="comment-create">
-              <h3 class="text-left title">レビュー</h3>
-          </li>
-          <li id="question_comments_area">
-            <%= render partial: 'user/comments/question_index', locals: { comments: @question_comments } %>
-          </li>
-        </ul>
-        <hr>
+  <div class="qshow__comment_box col-lg-11", id="question_comments_area">
+    <%= render partial: 'user/comments/question_index', locals: { comments: @question_comments } %>
+  </div>
+  <div class="qshow__comment_box col-lg-11">
         <% if user_signed_in? %>
-          <div class="comment-create">
-            <h3 class="text-left">コメントする</h3>
             <%= render partial: 'user/comments/question_form', locals: { comment: @question_comment, question: @question } %>
-          </div>
         <% end %>
-    </div>
   </div>
   <% if user_signed_in? %>
     <% if @question.user_id == current_user.id %>
-    <div class="col-lg-11">
-      <%= link_to "質問を編集する", edit_question_path(@question), class:"col-lg-3 btn btn-primary" %>
-      <%= link_to "質問を削除する", question_path(@question), method: :delete, data: {confirm: ('本当に削除してよろしいですか？')}, class:"col-lg-3 btn btn-danger" %>
-    </div>
+      <div class="qshow__link col-lg-11">
+        <%= form_with model:@question, method: :patch, local: true do |f| %>
+          <div class="qshow__link_box row">
+            <% if @question.solution_flag == false %>
+              <%= f.hidden_field :solution_flag, value: true %>
+              <%= f.submit "解決済みにする", class: 'col-lg-3 btn btn-primary' %>
+            <% elsif @question.solution_flag == true %>
+              <%= f.hidden_field :solution_flag, value: false %>
+              <%= f.submit "解決済みを取り消す", class: 'col-lg-3 btn btn-danger' %>
+            <% end %>
+            <%= link_to "質問を編集する", edit_question_path(@question), class:"col-lg-3 btn btn-primary" %>
+            <%= link_to "質問を削除する", question_path(@question), method: :delete, data: {confirm: ('本当に削除してよろしいですか？')}, class:"col-lg-3 btn btn-danger" %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 </div>

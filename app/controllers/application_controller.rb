@@ -11,12 +11,6 @@ class ApplicationController < ActionController::Base
     @timeline = posts | questions
     @timeline.sort! { |a, b| b.created_at <=> a.created_at }
   end
-  
-  def search_method
-    q = params[:q]
-    @posts = Post.search(body_or_title_cont: q).result
-    @questions = Question.search(body_or_title_cont: q).result
-  end
 
   private
 

@@ -1,6 +1,7 @@
 module NotificationsHelper
   def notification_user_form(notification)
     @visiter = notification.visiter
+    @visited = notification.visited
     @comment = nil
     your_post = link_to 'あなたの投稿', post_path(notification), style:"font-weight: bold;"
     your_question = link_to 'あなたの質問', question_path(notification), style:"font-weight: bold;"
@@ -8,7 +9,7 @@ module NotificationsHelper
     #notification.actionがfollowかlikeかcommentか
     case notification.action
       when "follow" then
-        tag.a(notification.visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"があなたをフォローしました"
+        tag.a(notification.visited.name, href:user_path(@visited), style:"font-weight: bold;")+"があなたをフォローしました"
       when "post_like" then
         tag.a(notification.visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_path(notification.post_id), style:"font-weight: bold;")+"にいいねしました"
         when "question_like" then

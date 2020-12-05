@@ -1,5 +1,10 @@
-<!-- コメント入力フォーム ------------------------------------------------------------>
 <%= form_with(model: [post, comment], url: post_create_comment_path(@post) ) do |f| %>
-    <%= f.text_area :message, class: "input-mysize" %>
-    <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
+  <div class="row">
+    <div class="pshow__comment_submit col-lg-2">
+      <%= f.submit "送信", class: "btn btn-outline-info btn-block btn-lg comment-submit float-right" %>
+    </div>
+    <div class="pshow__comment_form col-lg-10">
+      <%= f.text_area :message, class: "input-mysize form-control" %>
+    </div>
+  </div>
 <% end %>

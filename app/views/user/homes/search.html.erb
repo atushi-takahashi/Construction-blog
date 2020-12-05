@@ -16,7 +16,7 @@
           <% end %>
         </div>
       </div>
-      <button type="button" class="col-lg-2 btn btn-secondary btn-lg"><%= link_to "未解決の質問", solution_index_path, class:"text-light" %></button>
+      <button type="button" class="col-lg-2 btn btn-secondary btn-lg"><%= link_to "未解決の質問", homes_solution_index_path, class:"text-light" %></button>
       <div class="col-lg-4">
         <%= form_with url: homes_search_path, method: :get, local: true do |f| %>
         <div class="row">

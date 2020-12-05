@@ -1,7 +1,6 @@
 class User::QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_question, only: [:show, :edit, :update, :destroy]
-  before_action :search_method, only: [:solution_index]
 
   def index
     @question = Question.all
@@ -10,11 +9,6 @@ class User::QuestionsController < ApplicationController
   def show
     @question_comment = Comment.new
     @question_comments = @question.comments.order(created_at: :desc)
-  end
-  
-  def solution_index
-    @categories = Category.all
-    @timeline = Question.where(solution_flag: false).order(created_at: :desc)
   end
 
   def edit
@@ -40,7 +34,7 @@ class User::QuestionsController < ApplicationController
   def update
     if @question.update(question_params)
       if @question.solution_flag == true
-        @question.update(status: '質問/解決済み')
+        @question.update(status: '解決済')
       elsif @question.solution_flag == false
         @question.update(status: '質問')
       end

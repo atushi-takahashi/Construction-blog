@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get 'homes/about'
     get 'homes/search'
     get 'homes/ranking_index'
-    get 'solution_index' => 'questions#solution_index'
+    get 'homes/solution_index'
     resources :users, only: [:show, :edit, :update] do
       post 'follow/:id', to: 'relationships#follow', as: 'follow'
       post 'unfollow/:id', to: 'relationships#unfollow', as: 'unfollow'
