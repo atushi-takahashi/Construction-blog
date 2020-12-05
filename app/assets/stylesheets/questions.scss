@@ -1,3 +1,100 @@
-// Place all the styles related to the questions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#questions-show{
+  .qshow{
+    border-radius: 80px;
+    .qshow__box{
+      margin: 10px auto 5px;
+      .qshow__status{
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      .qshow__user{
+        margin: 0 15px;
+        img{
+          border-radius: 50%;
+        }
+        .qshow__user_name{
+          padding-left: 10px;
+          font-size: 20px;
+        }
+      }
+      .qshow__category{
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      .qshow__like{
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        margin-left: 13%;
+      }
+    }
+    .qshow__title{
+      text-align: center;
+      line-height: 50px;
+      font-size: 17px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 5px auto 15px;
+    }
+    .qshow__image{
+      img{
+        margin-left: 10%;
+        border-radius: 10px;
+      }
+    }
+    .qshow__body{
+      text-align: left;
+      font-size: 15px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 5px auto 15px;
+      min-height: 200px;
+      .qshow__body_hight{
+        min-height: 150px;
+      }
+    }
+  }
+  .qshow__comment{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    .qshow__comment_user{
+      padding: 10px 0;
+      img{
+        border-radius: 50%;
+      }
+      a{
+        padding-left: 10px;
+        font-size: 20px;
+      }
+    }
+    .qshow__comment_body{
+      min-height: 60px;
+    }
+    .qshow__comment_time{
+      text-align: right;
+    }
+  }
+  .qshow__comment_box{
+    margin: 0 auto 20px;
+  }
+  .qshow__link{
+    margin-left: 8%;
+    margin-top: 20px;
+  }
+  .qshow__link_box{
+    text-align: end;
+    padding-right: 4%;
+    margin-bottom: 20px;
+    justify-content: flex-end;
+    a{
+      margin-left: 10px;
+    }
+  }
+}

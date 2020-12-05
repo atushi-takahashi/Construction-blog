@@ -1,3 +1,115 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#users-show{
+  .ushow{
+    border: 1px solid black;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    .ushow__box{
+      .ushow__image{
+        margin-right: 15px;
+        img{
+          border-radius: 50%;
+          padding: 10px;
+          margin-top: 10px;
+        }
+      }
+      .ushow__link{
+        margin: 0 25px 0;
+        .ushow__link_box{
+          margin-top: 15px;
+          .ushow__name{
+            font-size: 25px;
+            margin-bottom: 10px;
+          }
+          .ushow__follow_btn{
+            text-align: center;
+            margin-bottom: 10px;
+          }
+          .ushow__follow_count{
+            border: 1px solid;
+            border-radius: 10px;
+            width: 90%;
+            margin: 0 auto 10px
+          }
+          .ushow__message{
+            text-align: center;
+            margin-bottom: 10px;
+          }
+          .ushow__edit{
+            text-align: center;
+            margin-bottom: 10px;
+          }
+      }
+      }
+      .ushow__detail_box{
+        .ushow__detail{
+          border: 1px solid;
+          border-radius: 10px;
+          width: 90%;
+          margin: 20px auto 10px;
+          padding: 10px;
+        }
+        .ushow__profile_title{
+          font-size: 18px;
+          padding-left: 10px;
+        }
+        .ushow__profile{
+          border: 1px solid;
+          border-radius: 10px;
+          width: 97%;
+          padding: 10px;
+          margin-left: 10px;
+          min-height: 95px;
+        }
+      }
+    }
+  }
+}
+#users-following, #users-follower{
+  .ufollow{
+    border-radius: 40px;
+    .ufollow__title{
+      border: 1px solid;
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+      font-size: 25px;
+      margin: 15px;
+    }
+    .ufollow__box{
+      border: 1px solid;
+      border-radius: 10px;
+      margin: 0 auto 20px;
+      .ufollow__user_box{
+        margin: 10px 0;
+        .ufollow__user{
+          margin-bottom: 10px;
+          img{
+            border-radius: 50%;
+          }
+        }
+        .ufollow__btn{
+          text-align: center;
+        }
+      }
+      .ufollow__ditail_box{
+        margin-top: 10px;
+        .ufollow__ditail{
+          border: 1px solid;
+          border-radius: 10px;
+          width: 90%;
+          margin-bottom: 13px;
+          padding: 5px;
+        }
+      }
+      .ufollow__profile{
+        border: 1px solid;
+        border-radius: 10px;
+        margin: 10px auto 13px;
+        padding: 5px;
+        min-height: 85px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

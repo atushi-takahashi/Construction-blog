@@ -34,7 +34,7 @@ class User::QuestionsController < ApplicationController
   def update
     if @question.update(question_params)
       if @question.solution_flag == true
-        @question.update(status: '質問/解決済み')
+        @question.update(status: '解決済')
       elsif @question.solution_flag == false
         @question.update(status: '質問')
       end

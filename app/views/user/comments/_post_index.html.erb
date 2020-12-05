@@ -1,25 +1,25 @@
-<!-- コメント内容(２件) ------------------------------------------------------------------>
-<%= comments.count %>件コメント
 <% comments.each do |comment| %>
-    <li class="comment-container">
-        <div class="comment-box">
-            <div class="comment-avatar">
-                <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class:"comment-image", size: "40x40" %>
-            </div>
-            <div class="comment-text">
-                <p><%= link_to "@#{comment.user.name}", user_path(comment.user.id) %></p>
-                <div class="comment-entry">
-                    <%= comment.message %>
-                    <% if comment.user_id == current_user.id %>
-                        <%= link_to post_destroy_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-                            <i class="fas fa-trash" style="color: black;">削除する</i>
-                        <% end %>
-                    <% end %>
-                </div>
-                <span class="comment-date pull-right">
-                      <%= comment.created_at.to_s(:datetime_jp) %>
-                </span>
-            </div>
-        </div>
-    </li>
+  <div class="pshow__comment row">
+    <div class="col-lg-2">
+      <div class="pshow__comment_user">
+          <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class:"comment-image", size: "40x40" %>
+          <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
+      </div>
+      <div class="pshow__comment_destroy">
+        <% if comment.user_id == current_user.id %>
+          <%= link_to post_destroy_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
+            <i class="fas fa-trash" style="color: black;">削除する</i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-10">
+      <div class="pshow__comment_body">
+          <%= comment.message %>
+      </div>
+      <div class="pshow__comment_time">
+          <%= comment.created_at.to_s(:datetime_jp) %>
+      </div>
+    </div>
+  </div>
 <% end %>

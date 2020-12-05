@@ -2,47 +2,47 @@
   <% @timeline.each do |all| %>
     <% if all.delete_flag == false %>
       <% if all.status == "質問" %>
-        <%= link_to question_path(all) do %>
-        <div class="item">
-          <div class="item_head">
-            <div class="item__status"><%= all.status %></div>
-            <div class="item__category">カテゴリ： <%= all.category.name %></div>
+        <div class="timeline">
+          <div class="timeline__head">
+            <span class="timeline__status"><%= all.status %></span>
+            <span class="timeline__category">カテゴリ： <%= all.category.name %></span>
           </div>
-          <div class="item__title"><%= all.title %></div>
-          <div class="item__imege">
+        <%= link_to question_path(all) do %>
+          <div class="timeline__title"><%= all.title %></div>
+        <% end %>
+          <div class="timeline__imege">
             <%= attachment_image_tag all, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
           </div>
-          <div class="item__body"><%= all.body %></div>
+          <div class="timeline__body"><%= all.body %></div>
         </div>
-        <% end %>
-      <% elsif all.status == "質問/解決済み" %>
-        <%= link_to question_path(all) do %>
-        <div class="item">
-          <div class="item_head">
-            <div class="item__status"><%= all.status %></div>
-            <div class="item__category">カテゴリ： <%= all.category.name %></div>
+      <% elsif all.status == "解決済" %>
+        <div class="timeline">
+          <div class="timeline__head">
+            <span class="timeline__status"><%= all.status %></span>
+            <span class="timeline__category">カテゴリ： <%= all.category.name %></span>
           </div>
-          <div class="item__title"><%= all.title %></div>
-          <div class="item__imege">
+        <%= link_to question_path(all) do %>
+          <div class="timeline__title"><%= all.title %></div>
+        <% end %>
+          <div class="timeline__imege">
             <%= attachment_image_tag all, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
           </div>
-          <div class="item__body"><%= all.body %></div>
+          <div class="timeline__body"><%= all.body %></div>
         </div>
-        <% end %>
       <% else %>
-        <%= link_to post_path(all) do %>
-        <div class="item">
-          <div class="item_head">
-            <div class="item__status"><%= all.status %></div>
-            <div class="item__category">カテゴリ： <%= all.category.name %></div>
+        <div class="timeline">
+          <div class="timeline__head">
+            <span class="timeline__status"><%= all.status %></span>
+            <span class="timeline__category">カテゴリ： <%= all.category.name %></span>
           </div>
-          <div class="item__title"><%= all.title %></div>
-          <div class="item__imege">
+        <%= link_to post_path(all) do %>
+          <div class="timeline__title"><%= all.title %></div>
+        <% end %>
+          <div class="timeline__imege">
             <%= attachment_image_tag all, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
           </div>
-          <div class="item__body"><%= all.body %></div>
+          <div class="timeline__body"><%= all.body %></div>
         </div>
-        <% end %>
       <% end %>
     <% end %>
   <% end %>

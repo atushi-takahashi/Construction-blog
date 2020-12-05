@@ -2,6 +2,11 @@
 <%= f.hidden_field :status, value: "質問" %>
 <div class="row border border-dark">
 <h3 class="col-lg-12 mt-4 text-center"><span class="border border-dark">　新規質問　</span></h3>
+  <div class="col-lg-4 form-group">
+    <%= f.label :image %>
+    <%= attachment_image_tag @question, :image, fallback: 'no_image.jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev' %>
+    <%= f.attachment_field :image, class: 'img_field', style:"display: none" %>
+  </div>
   <%= render "shared/post-question_form", f: f%>
   <div class="col-lg-11">
     <%= f.submit "投稿する", class: 'btn btn-primary btn-block mb-4' %>
