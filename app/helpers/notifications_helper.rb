@@ -15,10 +15,10 @@ module NotificationsHelper
         when "question_like" then
         tag.a(notification.visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの質問', href:question_path(notification.question_id), style:"font-weight: bold;")+"にいいねしました"
       when "post_comment" then
-          @comment = Comment.find_by(id: @visiter_comment)&.message
+          # @comment = Comment.find_by(id: @visiter_comment)&.message
           tag.a(@visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_path(notification.post_id), style:"font-weight: bold;")+"にコメントしました"
       when "question_comment" then
-          @comment = Comment.find_by(id: @visiter_comment)&.message
+          # @comment = Comment.find_by(id: @visiter_comment)&.message
           tag.a(@visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの質問', href:question_path(notification.question_id), style:"font-weight: bold;")+"にコメントしました"
       when "dm" then
           tag.a(@visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"から"+tag.a('ダイレクトメッセージ', href:room_path(notification.room_id), style:"font-weight: bold;")+"が届いています"

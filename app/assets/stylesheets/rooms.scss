@@ -1,3 +1,55 @@
-// Place all the styles related to the rooms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#rooms-show,#rooms-index{
+  .dm{
+    .dm__title{
+      border: 1px solid;
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+      font-size: 25px;
+      margin: 15px;
+    }
+    .dm__form{
+      margin-bottom: 10px;
+      .dm__submit{
+        input{
+          height: 86px;
+        }
+      }
+      .dm__form_message{
+
+      }
+    }
+    .dm__box{
+      border: 1px solid;
+      border-radius: 10px;
+      margin: 0 auto 10px;
+      .dm__user_box{
+        margin: 10px 0;
+        .dm__user{
+          img{
+            border-radius: 50%;
+          }
+          a{
+            margin-left: 10px;
+          }
+        }
+        .dm__destroy{
+          margin: 5px 0 0 5px;
+        }
+      }
+      .dm__message_box{
+        border: 1px solid;
+        border-radius: 10px;
+        margin: 10px auto;
+        padding: 5px;
+        min-height: 50px;
+        .dm__message{
+          min-height: 43px;
+        }
+      }
+      .dm__link{
+        margin-top: 22px;
+      }
+    }
+  }
+}

@@ -25,7 +25,7 @@ class User::RoomsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-  
+
   private
   def user_room_params
     params.require(:user_room).permit(:user_id, :room_id)

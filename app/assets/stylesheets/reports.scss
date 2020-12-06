@@ -1,3 +1,26 @@
-// Place all the styles related to the reports controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#reports-post_report_new,#reports-question_report_new{
+  .reponew{
+    border-radius: 80px;
+    .reponew__title{
+      .reponew__title_name{
+      border-radius: 10px;
+      padding: 5px;
+      }
+    }
+    .reponew__box{
+      margin-top: 20px;
+      margin-left: 70px;
+      .reponew__name{
+        margin-bottom: 10px;
+      }
+      .reponew__category{
+        margin-bottom: 10px;
+      }
+      .reponew__message{
+        margin-bottom: 10px;
+      }
+    }
+    .reponew__submit{
+    }
+  }
+}

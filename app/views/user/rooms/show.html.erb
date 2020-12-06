@@ -1,43 +1,47 @@
-<div class="row follower border border-dark">
-  <h4 class="col-lg-3">ダイレクトメッセージ</h4>
-  <% if @direct_messages.present? %>
-  <% @room.direct_messages.each do |message| %>
+<div class="row dm">
+  <h4 class="dm__title col-lg-3">ダイレクトメッセージ</h4>
   <div class="col-lg-12">
-    <div class="row">
-      <div class="col-lg-2">
-        <div class="row">
-          <div class="col-lg-11">
+    <%= form_with model: @direct_message, url: direct_messages_path, local: true do |f| %>
+      <div class="dm__form row">
+        <div class="dm__submit col-lg-2">
+          <%= f.submit 'メッセージ送信', class: 'btn btn-outline-info btn-block' %>
+        </div>
+        <div class="dm__form_message col-lg-10">
+          <%= f.text_area :message, rows: 3, class: 'form-control' %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% if @direct_messages.present? %>
+  <% @room.direct_messages.order(created_at: :desc).each do |message| %>
+  <div class="col-lg-12">
+    <div class="dm__box row">
+      <div class="col-lg-3">
+        <div class="dm__user_box row">
+          <div class="dm__user col-lg-11">
             <%= attachment_image_tag message.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
             <%= link_to "#{message.user.name}",user_path(message.user) %>
           </div>
-          <div class="col-lg-11">
+          <div class="dm__destroy col-lg-11">
+            <% if message.user.id == current_user.id %>
+              <%= link_to '削除', message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }, class: 'btn-sm btn-danger' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="dm__message_box row">
+          <div class="dm__message col-lg-12">
+            <%= message.message %>
+          </div>
+          <div class="dm__time col-lg-12 text-right">
             メッセージ日時：<%= message.created_at.to_s(:datetime_jp) %>
           </div>
         </div>
       </div>
-      <div class="col-lg-8">
-        <%= message.message %>
-      </div>
-      <div class="col-lg-1">
-        <% if message.user.id == current_user.id %>
-          <%= link_to '削除', message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }, class: 'btn-sm btn-danger' %>
-        <% end %>
-      </div>
     </div>
   </div>
   <% end %>
-  <% end %>
-  <%= form_with model: @direct_message, url: direct_messages_path, local: true do |f| %>
-    <div class="col-lg-12">
-      <div class="row">
-        <div class="col-lg-2">
-          <%= f.submit '送信', class: 'btn btn-info btn-block' %>
-        </div>
-        <div class="col-lg-9">
-          <%= f.text_field :message, class: 'form-control' %>
-          <%= f.hidden_field :room_id, value: @room.id %>
-        </div>
-      </div>
-    </div>
   <% end %>
 </div>
