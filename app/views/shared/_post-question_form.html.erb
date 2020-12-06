@@ -1,16 +1,16 @@
 <div class="col-lg-7 form-group">
-  <div class="row">
-    <div class="col-lg-11">
+  <div class="pform__box row">
+    <div class="pform__category col-lg-11">
       <%= f.label :カテゴリ %>
         <%= f.collection_select(:category_id, @categories, :id, :name, {prompt: "-- 選択してください --"}, {class: "form-control"}) %>
     </div>
-    <div class="col-lg-11">
-    <%= f.label :tite %>
+    <div class="pform__title col-lg-11">
+    <%= f.label :タイトル %>
     <%= f.text_field :title, class: 'form-control'  %>
     </div>
-    <div class="col-lg-11">
-      <%= f.label :body %>
-      <%= f.text_area :body, rows: 10, class: 'form-control' %>
+    <div class="pform__body col-lg-11">
+      <%= f.label :投稿内容 %>
+      <%= f.text_area :body, rows: 7, class: 'form-control' %>
     </div>
   </div>
 </div>

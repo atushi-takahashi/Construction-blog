@@ -66,7 +66,6 @@
 }
 #users-following, #users-follower{
   .ufollow{
-    border-radius: 40px;
     .ufollow__title{
       border: 1px solid;
       border-radius: 10px;
@@ -109,6 +108,44 @@
         min-height: 85px;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+    }
+  }
+}
+#users-edit{
+  .uedit{
+    border-radius: 80px;
+    .uedit__title{
+      .uedit__title_name{
+        border-radius: 10px;
+        padding: 5px;
+      }
+    }
+    .uedit__image{
+      margin-left: 65px;
+      margin-top: 20px;
+    }
+    .uedit__box{
+      margin-top: 20px;
+      .uedit__name{
+        margin-bottom: 10px;
+      }
+      .uedit__occupation{
+        margin-bottom: 10px;
+      }
+      .uedit__history{
+        margin-bottom: 10px;
+        margin-left: 55px;
+      }
+      .uedit__profile{
+        margin-bottom: 10px;
+      }
+    }
+    .uedit__btn{
+      input,a{
+        margin-left: 65px;
+        margin-bottom: 20px;
+        width: 95%;
       }
     }
   }

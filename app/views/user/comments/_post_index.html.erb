@@ -6,9 +6,11 @@
           <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
       </div>
       <div class="pshow__comment_destroy">
-        <% if comment.user_id == current_user.id %>
-          <%= link_to post_destroy_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-            <i class="fas fa-trash" style="color: black;">削除する</i>
+        <% if user_signed_in? %>
+          <% if comment.user_id == current_user.id %>
+            <%= link_to post_destroy_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
+              <i class="fas fa-trash" style="color: black;">削除する</i>
+            <% end %>
           <% end %>
         <% end %>
       </div>

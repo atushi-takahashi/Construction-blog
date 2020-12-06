@@ -1,5 +1,5 @@
 <% if current_user.following?(@user) %>
-  <%= link_to "フォロー解除",user_unfollow_path(@user.id), method: :post, class: 'btn-sm btn-info btn-block', remote: true %>
+  <%= link_to "フォロー解除",user_unfollow_path(@user.id), method: :post, class: 'btn-sm btn-danger btn-block', remote: true %>
   <% else %>
-  <%= link_to "フォローする",user_follow_path(@user.id), method: :post, class: 'btn-sm btn-default btn-block', remote: true %>
+  <%= link_to "フォローする",user_follow_path(@user.id), method: :post, class: 'btn-sm btn-info btn-block', remote: true %>
 <% end %>

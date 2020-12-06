@@ -75,6 +75,7 @@
       }
     }
     .qshow__comment_body{
+      margin-top: 10px;
       min-height: 60px;
     }
     .qshow__comment_time{
@@ -95,6 +96,37 @@
     justify-content: flex-end;
     a{
       margin-left: 10px;
+    }
+  }
+}
+
+#questions-new,#questions-edit{
+  .qform{
+    border-radius: 80px;
+    .qform__bigtitle{
+      .qform__bigtitle_name{
+      border-radius: 10px;
+      padding: 5px;
+      }
+    }
+    .qform__image{
+      margin-left: 65px;
+      margin-top: 20px;
+    }
+    .pform__box{
+      margin-top: 20px;
+      .pform__category{
+        margin-bottom: 10px;
+      }
+      .pform__title{
+        margin-bottom: 10px;
+      }
+    }
+    .qform__submit{
+      input{
+        margin-left: 65px;
+        width: 95%;
+      }
     }
   }
 }
