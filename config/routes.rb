@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
+  devise_scope :user do
+    post '/users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
   devise_for :admins  ,controllers: {
     sessions: 'admins/sessions'
   }
@@ -14,6 +17,9 @@ Rails.application.routes.draw do
     get 'homes/ranking_index'
     get 'homes/solution_index'
     resources :users, only: [:show, :edit, :update] do
+      get 'user_posts/:user_id', to: 'users#user_post_index', as: 'post_index'
+      get 'user_questions/:user_id', to: 'users#user_question_index', as: 'question_index'
+      get 'user_likes/:user_id', to: 'users#user_like_index', as: 'like_index'
       post 'follow/:id', to: 'relationships#follow', as: 'follow'
       post 'unfollow/:id', to: 'relationships#unfollow', as: 'unfollow'
       get 'following/:user_id', to: 'users#following', as: 'following'

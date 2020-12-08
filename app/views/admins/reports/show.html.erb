@@ -1,53 +1,56 @@
-<div class="row pshow border border-dark">
-  <div class="col-lg-11">
-    <h4>通報詳細</h4>
-    <div class="row">
-      <div class="col-lg-1">通報者</div>
-      <div class="col-lg-3 pshow__user">
+<div class="reposhow row border border-dark">
+  <h3 class="reposhow__bigtitle col-lg-12 mt-4 text-center"><span class="reposhow__bigtitle_name border border-dark">　通報詳細　</span></h3>
+  <div class="reposhow__outline col-lg-11">
+    <h4><span class="reposhow__title_name">　通報内容　</span></h4>
+    <div class="reposhow__box row">
+      <div class="reposhow__status col-lg-2"><span>　通報者　</span></div>
+      <div class="reposhow__user col-lg-3">
       <%= link_to admins_user_path(@report.user_id) do %>
-        <span class="report__user_image"><%= attachment_image_tag @report.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></span>
-        <span class="report__user_name ml-2"><%= @report.user.name %></span>
+        <span class="reposhow__user_image"><%= attachment_image_tag @report.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></span>
+        <span class="reposhow__user_name ml-2"><%= @report.user.name %></span>
       <% end %>
       </div>
-      <div class="col-lg-7 report__category">
-        <div>カテゴリ：<%= @report.category %></div>
-        <div><%= @report.message %></div>
+      <div class="reposhow__ditail_box col-lg-6">
+        <div class="reposhow__category">カテゴリ：<%= @report.category %></div>
+      </div>
+      <div class="reposhow__body col-lg-12">
+        <div class="reposhow__body_hight"><%= @report.message %></div>
         <div class="text-right">通報日時：<%= @report.created_at.to_s(:datetime_jp) %></div>
       </div>
     </div>
   </div>
-  <div class="col-lg-11">
-    <h4>通報された記事</h4>
-    <div class="row">
-      <div class="col-lg-1 pshow__status">
+  <div class="reposhow__outline col-lg-11">
+    <h4><span class="reposhow__title_name">　通報された記事　</span></h4>
+    <div class="reposhow__box row">
+      <div class="reposhow__status col-lg-2">
         <% if @report.question_id == nil %>
           <%= @report.post.status %>
         <% elsif @report.post_id == nil %>
           <%= @report.question.status %>
         <% end %>
       </div>
-      <div class="col-lg-3 pshow__user">
+      <div class="reposhow__user col-lg-3">
         <% if @report.question_id == nil %>
           <%= link_to admins_user_path(@report.post.user.id) do %>
-            <span class="pshow__user_image">
+            <span class="reposhow__user_image">
               <%= attachment_image_tag @report.post.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
             </span>
-            <span class="pshow__user_name ml-2">
+            <span class="reposhow__user_name ml-2">
               <%= @report.post.user.name %>
             </span>
           <% end %>
         <% elsif @report.post_id == nil %>
           <%= link_to admins_user_path(@report.question.user.id) do %>
-            <span class="pshow__user_image">
+            <span class="reposhow__user_image">
               <%= attachment_image_tag @report.question.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
             </span>
-            <span class="pshow__user_name ml-2">
+            <span class="reposhow__user_name ml-2">
               <%= @report.question.user.name %>
             </span>
           <% end %>
         <% end %>
       </div>
-      <div class="col-lg-4 pshow__category">
+      <div class="col-lg-4 reposhow__category">
         <% if @report.question_id == nil %>
           カテゴリ：<%= @report.post.category.name %>
         <% elsif @report.post_id == nil %>
@@ -55,23 +58,23 @@
         <% end %>
       </div>
     </div>
-    <h5 class="col-lg-11 pshow__title text-center">
+    <h5 class="col-lg-12 reposhow__title text-center">
       <% if @report.question_id == nil %>
-        <%= @report.post.title %>
+        <%= link_to "#{@report.post.title}", admins_post_path(@report.post_id) %>
       <% elsif @report.post_id == nil %>
-        <%= @report.question.title %>
+        <%= link_to "#{@report.question.title}", admins_question_path(@report.question_id) %>
       <% end %>
     </h5>
     <div class="row">
-      <div class="col-lg-4 pshow__image">
+      <div class="col-lg-4 reposhow__image">
         <% if @report.question_id == nil %>
           <%= attachment_image_tag @report.post, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
         <% elsif @report.post_id == nil %>
           <%= attachment_image_tag @report.question, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
         <% end %>
       </div>
-      <div class="col-lg-7 pshow__body">
-        <div>
+      <div class="col-lg-8 reposhow__body">
+        <div class="reposhow__body_hight">
           <% if @report.question_id == nil %>
             <%= @report.post.body %>
           <% elsif @report.post_id == nil %>
@@ -87,7 +90,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-11">
+    <div class="report__link_box col-lg-12">
       <% if @report.question_id == nil %>
           <% if @report.post.delete_flag == false %>
             <%= link_to "記事を非表示にする", admins_delete_flag_update_path(@report), method: :patch, class:'btn btn-danger btn-block' %>
