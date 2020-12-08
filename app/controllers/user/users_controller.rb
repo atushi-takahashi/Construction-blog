@@ -1,7 +1,7 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
   before_action :find_user, only: [:show, :edit, :update]
-  before_action :find_user_id, only: [:following, :follower]
+  before_action :find_user_id, only: [:following, :follower, :user_post_index, :user_question_index, :user_like_index]
 
   def show
     # 投稿及び質問を更新順に表示
@@ -51,6 +51,30 @@ class User::UsersController < ApplicationController
   # 自分をフォローしているユーザー一覧
   def follower
     @followers = @user.follower_user
+  end
+
+  def user_post_index
+    @timeline = Post.where(user_id: @user.id)
+    respond_to do |format|
+      format.js {render layout: false} # Add this line to you respond_to block
+    end
+  end
+
+  def user_question_index
+    @timeline = Question.where(user_id: @user.id)
+    respond_to do |format|
+      format.js {render layout: false} # Add this line to you respond_to block
+    end
+  end
+
+  def user_like_index
+    posts = Post.like.where(user_id: @user, questions_id: nil).order(created_at: :desc)
+    questions = Question.like.where(user_id: @user, post_id: nil).order(created_at: :desc)
+    @timeline = posts | questions
+    @timeline.sort! { |a, b| b.created_at <=> a.created_at }
+    respond_to do |format|
+      format.js {render layout: false} # Add this line to you respond_to block
+    end
   end
 
   private

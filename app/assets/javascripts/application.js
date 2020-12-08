@@ -18,8 +18,15 @@
 //= require popper
 //= require bootstrap-sprockets
 
+$( document ).on('turbolinks:load', function() {
+  $('#back a').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+    event.preventDefault();
+  });
+});
 
-1
 $( document ).on('turbolinks:load', function() {
   function readURL(input) {
     if (input.files && input.files[0]) {
