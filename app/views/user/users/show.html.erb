@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="ushow col-lg-12">
+    <div class="ushow__box row">
+      <div class="ushow__image col-lg-2">
+        <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no_image.jpg", size: "200x200" %>
+      </div>
+      <div class="ushow__link col-lg-3">
+        <div class="ushow__link_box">
+          <div class="ushow__name col-lg-12"><%= @user.name %></div>
+          <% if user_signed_in? %>
+            <% unless @user == current_user %>
+            <div class="ushow__follow_btn col-lg-12" id="follow_botton_#{<%= @user.id %>}">
+              <%= render "follow_botton" %>
+            </div>
+            <% end %>
+          <% end %>
+          <div class="ushow__follow_count col-lg-12" id="following-count_#{<%= @user.id %>}">
+            <%= link_to "フォロー#{ @user.follower.count }人", user_following_path(@user.id) %>
+          </div>
+          <div class="ushow__follow_count col-lg-12" id="follower-count_#{<%= @user.id %>}">
+            <%= link_to "フォロワー#{ @user.followed.count }人", user_follower_path(@user.id) %>
+          </div>
+          <% if user_signed_in? %>
+            <div class="ushow__message col-lg-12">
+              <% if @user.id == current_user.id %>
+                <%= link_to "ダイレクトメッセージ", rooms_path, class:"btn-sm btn-info btn-block" %>
+              <% else %>
+                <% if (current_user.following? @user) && (@user.following? current_user) %>
+                  <% if @is_room == true %>
+                    <%= link_to "ダイレクトメッセージ", room_path(@room_id), class:"btn-sm btn-info btn-block" %>
+                  <% else %>
+                    <%= form_with model:@room, url: rooms_path, local: true do |f| %>
+                      <%= fields_for @user_room do |user_room| %>
+                        <%= user_room.hidden_field :user_id, value: @user.id %>
+                      <% end %>
+                      <%= f.submit "ダイレクトメッセージ", class: 'btn-sm btn-info btn-block' %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+            <% if @user.id == current_user.id %>
+              <div class="ushow__edit col-lg-12">
+                <%= link_to "プロフィール編集", edit_user_path(@user), class:"btn-sm btn-primary btn-block" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="ushow__detail_box col-lg-6">
+        <div class="row">
+          <div class="ushow__detail col-lg-5">職種：　<%= @user.occupation %></div>
+          <div class="ushow__detail col-lg-5">経験年数：　<%= @user.work_history %></div>
+        </div>
+        <h5 class="ushow__profile_title">自己紹介</h5>
+        <div class="ushow__profile col-lg-12"><%= @user.profile %></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="row">
+      <button type="button" class="col-lg-4 btn btn-secondary btn-lg"><%= link_to "これまでの投稿", user_post_index_path(@user), remote: true %></button>
+      <button type="button" class="col-lg-4 btn btn-secondary btn-lg"><%= link_to "これまでの質問", user_question_index_path(@user), remote: true %></button>
+      <button type="button" class="col-lg-4 btn btn-secondary btn-lg"><%= link_to "いいねした記事", user_like_index_path(@user), remote: true %></button>
+    </div>
+  </div>
+  <div class="col-lg-12" id="timeline">
+    <%= render 'shared/timeline' %>
+  </div>
+</div>

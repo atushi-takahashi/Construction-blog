@@ -1,8 +1,21 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def after_sign_in_path_for(_resource)
-    root_path
+  def after_sign_in_path_for(resource)
+    case resource
+    when Admin
+      admins_homes_path
+    when User
+      homes_index_path
+    end
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    if resource_or_scope == :user
+      root_path
+    else
+      new_admin_session_path
+    end
   end
 
   def timeline_all

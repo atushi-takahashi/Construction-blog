@@ -1,0 +1,39 @@
+<h4 class="col-lg-3"><span>質問一覧</span></h4>
+<table class="table">
+  <thead class="thead-light">
+    <tr class="row">
+      <th class="col-lg-3">ユーザー名</th>
+      <th class="col-lg-2">カテゴリ</th>
+      <th class="col-lg-4">タイトル</th>
+      <th class="col-lg-2">通報された数</th>
+      <th class="col-lg-1">状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |question|%>
+    <tr class="admin-question row">
+      <td class="col-lg-3">
+        <%= attachment_image_tag question.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+        <%= link_to "#{question.user.name}",admins_user_path(question.user_id) %>
+      </th>
+      <td class="col-lg-2">
+        <%= question.category.name %>
+      </th>
+      <td class="col-lg-4">
+        <%= link_to "#{question.title}", admins_question_path(question) %>
+        
+      </td>
+      <td class="col-lg-2">
+        <%= question.reports.count %>
+      </td>
+      <td class="col-lg-1">
+        <% if question.delete_flag == true %>
+          非表示
+        <% elsif question.delete_flag == false %>
+          表示中
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

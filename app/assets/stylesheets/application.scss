@@ -10,6 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ /*
+ *= require_tree .
+ *= require_self
  */
 @import "bootstrap";
 // ログイン画面
@@ -28,4 +31,56 @@
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+.img_prev:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(1.01, 1.01);
+}
+
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+.arrow{
+  width:      50px;
+  height:     50px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  transform: rotate(90deg);
+}
+
+.back{
+  width:      50px;
+  height:     50px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+a:hover{
+  text-decoration: none;
+}
+
+.body{
+  background-image: image-url('top.jpg');
+  background-size:  cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #464646;
+  opacity:  0.9;
+ }
+.container{
+  opacity : 0;
+  transform : translate(0, 45px);
+  transition : all 300ms;
+}
+.container.container-scroll {
+  opacity : 1;
+  transform : translate(0, 0);
 }

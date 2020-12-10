@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ConstructionBlog</title>
+    <title>監督のつぶやき</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="body" id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/header' %>
-    <div class="container">
+    <span><%= link_to :back do %>
+      <%= image_tag asset_path('back.png'), class: "back" %>
+    <% end %></span>
   　　　<%= render 'shared/flash_messages' %>
+    <div class="container">
       <%= yield %>
     </div>
+    <span id="back">
+      <a href="">
+        <%= image_tag asset_path('back.png'), data: {"turbolinks"=>false}, class: "arrow" %>
+      </a>
+    </span>
   </body>
 </html>

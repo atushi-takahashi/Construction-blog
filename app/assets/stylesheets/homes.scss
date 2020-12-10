@@ -1,3 +1,242 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.timeline{
+  width: 30%;
+  height: 480px;
+  margin-top: 30px;
+  margin-left: 50px;
+  border: solid 1px black;
+  border-radius: 25px;
+  background-color: seashell;
+  .timeline__head{
+      margin: 20px auto 10px;
+      .timeline__status{
+        border: solid 1px black;
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: 20px;
+      }
+      .timeline__category{
+        border: solid 1px black;
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: 10px;
+      }
+  }
+  .timeline__title{
+        border: solid 1px black;
+        border-radius: 10px;
+        padding: 10px;
+        width: 90%;
+        margin: 15px auto 10px;
+        max-height: 40px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-decoration: none;
+      }
+  .timeline__imege{
+    img{
+        margin-left: 6%;
+        border-radius: 10px;
+    }
+  }
+  .timeline__body{
+        border: solid 1px black;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 15px auto 10px;
+        width: 90%;
+        height: 28%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+  }
+}
+.timeline:nth-child(3n+1){
+  margin-left: 0px;
+}
+#homes-about{
+  .main{
+    .main__title{
+      text-align: center;
+      min-height: 290px;
+      line-height: 240px;
+      span{
+        background-color: whitesmoke;
+        border-radius: 15px;
+        font-family: serif;
+        padding: 15px;
+      }
+    }
+    .main__link{
+      min-height: 380px;
+      margin-left: 17%;
+      text-align: center;
+      .a1{
+        background-color: whitesmoke;
+        padding: 50px;
+        font-size: 20px;
+        border-radius: 80px;
+        color: black;
+        margin-right: 15%;
+      }
+      .a2{
+        background-color: whitesmoke;
+        padding: 50px 80px;
+        font-size: 20px;
+        border-radius: 80px;
+        color: black;
+      }
+      a:hover{
+        background-color: darkgray;
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+  .why{
+    .why__title{
+      text-align: center;
+      margin-bottom: 5%;
+      span{
+        background-color: whitesmoke;
+        border-radius: 15px;
+        font-family: serif;
+        padding: 20px;
+      }
+    }
+    .why__body{
+      text-align: center;
+      margin-bottom: 10%;
+      span{
+        background-color: whitesmoke;
+        border-radius: 15px;
+        font-family: serif;
+        padding: 10px;
+        font-size: 20px;
+      }
+    }
+    .why__box{
+      margin-bottom: 210px;
+      .why__image{
+        text-align: center;
+        margin-bottom: 30px;
+        img{
+          width: 30%;
+          height: 20%;
+          background-color: white;
+          border-radius: 50%;
+          padding: 2%;
+        }
+      }
+      .why__title_small{
+        text-align: center;
+        margin-bottom: 15px;
+        span{
+          background-color: whitesmoke;
+          border-radius: 15px;
+          font-family: serif;
+          padding: 5px;
+          font-size: 20px;
+        }
+      }
+      p{
+        background-color: whitesmoke;
+        border-radius: 15px;
+        font-family: serif;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .link{
+    margin-bottom: 210px;
+    .link__title{
+      text-align: center;
+      margin-bottom: 5%;
+      span{
+        background-color: whitesmoke;
+        border-radius: 15px;
+        font-family: serif;
+        padding: 20px;
+      }
+      a{
+        background-color: whitesmoke;
+        padding: 30px 100px;
+        font-size: 20px;
+        border-radius: 80px;
+        color: black;
+      }
+      a:hover{
+        background-color: darkgray;
+        text-decoration: none;
+        color: white;
+      }
+    }
+    .link__body{
+      text-align: center;
+      margin-bottom: 5%;
+      span{
+        background-color: whitesmoke;
+        border-radius: 15px;
+        font-family: serif;
+        padding: 10px;
+        font-size: 20px;
+      }
+    }
+    .link__title_smal{
+      text-align: center;
+      span{
+        background-color: whitesmoke;
+        border-radius: 15px;
+        font-family: serif;
+        padding: 10px;
+        font-size: 20px;
+      }
+    }
+    .link__timeline{
+      margin-bottom: 5%;
+    }
+  }
+  .newuser{
+    .newuser__title{
+      text-align: center;
+      margin-bottom: 5%;
+      span{
+        background-color: whitesmoke;
+        border-radius: 15px;
+        font-family: serif;
+        padding: 20px;
+      }
+      a{
+        background-color: whitesmoke;
+        padding: 30px 100px;
+        font-size: 20px;
+        border-radius: 80px;
+        color: black;
+      }
+      a:hover{
+        background-color: darkgray;
+        text-decoration: none;
+        color: white;
+      }
+    }
+    .newuser__body{
+      text-align: center;
+      margin-bottom: 5%;
+      span{
+        background-color: whitesmoke;
+        border-radius: 15px;
+        font-family: serif;
+        padding: 10px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+// admin
+#homes-top{
+  span{
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius: 10px;
+  }
+}

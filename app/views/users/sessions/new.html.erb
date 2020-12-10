@@ -1,0 +1,40 @@
+<div class="container-login">
+  <h1><%= t('.sign_in') %></h1>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="form-group form-check">
+        <%= f.check_box :remember_me, class: 'form-check-input' %>
+        <%= f.label :remember_me, class: 'form-check-label' do %>
+          <%= resource.class.human_attribute_name('remember_me') %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.submit  t('.sign_in'), class: 'btn btn-primary btn-block' %>
+    </div>
+    <div class="form-group">
+      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'btn btn-primary btn-block' %>
+    </div>
+  <% end %>
+  <hr class="devise-link my-5">
+  <div class="form-group">
+    <%= link_to "新規登録はこちら", new_user_registration_path, class: 'btn btn-info btn-block mb-4' %>
+    <%= link_to "パスワードを忘れた方はこちら", new_user_password_path, class: 'btn btn-info btn-block' %>
+  </div>
+  <hr class="devise-link my-5">
+  <div class="form-group">
+    <%= link_to "管理者はこちら", new_admin_session_path, class: 'admin_login btn btn-light btn-block mb-4' %>
+  </div>
+</div>

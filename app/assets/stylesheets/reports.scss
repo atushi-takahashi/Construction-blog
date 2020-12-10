@@ -1,0 +1,125 @@
+#reports-post_report_new,#reports-question_report_new{
+  .reponew{
+    border-radius: 80px;
+      background-color: whitesmoke;
+    .reponew__title{
+      .reponew__title_name{
+      border-radius: 10px;
+      padding: 5px;
+      }
+    }
+    .reponew__box{
+      margin-top: 20px;
+      margin-left: 70px;
+      .reponew__name{
+        margin-bottom: 10px;
+      }
+      .reponew__category{
+        margin-bottom: 10px;
+      }
+      .reponew__message{
+        margin-bottom: 10px;
+      }
+    }
+    .reponew__submit{
+    }
+  }
+}
+#reports-show{
+  .reposhow{
+    border-radius: 80px;
+    background-color: whitesmoke;
+    .reposhow__box{
+      margin: 10px auto 5px;
+      .reposhow__status{
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      .reposhow__user{
+        margin: 0 15px;
+        img{
+          border-radius: 50%;
+        }
+        .reposhow__user_name{
+          padding-left: 10px;
+          font-size: 20px;
+        }
+      }
+      .reposhow__category{
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+    }
+    .reposhow__title{
+      text-align: center;
+      line-height: 50px;
+      font-size: 17px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 10px auto 15px;
+    }
+    .reposhow__image{
+      img{
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+    }
+    .reposhow__body{
+      text-align: left;
+      font-size: 15px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 10px auto 15px;
+      min-height: 200px;
+      .reposhow__body_hight{
+        min-height: 170px;
+      }
+    }
+  }
+  .reposhow__link_box{
+    text-align: end;
+    padding-right: 4%;
+    margin-bottom: 20px;
+    input{
+      width: 97%;
+      margin-left: 30px;
+    }
+  }
+  .reposhow__outline{
+    border: 1px solid;
+    border-radius: 40px;
+    padding: 20px;
+    margin: 10px auto 5px;
+  }
+  .reposhow__bigtitle_name{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+  }
+}
+#reports-index{
+  h4{
+    margin-bottom: 50px;
+    span{
+      background-color: whitesmoke;
+      padding: 20px;
+      border: 1px solid;
+      border-radius: 10px;
+    }
+  }
+  .admin-report{
+    background-color: whitesmoke;
+    max-height: 75px;
+    td{
+      max-height: 75px;
+      overflow: auto;
+      text-overflow: ellipsis;
+    }
+  }
+}

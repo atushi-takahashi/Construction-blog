@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text :body, null: false
       t.string :image_id
       t.string :status, null:false
+      t.boolean :delete_flag, default: false
       t.timestamps
     end
   end

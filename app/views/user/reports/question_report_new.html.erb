@@ -1,0 +1,23 @@
+<%= form_with model: [@question,@report], url: question_report_create_path, method: :post, local: true do |f| %>
+<div class="reponew row border border-dark">
+<h3 class="reponew__title col-lg-12 mt-4 text-center"><span class="reponew__title_name border border-dark">　通報フォーム　</span></h3>
+  <div class="col-lg-11 form-group">
+    <div class="reponew__box row">
+      <div class="reponew__name col-lg-12">
+        <%= link_to "#{@question.user.name}", user_path(@question.user_id) %>さんの<%= link_to "#{@question.title}", question_path(@question) %>の記事に対する通報
+      </div>
+      <div class="reponew__category col-lg-12">
+        <%= f.label :カテゴリ %>
+          <%= f.select :category, Report.categories .keys, {} , class: "btn btn-light dropdown-toggle" %>
+      </div>
+      <div class="reponew__message col-lg-12">
+        <%= f.label :通報内容 %>
+        <%= f.text_area :message, rows: 10, class: 'form-control' %>
+      </div>
+      <div class="reponew__submit col-lg-12">
+        <%= f.submit "通報する", class: 'btn btn-outline-primary btn-block' %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

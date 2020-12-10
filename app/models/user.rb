@@ -9,11 +9,18 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :questions, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liking_posts, through: :likes, source: :post
+  has_many :liking_questions, through: :likes, source: :question
   has_many :comments, dependent: :destroy
   has_many :follower, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   has_many :followed, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
+  has_many :user_rooms, dependent: :destroy
+  has_many :direct_messages, dependent: :destroy
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+  has_many :reports, dependent: :destroy
 
   attachment :image, destroy: false
 
@@ -30,5 +37,20 @@ class User < ApplicationRecord
   # フォローしているかを確認する
   def following?(user)
     following_user.include?(user)
+  end
+
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+  end
+
+  def active_for_authentication?
+    super && (self.withdrawal_status == false)
   end
 end

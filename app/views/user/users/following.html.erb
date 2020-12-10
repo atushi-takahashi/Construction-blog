@@ -1,0 +1,39 @@
+<div class="row ufollow">
+  <h4 class="ufollow__title col-lg-3">フォロー</h4>
+  <% @followings.each do |following|%>
+  <div class="col-lg-12">
+    <div class="ufollow__box row">
+      <div class="col-lg-3">
+        <div class="ufollow__user_box row">
+          <div class="ufollow__user col-lg-11">
+            <%= attachment_image_tag following, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+            <%= link_to "#{following.name}",user_path(following) %>
+          </div>
+          <div class="ufollow__btn col-lg-11">
+            <% if following.id != current_user.id %>
+            <% if current_user.following?(following) %>
+              <%= link_to "フォロー解除",user_unfollow_path(following.id,following.id), method: :post, class: 'btn-sm btn-danger btn-block', remote: true %>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="ufollow__ditail_box row">
+          <div class="ufollow__ditail col-lg-11">
+            職種：<%= following.occupation %>
+          </div>
+          <div class="ufollow__ditail col-lg-11">
+            経験年数：<%= following.work_history %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="ufollow__profile row">
+          <%= following.profile %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

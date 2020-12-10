@@ -3,17 +3,23 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <% if user_signed_in? %>
     <a class="navbar-brand" href="#"><%= link_to "監督のつぶやき", root_path ,class:"navbar-brand" %></a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <% elsif admin_signed_in? %>
+    <a class="navbar-brand" href="#"><%= link_to "監督のつぶやき", admins_homes_path ,class:"navbar-brand" %></a>
+    <% else %>
+    <a class="navbar-brand" href="#"><%= link_to "監督のつぶやき", root_path ,class:"navbar-brand" %></a>
+    <% end %>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
     	<% if user_signed_in? %>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <%= link_to 'About', homes_about_path %>
+          <%= link_to 'About', root_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <%= link_to '一覧', root_path %>
+          <%= link_to '一覧', homes_index_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
@@ -28,7 +34,7 @@
       </li>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <a href="#">通知</a>
+          <%= link_to '通知', notifications_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
@@ -41,15 +47,46 @@
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
         </span>
       </li>
-      <% else %>
+      <% elsif admin_signed_in? %>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <%= link_to 'Top', root_path %>
+          <%= link_to 'ユーザー一覧', admins_users_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
         <span class="badge badge-pill badge-light">
-          <%= link_to 'About', homes_about_path %>
+          <%= link_to '投稿一覧', admins_posts_path %>
+        </span>
+      </li>
+      <li class="nav-item active mr-2">
+        <span class="badge badge-pill badge-light">
+          <%= link_to '質問一覧', admins_questions_path %>
+        </span>
+      </li>
+      <li class="nav-item active mr-2">
+        <span class="badge badge-pill badge-light">
+          <%= link_to '通報一覧', admins_reports_path %>
+        </span>
+      </li>
+      <li class="nav-item active mr-2">
+        <span class="badge badge-pill badge-light">
+          <%= link_to '通報通知', admins_notifications_path %>
+        </span>
+      </li>
+      <li class="nav-item active mr-2">
+        <span class="badge badge-pill badge-light">
+          <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+        </span>
+      </li>
+      <% else %>
+      <li class="nav-item active mr-2">
+        <span class="badge badge-pill badge-light">
+          <%= link_to 'About', root_path %>
+        </span>
+      </li>
+      <li class="nav-item active mr-2">
+        <span class="badge badge-pill badge-light">
+          <%= link_to '一覧', homes_index_path %>
         </span>
       </li>
       <li class="nav-item active mr-2">
@@ -64,9 +101,5 @@
       </li>
       <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>

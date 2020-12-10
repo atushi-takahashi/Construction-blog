@@ -1,0 +1,10 @@
+<%= form_with(model: [question, comment], url: question_create_comment_path(@question) ) do |f| %>
+  <div class="row">
+    <div class="qshow__comment_submit col-lg-2">
+      <%= f.submit "送信", class: "btn btn-outline-info btn-block btn-lg comment-submit float-right" %>
+    </div>
+    <div class="qshow__comment_form col-lg-10">
+      <%= f.text_area :message, class: "input-mysize form-control" %>
+    </div>
+  </div>
+<% end %>

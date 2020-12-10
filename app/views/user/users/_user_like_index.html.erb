@@ -1,0 +1,37 @@
+<div class="row">
+  <% timeline.each do |all| %>
+    <% if all.post_id == nil %>
+      <% if all.question.delete_flag == false %>
+        <div class="timeline">
+          <div class="timeline__head">
+            <span class="timeline__status"><%= all.question.status %></span>
+            <span class="timeline__category">カテゴリ： <%= all.question.category.name %></span>
+          </div>
+        <%= link_to question_path(all.question_id) do %>
+          <div class="timeline__title"><%= all.question.title %></div>
+        <% end %>
+          <div class="timeline__imege">
+            <%= attachment_image_tag all.question, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+          </div>
+          <div class="timeline__body"><%= all.question.body %></div>
+        </div>
+      <% end %>
+    <% else %>
+      <% if all.post.delete_flag == false %>
+        <div class="timeline">
+          <div class="timeline__head">
+            <span class="timeline__status"><%= all.post.status %></span>
+            <span class="timeline__category">カテゴリ： <%= all.post.category.name %></span>
+          </div>
+        <%= link_to post_path(all.post_id) do %>
+          <div class="timeline__title"><%= all.post.title %></div>
+        <% end %>
+          <div class="timeline__imege">
+            <%= attachment_image_tag all.post, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+          </div>
+          <div class="timeline__body"><%= all.post.body %></div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

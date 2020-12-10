@@ -1,0 +1,55 @@
+<div class="row pshow border border-dark">
+  <div class="pshow__box col-lg-11">
+    <div class="pshow__box row">
+      <div class="col-lg-1 pshow__status"><%= @post.status %></div>
+      <div class="col-lg-3 pshow__user">
+      <%= link_to admins_user_path(@post.user_id) do %>
+        <span class="pshow__user_image"><%= attachment_image_tag @post.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></span>
+        <span class="pshow__user_name ml-2"><%= @post.user.name %></span>
+      <% end %>
+      </div>
+      <div class="col-lg-4 pshow__category">カテゴリ：<%= @post.category.name %></div>
+    </div>
+  </div>
+  <div class="col-lg-11 pshow__title text-center">
+    <%= @post.title %>
+  </div>
+  <div class="col-lg-4 pshow__image">
+    <%= attachment_image_tag @post, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+  </div>
+  <div class="col-lg-7 pshow__body">
+    <div><%= @post.body %></div>
+    <div class="text-right">投稿日時：<%= @post.updated_at.to_s(:datetime_jp) %></div>
+  </div>
+  <div class="pshow__box col-lg-11", id="post_comments_area">
+    <% @post.comments.each do |comment| %>
+      <div class="pshow__comment row">
+        <div class="col-lg-2">
+          <div class="pshow__comment_user">
+            <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class:"comment-image", size: "40x40" %>
+            <%= link_to "#{comment.user.name}", admins_user_path(comment.user.id) %>
+          </div>
+        </div>
+        <div class="col-lg-10">
+          <div class="pshow__comment_body">
+            <%= comment.message %>
+          </div>
+          <div class="pshow__comment_time">
+            <%= comment.created_at.to_s(:datetime_jp) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="pshow__link_box col-lg-12">
+  <%= form_with model: @post, url: admins_post_path(@post), method: :patch, local: true do |f|%>
+    <% if @post.delete_flag == false %>
+      <%= f.hidden_field :delete_flag, value: 'true' %>
+      <%= f.submit "記事を非表示にする", data: {confirm: ('この記事を非表示にしてよろしいですか？')}, class: 'btn btn-danger btn-block' %>
+    <% elsif @post.delete_flag == true %>
+      <%= f.hidden_field :delete_flag, value: 'false' %>
+      <%= f.submit "記事を表示する", data: {confirm: ('このを表示してよろしいですか？')}, class: 'btn btn-info btn-block' %>
+    <% end %>
+  <% end %>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<% comments.each do |comment| %>
+  <div class="qshow__comment row">
+    <div class="col-lg-2">
+      <div class="qshow__comment_user">
+          <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class:"comment-image", size: "40x40" %>
+          <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
+      </div>
+      <div class="qshow__comment_destroy">
+        <% if user_signed_in? %>
+          <% if comment.user_id == current_user.id %>
+            <%= link_to question_destroy_comment_path(comment.question_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
+              <i class="fas fa-trash" style="color: black;">削除する</i>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-10">
+      <div class="qshow__comment_body">
+          <%= comment.message %>
+      </div>
+      <div class="qshow__comment_time">
+          <%= comment.created_at.to_s(:datetime_jp) %>
+      </div>
+    </div>
+  </div>
+<% end %>

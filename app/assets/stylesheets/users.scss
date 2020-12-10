@@ -1,3 +1,190 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#users-show{
+  .ushow{
+    border: 1px solid black;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    .ushow__box{
+      .ushow__image{
+        margin-right: 15px;
+        img{
+          border-radius: 50%;
+          padding: 10px;
+          margin-top: 10px;
+        }
+      }
+      .ushow__link{
+        margin: 0 25px 0;
+        .ushow__link_box{
+          margin-top: 15px;
+          .ushow__name{
+            font-size: 25px;
+            margin-bottom: 10px;
+          }
+          .ushow__follow_btn{
+            text-align: center;
+            margin-bottom: 10px;
+          }
+          .ushow__follow_count{
+            border: 1px solid;
+            border-radius: 10px;
+            width: 90%;
+            margin: 0 auto 10px
+          }
+          .ushow__message{
+            text-align: center;
+            margin-bottom: 10px;
+          }
+          .ushow__edit{
+            text-align: center;
+            margin-bottom: 10px;
+          }
+      }
+      }
+      .ushow__detail_box{
+        .ushow__detail{
+          border: 1px solid;
+          border-radius: 10px;
+          width: 90%;
+          margin: 20px auto 10px;
+          padding: 10px;
+        }
+        .ushow__profile_title{
+          font-size: 18px;
+          padding-left: 10px;
+        }
+        .ushow__profile{
+          border: 1px solid;
+          border-radius: 10px;
+          width: 97%;
+          padding: 10px;
+          margin-left: 10px;
+          min-height: 95px;
+        }
+      }
+    }
+  }
+  button{
+    a{
+      color: white;
+    }
+  }
+}
+#users-following, #users-follower{
+  .ufollow{
+    .ufollow__title{
+      border: 1px solid;
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+      font-size: 25px;
+      margin: 15px;
+      background-color: whitesmoke;
+    }
+    .ufollow__box{
+      border: 1px solid;
+      border-radius: 10px;
+      margin: 0 auto 20px;
+      background-color: whitesmoke;
+      .ufollow__user_box{
+        margin: 10px 0;
+        .ufollow__user{
+          margin-bottom: 10px;
+          img{
+            border-radius: 50%;
+          }
+        }
+        .ufollow__btn{
+          text-align: center;
+        }
+      }
+      .ufollow__ditail_box{
+        margin-top: 10px;
+        .ufollow__ditail{
+          border: 1px solid;
+          border-radius: 10px;
+          width: 90%;
+          margin-bottom: 13px;
+          padding: 5px;
+        }
+      }
+      .ufollow__profile{
+        border: 1px solid;
+        border-radius: 10px;
+        margin: 10px auto 13px;
+        padding: 5px;
+        min-height: 85px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+#users-edit{
+  .uedit{
+    border-radius: 80px;
+    background-color: whitesmoke;
+    .uedit__title{
+      .uedit__title_name{
+        border-radius: 10px;
+        padding: 5px;
+      }
+    }
+    .uedit__image{
+      margin-left: 65px;
+      margin-top: 20px;
+    }
+    .uedit__box{
+      margin-top: 20px;
+      .uedit__name{
+        margin-bottom: 10px;
+      }
+      .uedit__occupation{
+        margin-bottom: 10px;
+      }
+      .uedit__history{
+        margin-bottom: 10px;
+        margin-left: 55px;
+      }
+      .uedit__profile{
+        margin-bottom: 10px;
+      }
+    }
+    .uedit__btn{
+      input,a{
+        margin-left: 65px;
+        margin-bottom: 20px;
+        width: 95%;
+      }
+    }
+  }
+}
+
+.container-login{
+  background-color: whitesmoke;
+  border-radius: 35px;
+  .admin_login{
+    background-color: wheat;
+  }
+}
+// admin
+#users-index{
+  h4{
+    margin-bottom: 50px;
+    span{
+      background-color: whitesmoke;
+      padding: 20px;
+      border: 1px solid;
+      border-radius: 10px;
+    }
+  }
+  .admin-user{
+    background-color: whitesmoke;
+    max-height: 110px;
+    td{
+      max-height: 110px;
+      overflow: auto;
+      text-overflow: ellipsis;
+    }
+  }
+}

@@ -1,3 +1,150 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#posts-show{
+  .pshow{
+    border-radius: 80px;
+    background-color: whitesmoke;
+    .pshow__box{
+      margin: 10px auto 5px;
+      .pshow__status{
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      .pshow__user{
+        margin: 0 15px;
+        img{
+          border-radius: 50%;
+        }
+        .pshow__user_name{
+          padding-left: 10px;
+          font-size: 20px;
+        }
+      }
+      .pshow__category{
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      .pshow__like{
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        margin-left: 13%;
+      }
+    }
+    .pshow__title{
+      text-align: center;
+      line-height: 50px;
+      font-size: 17px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 5px auto 15px;
+    }
+    .pshow__image{
+      img{
+        margin-left: 10%;
+        border-radius: 10px;
+      }
+    }
+    .pshow__body{
+      text-align: left;
+      font-size: 15px;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 5px auto 15px;
+      min-height: 200px;
+      .pshow__body_hight{
+        min-height: 150px;
+      }
+    }
+  }
+  .pshow__comment{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    .pshow__comment_user{
+      padding: 10px 0;
+      img{
+        border-radius: 50%;
+      }
+      a{
+        padding-left: 10px;
+        font-size: 20px;
+      }
+    }
+    .pshow__comment_body{
+      margin-top: 10px;
+      min-height: 60px;
+    }
+    .pshow__comment_time{
+      text-align: right;
+    }
+  }
+  .pshow__comment_box{
+    margin: 0 auto 20px;
+  }
+  .pshow__link_box{
+    text-align: end;
+    padding-right: 4%;
+    margin-bottom: 20px;
+    input{
+      width: 97%;
+      margin-left: 30px;
+    }
+  }
+}
+#posts-new,#posts-edit{
+  .pform{
+    border-radius: 80px;
+    background-color: whitesmoke;
+    .pform__bigtitle{
+      .pform__bigtitle_name{
+      border-radius: 10px;
+      padding: 5px;
+      }
+    }
+    .pform__image{
+      margin-left: 65px;
+      margin-top: 20px;
+    }
+    .pform__box{
+      margin-top: 20px;
+      .pform__category{
+        margin-bottom: 10px;
+      }
+      .pform__title{
+        margin-bottom: 10px;
+      }
+    }
+    .pform__submit{
+      input{
+        margin-left: 65px;
+    width: 95%;
+      }
+    }
+  }
+}
+// admin
+#posts-index{
+  h4{
+    margin-bottom: 50px;
+    span{
+      background-color: whitesmoke;
+      padding: 20px;
+      border: 1px solid;
+      border-radius: 10px;
+    }
+  }
+  .admin-post{
+    background-color: whitesmoke;
+    max-height: 75px;
+    td{
+      max-height: 75px;
+      overflow: auto;
+      text-overflow: ellipsis;
+    }
+  }
+}
