@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
     when Admin
       admins_homes_path
     when User
-      root_path
+      homes_index_path
     end
   end
 
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :user
-      new_user_session_path
-    else 
+      root_path
+    else
       new_admin_session_path
     end
   end

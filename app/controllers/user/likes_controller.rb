@@ -1,4 +1,5 @@
 class User::LikesController < ApplicationController
+  before_action :authenticate_user!
   before_action :post_set_variables, only: [:post_like, :post_unlike]
   before_action :question_set_variables, only: [:question_like, :question_unlike]
 

@@ -1,6 +1,7 @@
 #questions-show{
   .qshow{
     border-radius: 80px;
+    background-color: whitesmoke;
     .qshow__box{
       margin: 10px auto 5px;
       .qshow__status{
@@ -107,6 +108,7 @@
 #questions-new,#questions-edit{
   .qform{
     border-radius: 80px;
+    background-color: whitesmoke;
     .qform__bigtitle{
       .qform__bigtitle_name{
       border-radius: 10px;
@@ -131,6 +133,27 @@
         margin-left: 65px;
         width: 95%;
       }
+    }
+  }
+}
+// admin
+#questions-index{
+  h4{
+    margin-bottom: 50px;
+    span{
+      background-color: whitesmoke;
+      padding: 20px;
+      border: 1px solid;
+      border-radius: 10px;
+    }
+  }
+  .admin-question{
+    background-color: whitesmoke;
+    max-height: 75px;
+    td{
+      max-height: 75px;
+      overflow: auto;
+      text-overflow: ellipsis;
     }
   }
 }

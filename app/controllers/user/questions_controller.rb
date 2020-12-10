@@ -24,7 +24,7 @@ class User::QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     if @question.save
-      redirect_to questions_path(@question), notice: '投稿に成功しました'
+      redirect_to question_path(@question), notice: '投稿に成功しました'
     else
       flash.now[:alert] = '入力に不備があります'
       render 'new'

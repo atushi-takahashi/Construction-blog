@@ -1,6 +1,5 @@
 class User::PostsController < ApplicationController
-  before_action :authenticate_user!,only: [:new, :create, :edit, :update, :destroy
-  ]
+  before_action :authenticate_user!,only: [:new, :create, :edit, :update, :destroy]
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -25,7 +24,7 @@ class User::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to posts_path(@post), notice: '投稿に成功しました'
+      redirect_to post_path(@post), notice: '投稿に成功しました'
     else
       flash.now[:alert] = '入力に不備があります'
       render 'posts/new'

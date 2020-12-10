@@ -68,8 +68,9 @@ class User::UsersController < ApplicationController
   end
 
   def user_like_index
-    posts = Post.like.where(user_id: @user, questions_id: nil).order(created_at: :desc)
-    questions = Question.like.where(user_id: @user, post_id: nil).order(created_at: :desc)
+    likes = Like.where(user_id: @user.id)
+    posts = likes.where(question_id: nil)
+    questions = likes.where(post_id: nil)
     @timeline = posts | questions
     @timeline.sort! { |a, b| b.created_at <=> a.created_at }
     respond_to do |format|

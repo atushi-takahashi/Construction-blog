@@ -1,32 +1,32 @@
-<h4 class="col-lg-3">質問一覧</h4>
+<h4 class="col-lg-3"><span>質問一覧</span></h4>
 <table class="table">
   <thead class="thead-light">
-    <tr>
-      <th scope="col">ユーザー名</th>
-      <th scope="col">カテゴリ</th>
-      <th scope="col">タイトル</th>
-      <th scope="col">通報された数</th>
-      <th scope="col">記事の状態</th>
+    <tr class="row">
+      <th class="col-lg-3">ユーザー名</th>
+      <th class="col-lg-2">カテゴリ</th>
+      <th class="col-lg-4">タイトル</th>
+      <th class="col-lg-2">通報された数</th>
+      <th class="col-lg-1">状態</th>
     </tr>
   </thead>
   <tbody>
     <% @questions.each do |question|%>
-    <tr>
-      <th scope="row">
+    <tr class="admin-question row">
+      <td class="col-lg-3">
         <%= attachment_image_tag question.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
         <%= link_to "#{question.user.name}",admins_user_path(question.user_id) %>
       </th>
-      <th>
+      <td class="col-lg-2">
         <%= question.category.name %>
       </th>
-      <td>
+      <td class="col-lg-4">
         <%= link_to "#{question.title}", admins_question_path(question) %>
         
       </td>
-      <td>
+      <td class="col-lg-2">
         <%= question.reports.count %>
       </td>
-      <td>
+      <td class="col-lg-1">
         <% if question.delete_flag == true %>
           非表示
         <% elsif question.delete_flag == false %>
