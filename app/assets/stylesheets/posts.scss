@@ -1,6 +1,7 @@
 #posts-show{
   .pshow{
     border-radius: 80px;
+    background-color: whitesmoke;
     .pshow__box{
       margin: 10px auto 5px;
       .pshow__status{
@@ -98,6 +99,7 @@
 #posts-new,#posts-edit{
   .pform{
     border-radius: 80px;
+    background-color: whitesmoke;
     .pform__bigtitle{
       .pform__bigtitle_name{
       border-radius: 10px;
@@ -122,6 +124,27 @@
         margin-left: 65px;
     width: 95%;
       }
+    }
+  }
+}
+// admin
+#posts-index{
+  h4{
+    margin-bottom: 50px;
+    span{
+      background-color: whitesmoke;
+      padding: 20px;
+      border: 1px solid;
+      border-radius: 10px;
+    }
+  }
+  .admin-post{
+    background-color: whitesmoke;
+    max-height: 75px;
+    td{
+      max-height: 75px;
+      overflow: auto;
+      text-overflow: ellipsis;
     }
   }
 }

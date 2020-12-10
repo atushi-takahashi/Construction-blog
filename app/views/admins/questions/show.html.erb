@@ -22,16 +22,33 @@
     <div class="text-right">投稿日時：<%= @question.updated_at.to_s(:datetime_jp) %></div>
   </div>
   <div class="qshow__comment_box col-lg-11", id="question_comments_area">
-    <%= render partial: 'user/comments/question_index', locals: { comments: @question_comments } %>
+    <% @question.comments.each do |comment| %>
+      <div class="qshow__comment row">
+        <div class="col-lg-2">
+          <div class="qshow__comment_user">
+            <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class:"comment-image", size: "40x40" %>
+            <%= link_to "#{comment.user.name}", admins_user_path(comment.user.id) %>
+          </div>
+        </div>
+        <div class="col-lg-10">
+          <div class="qshow__comment_body">
+            <%= comment.message %>
+          </div>
+          <div class="qshow__comment_time">
+            <%= comment.created_at.to_s(:datetime_jp) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="qshow__link_box col-lg-12">
   <%= form_with model: @question, url: admins_question_path(@question), method: :patch, local: true do |f|%>
     <% if @question.delete_flag == false %>
       <%= f.hidden_field :delete_flag, value: 'true' %>
-      <%= f.submit "記事を非表示にする", class: 'btn btn-danger btn-block' %>
+      <%= f.submit "記事を非表示にする", data: {confirm: ('この記事を非表示にしてよろしいですか？')}, class: 'btn btn-danger btn-block' %>
     <% elsif @question.delete_flag == true %>
       <%= f.hidden_field :delete_flag, value: 'false' %>
-      <%= f.submit "記事を表示する", class: 'btn btn-info btn-block' %>
+      <%= f.submit "記事を表示する", data: {confirm: ('このを表示してよろしいですか？')}, class: 'btn btn-info btn-block' %>
     <% end %>
   <% end %>
   </div>

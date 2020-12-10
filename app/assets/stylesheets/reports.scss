@@ -1,6 +1,7 @@
 #reports-post_report_new,#reports-question_report_new{
   .reponew{
     border-radius: 80px;
+      background-color: whitesmoke;
     .reponew__title{
       .reponew__title_name{
       border-radius: 10px;
@@ -27,6 +28,7 @@
 #reports-show{
   .reposhow{
     border-radius: 80px;
+    background-color: whitesmoke;
     .reposhow__box{
       margin: 10px auto 5px;
       .reposhow__status{
@@ -99,5 +101,25 @@
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px;
+  }
+}
+#reports-index{
+  h4{
+    margin-bottom: 50px;
+    span{
+      background-color: whitesmoke;
+      padding: 20px;
+      border: 1px solid;
+      border-radius: 10px;
+    }
+  }
+  .admin-report{
+    background-color: whitesmoke;
+    max-height: 75px;
+    td{
+      max-height: 75px;
+      overflow: auto;
+      text-overflow: ellipsis;
+    }
   }
 }

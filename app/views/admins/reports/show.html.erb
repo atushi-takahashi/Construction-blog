@@ -93,15 +93,15 @@
     <div class="report__link_box col-lg-12">
       <% if @report.question_id == nil %>
           <% if @report.post.delete_flag == false %>
-            <%= link_to "記事を非表示にする", admins_delete_flag_update_path(@report), method: :patch, class:'btn btn-danger btn-block' %>
+            <%= link_to "記事を非表示にする", admins_delete_flag_update_path(@report), method: :patch, data: {confirm: ('この記事を非表示にしてよろしいですか？')}, class:'btn btn-danger btn-block' %>
           <% elsif @report.post.delete_flag == true %>
-            <%= link_to "記事を表示する", admins_delete_flag_update_path(@report), method: :patch, class:"btn btn-info btn-block" %>
+            <%= link_to "記事を表示する", admins_delete_flag_update_path(@report), method: :patch, data: {confirm: ('この記事を表示してよろしいですか？')}, class:"btn btn-info btn-block" %>
           <% end %>
       <% elsif @report.post_id == nil %>
           <% if @report.question.delete_flag == false %>
-            <%= link_to "記事を非表示にする", admins_delete_flag_update_path(@report), method: :patch, class:'btn btn-danger btn-block' %>
+            <%= link_to "記事を非表示にする", admins_delete_flag_update_path(@report), method: :patch, data: {confirm: ('この記事を非表示にしてよろしいですか？')}, class:'btn btn-danger btn-block' %>
           <% elsif @report.question.delete_flag == true %>
-            <%= link_to "記事を表示する", admins_delete_flag_update_path(@report), method: :patch, class:"btn btn-info btn-block" %>
+            <%= link_to "記事を表示する", admins_delete_flag_update_path(@report), method: :patch, data: {confirm: ('この記事を表示してよろしいですか？')}, class:"btn btn-info btn-block" %>
           <% end %>
       <% end %>
     </div>

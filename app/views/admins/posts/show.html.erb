@@ -27,7 +27,7 @@
         <div class="col-lg-2">
           <div class="pshow__comment_user">
             <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class:"comment-image", size: "40x40" %>
-            <%= link_to "@#{comment.user.name}", user_path(comment.user.id) %>
+            <%= link_to "#{comment.user.name}", admins_user_path(comment.user.id) %>
           </div>
         </div>
         <div class="col-lg-10">
@@ -45,10 +45,10 @@
   <%= form_with model: @post, url: admins_post_path(@post), method: :patch, local: true do |f|%>
     <% if @post.delete_flag == false %>
       <%= f.hidden_field :delete_flag, value: 'true' %>
-      <%= f.submit "記事を非表示にする", class: 'btn btn-danger btn-block' %>
+      <%= f.submit "記事を非表示にする", data: {confirm: ('この記事を非表示にしてよろしいですか？')}, class: 'btn btn-danger btn-block' %>
     <% elsif @post.delete_flag == true %>
       <%= f.hidden_field :delete_flag, value: 'false' %>
-      <%= f.submit "記事を表示する", class: 'btn btn-info btn-block' %>
+      <%= f.submit "記事を表示する", data: {confirm: ('このを表示してよろしいですか？')}, class: 'btn btn-info btn-block' %>
     <% end %>
   <% end %>
   </div>

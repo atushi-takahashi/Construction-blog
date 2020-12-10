@@ -6,7 +6,7 @@
       <div class="col-lg-3">
         <div class="dm__user_box row">
           <div class="dm__user col-lg-12">
-            <%= attachment_image_tag user_room.user.image, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+            <%= attachment_image_tag user_room.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
             <%= link_to "#{user_room.user.name}",user_path(user_room.user) %>
           </div>
         </div>

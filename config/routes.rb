@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     sessions: 'admins/sessions'
   }
   scope module: :user do
-    root to: 'homes#top'
-    get 'homes/about'
+    root to: 'homes#about'
+    get 'homes/index'
     get 'homes/search'
     get 'homes/ranking_index'
     get 'homes/solution_index'

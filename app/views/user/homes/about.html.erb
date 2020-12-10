@@ -1,2 +1,45 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<div class="main row">
+  <h1 class="main__title col-lg-12"><span>現場で感じた感動や疑問を共有してみませんか？</span></h1>
+  <div class="main__link col-lg-8">
+    <a href="#tubuyaki" class="a1">監督のつぶやきとは</a>
+    <a href="#toukou" class="a2">投稿を見る</a>
+  </div>
+</div>
+<div class="why row" id="tubuyaki">
+<h2 class="why__title col-lg-12"><span>監督のつぶやきとは</span></h2>
+<p class="why__body col-lg-12"><span>現場での『感動』『疑問』『問題』を共有するサイトです。</span></p>
+  <div class="why__box col-lg-4">
+    <div class="why__image"><%= image_tag asset_path('tokutyou.png'), class: "about_icon" %></div>
+    <div class="why__title_small"><span>特徴</span></div>
+    <p>現場で感じた『感動』や竣工時の『達成感』を共有できる。</p>
+    <p>現場で発生した『疑問』や『問題』を質問し、社外技術者の意見を聞ける。</p>
+  </div>
+  <div class="why__box col-lg-4">
+    <div class="why__image"><%= image_tag asset_path('missyon.png'), class: "why_icon" %></div>
+    <div class="why__title_small"><span>ミッション</span></div>
+    <p>現場監督という仕事に誇りを持ってもらいたい。</p>
+    <p>現場監督の睡眠時間確保の手助けとなること。</p>
+  </div>
+  <div class="why__box col-lg-4">
+    <div class="why__image"><%= image_tag asset_path('keii.png'), class: "why_icon" %></div>
+    <div class="why__title_small"><span>作成経緯</span></div>
+    <p>私は以前まで現場監督に従事していましたが、日々の業務がとても多い上に現場拘束が長く
+    問題が発生した場合に解決する時間を作るためにとても苦労しました。そこで今も忙しく働いている元同
+    業者達が少しでも現場が終わったあと 早く休めるようという思いからこのサイトを制作しました。</p>
+  </div>
+</div>
+<div class="link row" id="toukou">
+  <h2 class="link__title col-lg-12"><span>投稿を見る</span></h2>
+  <p class="link__body col-lg-12"><span>会員登録不要で投稿を見ることができます。いいね！・コメントを行うためには新規登録が必要です。</span></p>
+  <h3 class="link__title_smal col-lg-12"><span>最新の投稿</span></h3>
+  <div class="link__timeline col-lg-12">
+    <%= render 'shared/about_timeline'%>
+  </div>
+  <h2 class="link__title col-lg-12"><%= link_to "投稿一覧へ", root_path %></h2>
+</div>
+<div class="newuser row">
+  <h2 class="newuser__title col-lg-12"><span>会員登録</span></h2>
+  <p class="newuser__body col-lg-12"><span>1分程度で登録できます。</span></p>
+  <p class="newuser__body col-lg-12"><span>登録すると投稿・質問・いいね！・コメント・フォロー・ダイレクトメッセージができます。</span></p>
+  <div class="newuser__title col-lg-12"><%= link_to "新規会員登録へ", new_user_registration_path %></div>
+</div>

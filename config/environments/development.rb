@@ -44,7 +44,7 @@ Rails.application.configure do
     :port => 587,
     :domain => "smtp.gmail.com",
     :user_name => "atushi1996723@gmail.com",
-    :password => "dkqodyoibwxqnuaz",
+    :password => ENV["GMAIL_KEY"],
     :authentication => 'login'
   }
 

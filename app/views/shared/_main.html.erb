@@ -1,28 +1,30 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="row">
-      <button type="button" class="col-lg-2 btn btn-secondary btn-lg"><%= link_to "新規投稿", root_path, class:"text-light" %></button>
-      <button type="button" class="col-lg-2 btn btn-secondary btn-lg"><%= link_to "人気投稿", homes_ranking_index_path, class:"text-light" %></button>
+      <button type="button" class="col-lg-2 btn btn-secondary btn-lg"><%= link_to "新着投稿", homes_index_path, remote: true, class:"text-light" %></button>
+      <button type="button" class="col-lg-2 btn btn-secondary btn-lg"><%= link_to "人気投稿", homes_ranking_index_path, remote: true, class:"text-light" %></button>
       <div class="btn-group col-lg-2 pr-0 pl-0" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary btn-lg btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           カテゴリ
         </button>
         <div class="dropdown-menu btn btn-lg btn-block" aria-labelledby="btnGroupDrop1">
           <% @categories.each do |category| %>
-           <%= link_to "#{category.name}", category_path(category), class:"dropdown-item" %>
+           <%= link_to "#{category.name}", category_path(category), remote: true, class:"dropdown-item" %>
           <% end %>
         </div>
       </div>
-      <button type="button" class="col-lg-2 btn btn-secondary btn-lg"><%= link_to "未解決の質問", homes_solution_index_path, class:"text-light" %></button>
+      <button type="button" class="col-lg-2 btn btn-secondary btn-lg"><%= link_to "未解決の質問", homes_solution_index_path, remote: true, class:"text-light" %></button>
       <div class="col-lg-4">
-        <%= form_with url: homes_search_path, method: :get, local: true do |f| %>
+        <%= form_with url: homes_search_path, method: :get, remote: true do |f| %>
         <div class="row">
           <%= f.text_field :q, placeholder: "キーワードを入力", class:"form-control col-sm-6 mt-1 ml-3" %>
-          <%= f.submit"検索", class:"btn btn-outline-success col-sm-4 mt-1 ml-3" %>
+          <%= f.submit"検索", class:"btn btn-success col-sm-4 mt-1 ml-3" %>
         </div>
         <% end %>
       </div>
     </div>
   </div>
+  <div class="col-lg-12" id="top_timeline">
+    <%= render 'shared/timeline' %>
+  </div>
 </div>
-<%= render 'shared/timeline' %>
