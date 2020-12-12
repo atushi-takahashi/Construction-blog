@@ -1,6 +1,6 @@
 class Admins::ReportsController < ApplicationController
   def index
-    @reports = Report.all
+    @reports = Report.all.order(created_at: :desc)
   end
 
   def show
@@ -23,7 +23,7 @@ class Admins::ReportsController < ApplicationController
   def delete_flag_update
     @report = Report.find(params[:id])
     # @report.update
-    if @report.question_id == nil
+    if @report.question_id.nil?
       if @report.post.delete_flag == false
         @report.post.update(delete_flag: true)
         flash[:notice] = "記事を非表示にしました"
@@ -33,7 +33,7 @@ class Admins::ReportsController < ApplicationController
         flash[:notice] = "記事を表示しました"
         redirect_back(fallback_location: root_path)
       end
-    elsif @report.post_id == nil
+    elsif @report.post_id.nil?
       if @report.question.delete_flag == false
         @report.question.update(delete_flag: true)
         flash[:notice] = "記事を非表示にしました"
@@ -51,5 +51,4 @@ class Admins::ReportsController < ApplicationController
     flash[:notice] = "通報を削除しました"
     redirect_back(fallback_location: root_path)
   end
-
 end

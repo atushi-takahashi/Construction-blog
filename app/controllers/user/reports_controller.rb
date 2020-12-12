@@ -3,7 +3,6 @@ class User::ReportsController < ApplicationController
   before_action :find_post, only: [:post_report_create, :post_report_new]
   before_action :find_question, only: [:question_report_create, :question_report_new]
 
-
   def post_report_new
     @report = Report.new
   end

@@ -7,14 +7,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <%= render 'shared/modal' %>
   <body class="body" id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/header' %>
     <span><%= link_to :back do %>
       <%= image_tag asset_path('back.png'), class: "back" %>
     <% end %></span>
   　　　<%= render 'shared/flash_messages' %>
-    <div class="container">
+    <div class="container fuwa">
       <%= yield %>
     </div>
     <span id="back">

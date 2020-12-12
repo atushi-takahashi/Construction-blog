@@ -7,7 +7,7 @@ class Admins::PostsController < ApplicationController
   def show
     @post_comments = @post.comments.order(created_at: :desc)
   end
-  
+
   def update
     @post.update(post_params)
     if @post.delete_flag == true
@@ -18,11 +18,13 @@ class Admins::PostsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-  
+
   private
+
   def find_post
     @post = Post.find(params[:id])
   end
+
   def post_params
     params.require(:post).permit(:delete_flag)
   end

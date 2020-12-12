@@ -23,6 +23,7 @@
   padding: 2rem;
 }
 
+
 // 「ログインしました」などのフラッシュ用スタイル
 
 .alert-notice {
@@ -75,12 +76,21 @@ a:hover{
   background-color: #464646;
   opacity:  0.9;
  }
-.container{
+.fuwa{
   opacity : 0;
   transform : translate(0, 45px);
-  transition : all 300ms;
+  transition : all 1000ms;
 }
-.container.container-scroll {
+.fuwa.fuwa-scroll {
   opacity : 1;
   transform : translate(0, 0);
+}
+
+.modal_body { //モーダルウィンドウの縦表示位置を調整
+ margin: 5% auto;
+}
+
+.modal-img_footer { //表示予定のテキストとボタンを中央揃え
+ padding: .5em;
+ text-align: center;
 }

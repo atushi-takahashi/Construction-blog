@@ -1,5 +1,5 @@
 class User::PostsController < ApplicationController
-  before_action :authenticate_user!,only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -26,8 +26,8 @@ class User::PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post), notice: '投稿に成功しました'
     else
-      flash.now[:alert] = '入力に不備があります'
-      render 'posts/new'
+      flash[:alert] = "入力に不備があります"
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -35,8 +35,8 @@ class User::PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to post_path(@post), notice: '更新に成功しました'
     else
-      flash.now[:alert] = '入力に不備があります'
-      render 'posts/edit'
+      flash[:alert] = "入力に不備があります"
+      redirect_back(fallback_location: root_path)
     end
   end
 

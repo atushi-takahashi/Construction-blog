@@ -1,0 +1,68 @@
+<% if controller_name == "questions" %>
+<div class="modal fade" id="image_Modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg modal-middle">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= attachment_image_tag @question, :image, :fill, 765, 550, fallback: "no_image.jpg", size: "765x550", class: "aligncenter size-full wp-image-425" %>
+      </div>
+      <div class="modal-img_footer">
+      <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% elsif controller_name == "posts" %>
+<div class="modal fade" id="image_Modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg modal-middle">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= attachment_image_tag @post, :image, :fill, 765, 550, fallback: "no_image.jpg", size: "765x550", class: "aligncenter size-full wp-image-425" %>
+      </div>
+      <div class="modal-img_footer">
+      <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% elsif controller_name == "users" %>
+<div class="modal fade" id="image_Modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg modal-middle">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= attachment_image_tag @user, :image, :fill, 765, 550, fallback: "no_image.jpg", size: "765x550", class: "aligncenter size-full wp-image-425" %>
+      </div>
+      <div class="modal-img_footer">
+      <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% elsif controller_name == "reports" && controller.action_name =="show" %>
+  <% if @report.question_id == nil %>
+    <div class="modal fade" id="image_Modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog modal-lg modal-middle">
+        <div class="modal-content">
+          <div class="modal-body">
+            <%= attachment_image_tag @report.post, :image, :fill, 765, 550, fallback: "no_image.jpg", size: "765x550", class: "aligncenter size-full wp-image-425" %>
+          </div>
+          <div class="modal-img_footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% elsif @report.post_id == nil %>
+    <div class="modal fade" id="image_Modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog modal-lg modal-middle">
+        <div class="modal-content">
+          <div class="modal-body">
+            <%= attachment_image_tag @report.question, :image, :fill, 765, 550, fallback: "no_image.jpg", size: "765x550", class: "aligncenter size-full wp-image-425" %>
+          </div>
+          <div class="modal-img_footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

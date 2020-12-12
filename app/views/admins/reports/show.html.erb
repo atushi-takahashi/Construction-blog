@@ -66,7 +66,7 @@
       <% end %>
     </h5>
     <div class="row">
-      <div class="col-lg-4 reposhow__image">
+      <div class="col-lg-4 reposhow__image" data-toggle="modal" data-target="#image_Modal" style="cursor:pointer">
         <% if @report.question_id == nil %>
           <%= attachment_image_tag @report.post, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
         <% elsif @report.post_id == nil %>

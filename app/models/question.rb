@@ -1,5 +1,4 @@
 class Question < ApplicationRecord
-  
   belongs_to :user
   belongs_to :category
   has_many :likes, dependent: :destroy
@@ -12,21 +11,21 @@ class Question < ApplicationRecord
   validates :body, presence: true
 
   attachment :image, destroy: false
-  
+
   def question_create_notification_by(current_user)
     notification = current_user.active_notifications.new(
       question_id: id,
       visited_id: user_id,
       action: "question_like"
     )
-      notification.save if notification.valid?
+    notification.save if notification.valid?
   end
 
   def question_create_notification_comment!(current_user, comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = Comment.select(:user_id).where(question_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
-    question_save_notification_comment!(current_user, comment_id, temp_id['user_id'])
+      question_save_notification_comment!(current_user, comment_id, temp_id['user_id'])
     end
     # まだ誰もコメントしていない場合は、投稿者に通知を送る
     question_save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
