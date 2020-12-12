@@ -52,12 +52,12 @@ $( document ).on('turbolinks:load',window.onload = function() {
   });
 
   function scroll_effect(){
-   $('.container').each(function(){
+   $('.fuwa').each(function(){
     var elemPos = $(this).offset().top;
     var scroll = $(window).scrollTop();
     var windowHeight = $(window).height();
     if (scroll > elemPos - windowHeight){
-     $(this).addClass('container-scroll');
+     $(this).addClass('fuwa-scroll');
     }
    });
   }

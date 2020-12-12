@@ -7,7 +7,7 @@ class User::CategoriesController < ApplicationController
     @timeline = posts | questions
     @timeline.sort! { |a, b| b.created_at <=> a.created_at }
     respond_to do |format|
-      format.js {render layout: false} # Add this line to you respond_to block
+      format.js { render layout: false } # Add this line to you respond_to block
     end
   end
 end

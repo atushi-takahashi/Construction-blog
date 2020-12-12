@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users ,controllers: {
+  devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
   }
   devise_scope :user do
     post '/users/guest_sign_in', to: 'users/sessions#new_guest'
   end
-  devise_for :admins  ,controllers: {
-    sessions: 'admins/sessions'
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
   }
   scope module: :user do
     root to: 'homes#about'
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       post   '/comment/:id' => 'comments#question_create', as: 'create_comment'
       delete '/comment/:id' => 'comments#question_destroy', as: 'destroy_comment'
       get '/report/new' => 'reports#question_report_new', as: 'report_new'
-      post   '/report' => 'reports#question_report_create', as: 'report_create'
+      post '/report' => 'reports#question_report_create', as: 'report_create'
     end
     resources :direct_messages, only: [:create, :destroy]
     resources :rooms, only: [:create, :index, :show]
@@ -57,5 +57,4 @@ Rails.application.routes.draw do
     resources :reports, only: [:index, :show, :destroy, :update]
     patch '/report/:id' => 'reports#delete_flag_update', as: 'delete_flag_update'
   end
-
 end

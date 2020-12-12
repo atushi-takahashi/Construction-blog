@@ -1,6 +1,6 @@
 class Admins::QuestionsController < ApplicationController
   before_action :find_question, only: [:show, :update]
-  
+
   def index
     @questions = Question.all.order(created_at: :desc)
   end
@@ -19,11 +19,13 @@ class Admins::QuestionsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-  
+
   private
+
   def find_question
     @question = Question.find(params[:id])
   end
+
   def question_params
     params.require(:question).permit(:delete_flag)
   end
