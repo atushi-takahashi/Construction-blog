@@ -9,7 +9,7 @@ class User::UsersController < ApplicationController
     questions = Question.where(user_id: @user.id).order(created_at: :desc)
     @timeline = posts | questions
     @timeline.sort! { |a, b| b.created_at <=> a.created_at }
-     # ダイレクトメッセージ
+    # ダイレクトメッセージ
     if user_signed_in?
       @current_user_room = UserRoom.where(user_id: current_user.id)
       @another_user_room = UserRoom.where(user_id: @user.id)
@@ -56,14 +56,14 @@ class User::UsersController < ApplicationController
   def user_post_index
     @timeline = Post.where(user_id: @user.id)
     respond_to do |format|
-      format.js {render layout: false} # Add this line to you respond_to block
+      format.js { render layout: false } # Add this line to you respond_to block
     end
   end
 
   def user_question_index
     @timeline = Question.where(user_id: @user.id)
     respond_to do |format|
-      format.js {render layout: false} # Add this line to you respond_to block
+      format.js { render layout: false } # Add this line to you respond_to block
     end
   end
 
@@ -74,7 +74,7 @@ class User::UsersController < ApplicationController
     @timeline = posts | questions
     @timeline.sort! { |a, b| b.created_at <=> a.created_at }
     respond_to do |format|
-      format.js {render layout: false} # Add this line to you respond_to block
+      format.js { render layout: false } # Add this line to you respond_to block
     end
   end
 
@@ -91,5 +91,4 @@ class User::UsersController < ApplicationController
   def find_user_id
     @user = User.find(params[:user_id])
   end
-
 end

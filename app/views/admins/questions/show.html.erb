@@ -14,7 +14,7 @@
   <div class="col-lg-11 qshow__title text-center">
     <%= @question.title %>
   </div>
-  <div class="col-lg-4 qshow__image">
+  <div class="col-lg-4 qshow__image" data-toggle="modal" data-target="#image_Modal" style="cursor:pointer">
     <%= attachment_image_tag @question, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
   </div>
   <div class="col-lg-7 qshow__body">

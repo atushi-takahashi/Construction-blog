@@ -6,10 +6,10 @@ class User::LikesController < ApplicationController
   def post_like
     like = current_user.likes.new(post_id: @post.id)
     like.save
-    #通知の作成
+    # 通知の作成
     @post.post_create_notification_by(current_user)
     respond_to do |format|
-      format.html {redirect_to request.referrer}
+      format.html { redirect_to request.referrer }
       format.js
     end
   end
@@ -22,10 +22,10 @@ class User::LikesController < ApplicationController
   def question_like
     like = current_user.likes.new(question_id: @question.id)
     like.save
-    #通知の作成
+    # 通知の作成
     @question.question_create_notification_by(current_user)
     respond_to do |format|
-      format.html {redirect_to request.referrer}
+      format.html { redirect_to request.referrer }
       format.js
     end
   end

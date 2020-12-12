@@ -13,11 +13,11 @@ class User::DirectMessagesController < ApplicationController
         visited_id: theid.user_id,
         visiter_id: current_user.id,
         action: 'dm'
-        )
-        if notification.visiter_id == notification.visited_id
-          notification.checked = true
-        end
-        notification.save if notification.valid?
+      )
+      if notification.visiter_id == notification.visited_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
       redirect_to room_path(message.room)
     else
       flash[:alert] = "メッセージを入力してください"

@@ -26,8 +26,8 @@ class User::QuestionsController < ApplicationController
     if @question.save
       redirect_to question_path(@question), notice: '投稿に成功しました'
     else
-      flash.now[:alert] = '入力に不備があります'
-      render 'new'
+      flash[:alert] = "入力に不備があります"
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -40,8 +40,8 @@ class User::QuestionsController < ApplicationController
       end
       redirect_to question_path(@question), notice: '更新に成功しました'
     else
-      flash.now[:alert] = '入力に不備があります'
-      render 'questions/edit'
+      flash[:alert] = "入力に不備があります"
+      redirect_back(fallback_location: root_path)
     end
   end
 

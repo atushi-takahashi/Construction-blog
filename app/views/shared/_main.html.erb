@@ -15,7 +15,7 @@
       </div>
       <button type="button" class="col-lg-2 btn btn-secondary btn-lg"><%= link_to "未解決の質問", homes_solution_index_path, remote: true, class:"text-light" %></button>
       <div class="col-lg-4">
-        <%= form_with url: homes_search_path, method: :get, remote: true do |f| %>
+        <%= form_with url: homes_search_path, method: :get, local: true do |f| %>
         <div class="row">
           <%= f.text_field :q, placeholder: "キーワードを入力", class:"form-control col-sm-6 mt-1 ml-3" %>
           <%= f.submit"検索", class:"btn btn-success col-sm-4 mt-1 ml-3" %>
@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-12" id="top_timeline">
+  <div class="col-lg-12 fuwa" id="top_timeline">
     <%= render 'shared/timeline' %>
   </div>
 </div>

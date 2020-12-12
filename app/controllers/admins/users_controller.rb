@@ -5,7 +5,7 @@ class Admins::UsersController < ApplicationController
   end
 
   def show
-     # 投稿及び質問を更新順に表示
+    # 投稿及び質問を更新順に表示
     posts = Post.where(user_id: @user.id).order(created_at: :desc)
     questions = Question.where(user_id: @user.id).order(created_at: :desc)
     @timeline = posts | questions
@@ -26,6 +26,7 @@ class Admins::UsersController < ApplicationController
   end
 
   private
+
   def find_user
     @user = User.find(params[:id])
   end

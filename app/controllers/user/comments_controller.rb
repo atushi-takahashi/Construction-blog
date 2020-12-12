@@ -5,7 +5,7 @@ class User::CommentsController < ApplicationController
     @post_comment = @post.comments.build(comment_params)
     @post_comment.user_id = current_user.id
     if @post_comment.save
-      #通知の作成
+      # 通知の作成
       @comment_post = @post_comment.post
       @comment_post.post_create_notification_comment!(current_user, @post_comment.id)
       render :post_index
@@ -23,7 +23,7 @@ class User::CommentsController < ApplicationController
     @question_comment = @question.comments.build(comment_params)
     @question_comment.user_id = current_user.id
     if @question_comment.save
-      #通知の作成
+      # 通知の作成
       @comment_question = @question_comment.question
       @comment_question.question_create_notification_comment!(current_user, @question_comment.id)
       render :question_index

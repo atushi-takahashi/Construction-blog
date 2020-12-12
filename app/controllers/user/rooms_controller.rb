@@ -3,7 +3,7 @@ class User::RoomsController < ApplicationController
   def create
     room = Room.create
     @current_user_room = UserRoom.create(user_id: current_user.id, room_id: room.id)
-    @another_user_room = UserRoom.create((user_room_params).merge(room_id: room.id))
+    @another_user_room = UserRoom.create(user_room_params.merge(room_id: room.id))
     redirect_to room_path(room)
   end
 
@@ -18,7 +18,7 @@ class User::RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    if UserRoom.where(user_id: current_user.id,room_id: @room.id).present?
+    if UserRoom.where(user_id: current_user.id, room_id: @room.id).present?
       @direct_messages = @room.direct_messages
       @direct_message = DirectMessage.new
       @user_rooms = @room.user_rooms
@@ -28,6 +28,7 @@ class User::RoomsController < ApplicationController
   end
 
   private
+
   def user_room_params
     params.require(:user_room).permit(:user_id, :room_id)
   end
