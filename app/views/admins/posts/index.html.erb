@@ -13,7 +13,7 @@
     <% @posts.each do |post|%>
     <tr class="admin-post row">
       <td class="col-lg-3">
-        <%= attachment_image_tag post.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+        <%= attachment_image_tag post.user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %>
         <%= link_to "#{post.user.name}",admins_user_path(post.user_id) %>
       </td>
       <td class="col-lg-2">

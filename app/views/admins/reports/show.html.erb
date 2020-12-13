@@ -6,7 +6,7 @@
       <div class="reposhow__status col-lg-2"><span>　通報者　</span></div>
       <div class="reposhow__user col-lg-3">
       <%= link_to admins_user_path(@report.user_id) do %>
-        <span class="reposhow__user_image"><%= attachment_image_tag @report.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></span>
+        <span class="reposhow__user_image"><%= attachment_image_tag @report.user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %></span>
         <span class="reposhow__user_name ml-2"><%= @report.user.name %></span>
       <% end %>
       </div>
@@ -33,7 +33,7 @@
         <% if @report.question_id == nil %>
           <%= link_to admins_user_path(@report.post.user.id) do %>
             <span class="reposhow__user_image">
-              <%= attachment_image_tag @report.post.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+              <%= attachment_image_tag @report.post.user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %>
             </span>
             <span class="reposhow__user_name ml-2">
               <%= @report.post.user.name %>
@@ -42,7 +42,7 @@
         <% elsif @report.post_id == nil %>
           <%= link_to admins_user_path(@report.question.user.id) do %>
             <span class="reposhow__user_image">
-              <%= attachment_image_tag @report.question.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+              <%= attachment_image_tag @report.question.user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %>
             </span>
             <span class="reposhow__user_name ml-2">
               <%= @report.question.user.name %>
@@ -68,9 +68,9 @@
     <div class="row">
       <div class="col-lg-4 reposhow__image" data-toggle="modal" data-target="#image_Modal" style="cursor:pointer">
         <% if @report.question_id == nil %>
-          <%= attachment_image_tag @report.post, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+          <%= attachment_image_tag @report.post, :image, :fill, 300, 200, fallback: "no_image_toukou.jpg", size: "300x200" %>
         <% elsif @report.post_id == nil %>
-          <%= attachment_image_tag @report.question, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+          <%= attachment_image_tag @report.question, :image, :fill, 300, 200, fallback: "no_image_toukou.jpg", size: "300x200" %>
         <% end %>
       </div>
       <div class="col-lg-8 reposhow__body">

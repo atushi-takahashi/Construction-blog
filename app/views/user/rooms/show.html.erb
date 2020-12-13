@@ -20,7 +20,7 @@
       <div class="col-lg-3">
         <div class="dm__user_box row">
           <div class="dm__user col-lg-11">
-            <%= attachment_image_tag message.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+            <%= attachment_image_tag message.user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %>
             <%= link_to "#{message.user.name}",user_path(message.user) %>
           </div>
           <div class="dm__destroy col-lg-11">

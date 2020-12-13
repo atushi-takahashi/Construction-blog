@@ -3,7 +3,7 @@
 <h3 class="uedit__title col-lg-12 mt-4 text-center"><span class="uedit__title_name border border-dark">　プロフィール編集　</span></h3>
   <div class="uedit__image col-lg-4 form-group">
     <%= f.label :プロフィール画像 %>
-    <%= attachment_image_tag @user, :image, fallback: 'no_image.jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev' %>
+    <%= attachment_image_tag @user, :image, fallback: 'no_image_user.jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev' %>
     <%= f.attachment_field :image, class: 'img_field', style:"display: none" %>
   </div>
   <div class="col-lg-7 form-group">

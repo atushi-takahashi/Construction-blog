@@ -13,7 +13,7 @@
     <% @users.each do |user|%>
     <tr class="admin-user row">
       <td class="col-lg-3">
-        <div><%= attachment_image_tag user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></div>
+        <div><%= attachment_image_tag user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %></div>
         <div><%= link_to "#{user.name}",admins_user_path(user) %></div>
       </td>
       <td class="col-lg-2">
