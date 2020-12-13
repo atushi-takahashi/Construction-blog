@@ -11,7 +11,8 @@ class User::NotificationsController < ApplicationController
 
   def destroy_all
     # 通知を全削除
-    @notifications = Notification.where(visiter_id: current_user.id, admin_id: nil).destroy_all
+    notifications = Notification.where(visited_id: current_user.id, admin_id: nil)
+    @notifications = notifications.destroy_all
     redirect_to notifications_path
   end
 end

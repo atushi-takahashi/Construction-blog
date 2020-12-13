@@ -32,7 +32,12 @@ class User::UsersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    unless @user == current_user
+      flash[:alert] = '他人のプロフィールは編集できません'
+      redirect_to root_path
+    end
+  end
 
   def update
     if @user.update(user_params)

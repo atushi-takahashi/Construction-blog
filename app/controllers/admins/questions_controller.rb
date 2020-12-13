@@ -1,4 +1,5 @@
 class Admins::QuestionsController < ApplicationController
+  before_action :authenticate_admin!
   before_action :find_question, only: [:show, :update]
 
   def index

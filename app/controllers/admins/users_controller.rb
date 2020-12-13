@@ -1,4 +1,5 @@
 class Admins::UsersController < ApplicationController
+  before_action :authenticate_admin!
   before_action :find_user, only: [:show, :update]
   def index
     @users = User.all.order(created_at: :desc)

@@ -1,4 +1,5 @@
 class Admins::NotificationsController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @notifications = Notification.where(admin_id: 1)
     @notifications.where(checked: false).each do |notification|

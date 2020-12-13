@@ -1,4 +1,5 @@
 class Admins::PostsController < ApplicationController
+  before_action :authenticate_admin!
   before_action :find_post, only: [:show, :update]
   def index
     @posts = Post.all.order(created_at: :desc)

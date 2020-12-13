@@ -12,6 +12,10 @@ class User::QuestionsController < ApplicationController
   end
 
   def edit
+    unless @question.user.id == current_user.id
+      flash[:alert] = '他人の記事は編集できません'
+      redirect_to root_path
+    end
     @categories = Category.all
   end
 
