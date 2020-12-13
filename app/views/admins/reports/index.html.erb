@@ -15,7 +15,7 @@
     <% @reports.each do |report|%>
     <tr class="admin-report row">
       <td class="col-lg-2">
-        <%= attachment_image_tag report.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+        <%= attachment_image_tag report.user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %>
         <%= link_to "#{report.user.name}",admins_user_path(report.user_id) %>
       </th>
       <td class="col-lg-2">

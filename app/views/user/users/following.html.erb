@@ -6,7 +6,7 @@
       <div class="col-lg-3">
         <div class="ufollow__user_box row">
           <div class="ufollow__user col-lg-11">
-            <%= attachment_image_tag following, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %>
+            <%= attachment_image_tag following, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %>
             <%= link_to "#{following.name}",user_path(following) %>
           </div>
           <div class="ufollow__btn col-lg-11">

@@ -4,7 +4,7 @@
       <div class="col-lg-1 pshow__status"><%= @post.status %></div>
       <div class="col-lg-3 pshow__user">
       <%= link_to admins_user_path(@post.user_id) do %>
-        <span class="pshow__user_image"><%= attachment_image_tag @post.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></span>
+        <span class="pshow__user_image"><%= attachment_image_tag @post.user, :image, :fill, 50, 50, fallback: "no_image_toukou.jpg", size: "50x50" %></span>
         <span class="pshow__user_name ml-2"><%= @post.user.name %></span>
       <% end %>
       </div>
@@ -15,7 +15,7 @@
     <%= @post.title %>
   </div>
   <div class="col-lg-4 pshow__image" data-toggle="modal" data-target="#image_Modal" style="cursor:pointer">
-    <%= attachment_image_tag @post, :image, :fill, 300, 200, fallback: "no_image.jpg", size: "300x200" %>
+    <%= attachment_image_tag @post, :image, :fill, 300, 200, fallback: "no_image_toukou.jpg", size: "300x200" %>
   </div>
   <div class="col-lg-7 pshow__body">
     <div><%= @post.body %></div>
@@ -26,7 +26,7 @@
       <div class="pshow__comment row">
         <div class="col-lg-2">
           <div class="pshow__comment_user">
-            <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class:"comment-image", size: "40x40" %>
+            <%= attachment_image_tag comment.user, :image, fallback: "no_image_user.jpg", class:"comment-image", size: "40x40" %>
             <%= link_to "#{comment.user.name}", admins_user_path(comment.user.id) %>
           </div>
         </div>
