@@ -13,13 +13,16 @@
               <%= render "follow_botton" %>
             </div>
             <% end %>
+            <div class="ushow__follow_count col-lg-12" id="following-count_#{<%= @user.id %>}">
+              <%= link_to "フォロー#{ @user.follower.count }人", user_following_path(@user.id) %>
+            </div>
+            <div class="ushow__follow_count col-lg-12" id="follower-count_#{<%= @user.id %>}">
+              <%= link_to "フォロワー#{ @user.followed.count }人", user_follower_path(@user.id) %>
+            </div>
+          <% else %>
+            <div class="ushow__follow_count col-lg-12"><%= "フォロー#{ @user.follower.count }人" %></div>
+            <div class="ushow__follow_count col-lg-12"><%= "フォロワー#{ @user.followed.count }人" %></div>
           <% end %>
-          <div class="ushow__follow_count col-lg-12" id="following-count_#{<%= @user.id %>}">
-            <%= link_to "フォロー#{ @user.follower.count }人", user_following_path(@user.id) %>
-          </div>
-          <div class="ushow__follow_count col-lg-12" id="follower-count_#{<%= @user.id %>}">
-            <%= link_to "フォロワー#{ @user.followed.count }人", user_follower_path(@user.id) %>
-          </div>
           <% if user_signed_in? %>
             <div class="ushow__message col-lg-12">
               <% if @user.id == current_user.id %>
