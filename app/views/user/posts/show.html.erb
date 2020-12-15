@@ -22,7 +22,9 @@
     <div class="pshow__body_hight"><%= @post.body %></div>
     <div class="text-right">投稿日時：<%= @post.updated_at.to_s(:datetime_jp) %></div>
     <% if user_signed_in? %>
-  <div class="text-right"><%= link_to "この記事を通報する",post_report_new_path(@post) %></div>
+      <% if @post.user.id != current_user.id%>
+        <div class="text-right"><%= link_to "この記事を通報する",post_report_new_path(@post) %></div>
+      <% end %>
     <% end %>
   </div>
   <div class="pshow__box col-lg-11", id="post_comments_area">
