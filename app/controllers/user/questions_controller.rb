@@ -28,7 +28,8 @@ class User::QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     if @question.save
-      redirect_to question_path(@question), notice: '投稿に成功しました'
+      flash[:notice] = "投稿に成功しました"
+      redirect_to question_path(@question)
     else
       flash[:alert] = "入力に不備があります"
       redirect_back(fallback_location: root_path)
@@ -42,7 +43,8 @@ class User::QuestionsController < ApplicationController
       elsif @question.solution_flag == false
         @question.update(status: '質問')
       end
-      redirect_to question_path(@question), notice: '更新に成功しました'
+      flash[:notice] = "更新に成功しました"
+      redirect_to question_path(@question)
     else
       flash[:alert] = "入力に不備があります"
       redirect_back(fallback_location: root_path)
@@ -51,9 +53,11 @@ class User::QuestionsController < ApplicationController
 
   def destroy
     if @question.destroy
-      redirect_to questions_path, notice: '削除に成功しました'
+      flash[:notice] = "削除に成功しました"
+      redirect_to homes_index_path
     else
-      redirect_to questions_path, alert: '削除できませんでした'
+      flash[:alert] = "削除できませんでした"
+      redirect_to homes_index_path
     end
   end
 
