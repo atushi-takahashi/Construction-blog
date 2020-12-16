@@ -28,7 +28,8 @@ class User::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to post_path(@post), notice: '投稿に成功しました'
+      flash[:notice] = '投稿に成功しました'
+      redirect_to post_path(@post)
     else
       flash[:alert] = "入力に不備があります"
       redirect_back(fallback_location: root_path)
@@ -37,7 +38,8 @@ class User::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: '更新に成功しました'
+      flash[:notice] = '更新に成功しました'
+      redirect_to post_path(@post)
     else
       flash[:alert] = "入力に不備があります"
       redirect_back(fallback_location: root_path)
@@ -46,9 +48,11 @@ class User::PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      redirect_to posts_path, notice: '削除に成功しました'
+      flash[:notice] = '削除に成功しました'
+      redirect_to user_path(@post.user_id)
     else
-      redirect_to posts_path, alert: '削除できませんでした'
+      flash[:alert] = "削除できませんでした"
+      redirect_to user_path(@post.user_id)
     end
   end
 

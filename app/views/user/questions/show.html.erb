@@ -22,7 +22,9 @@
     <div class="qshow__body_hight"><%= @question.body %></div>
     <div class="text-right">質問日時：<%= @question.updated_at.to_s(:datetime_jp) %></div>
     <% if user_signed_in? %>
-      <div class="text-right"><%= link_to "この記事を通報する",question_report_new_path(@question) %></div>
+      <% if @question.user.id != current_user.id%>
+        <div class="text-right"><%= link_to "この記事を通報する",question_report_new_path(@question) %></div>
+      <% end %>
     <% end %>
   </div>
   <div class="qshow__comment_box col-lg-11", id="question_comments_area">

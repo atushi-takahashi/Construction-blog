@@ -1,13 +1,13 @@
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-12 col-md-12 col-12">
     <div class="row">
-      <div class="col-lg-2 pr-0 pl-0">
+      <div class="col-lg-2 col-md-3 col-3 pr-0 pl-0">
         <%= button_to "新規投稿", homes_index_path, method: :get, remote: true, class:"text-light btn btn-secondary btn-lg btn-block" %>
       </div>
-      <div class="col-lg-2 pr-0 pl-0">
+      <div class="col-lg-2 col-md-3 col-3 pr-0 pl-0">
         <%= button_to "人気投稿", homes_ranking_index_path, method: :get, remote: true, class:"text-light btn btn-secondary btn-lg btn-block" %>
       </div>
-      <div class="btn-group col-lg-2 pr-0 pl-0" role="group">
+      <div class="btn-group col-lg-2 col-md-3 col-3 pr-0 pl-0" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary btn-lg btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           カテゴリ
         </button>
@@ -17,14 +17,14 @@
           <% end %>
         </div>
       </div>
-      <div class="col-lg-2 pr-0 pl-0">
+      <div class="col-lg-2 col-md-3 col-3 pr-0 pl-0">
         <%= button_to "未解決の質問", homes_solution_index_path, method: :get, remote: true, class:"text-light btn btn-secondary btn-lg btn-block" %>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-12 col-12">
         <%= form_with url: homes_search_path, method: :get, local: true do |f| %>
         <div class="row">
-          <%= f.text_field :q, placeholder: "キーワードを入力", class:"form-control col-sm-6 mt-1 ml-3" %>
-          <%= f.submit"検索", class:"btn btn-success col-sm-4 mt-1 ml-3" %>
+          <%= f.text_field :q, placeholder: "キーワードを入力", class:"form-control col-6 mt-1 ml-3" %>
+          <%= f.submit"検索", class:"btn btn-success col-4 mt-1 ml-3" %>
         </div>
         <% end %>
       </div>
