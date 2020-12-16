@@ -1,14 +1,14 @@
 <%= form_with model:@post, local: true do |f| %>
 <%= f.hidden_field :status, value: "投稿" %>
 <div class="pform row border border-dark">
-<h3 class="pform__bigtitle col-lg-12 mt-4 text-center"><span class="pform__bigtitle_name border border-dark">　新規投稿　</span></h3>
-  <div class="pform__image col-lg-4 form-group">
-    <%= f.label :添付写真 %>
+<h3 class="pform__bigtitle col-lg-12 col-md-12 col-12 mt-4 text-center"><span class="pform__bigtitle_name border border-dark">　新規投稿　</span></h3>
+  <div class="pform__image col-lg-4 col-md-4 col-12 form-group">
+    <%= f.label :添付写真 %><br>
     <%= attachment_image_tag @post, :image, fallback: 'no_image_toukou.jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev' %>
     <%= f.attachment_field :image, class: 'img_field', style:"display: none" %>
   </div>
   <%= render "shared/post-question_form", f: f %>
-  <div class="pform__submit col-lg-11">
+  <div class="pform__submit col-lg-11 col-md-11">
     <%= f.submit "投稿する", class: 'btn btn-outline-primary btn-block mb-4' %>
   </div>
 </div>
