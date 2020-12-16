@@ -342,6 +342,9 @@
     }
   }
   @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
     .main__title{
       span{
         font-size: 15px;
@@ -408,6 +411,11 @@
           .timeline{
             width: 80%;
             margin-left: 0;
+            .timeline__imege{
+              img{
+                width: 300px;
+              }
+            }
           }
         }
       }
@@ -441,6 +449,42 @@
       p{
         font-size: 13px;
         line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    .main__title{
+      span{
+        font-size: 14px;
+      }
+    }
+    .main__link{
+      min-height: 225px!important;
+      .a1{
+        margin-right: 5%!important;
+        padding: 15px!important;
+        font-size: 12px!important;
+      }
+      .a2{
+        padding: 15px 40px!important;
+        font-size: 12px!important;
+      }
+    }
+    .link__timeline{
+      .row{
+        justify-content: center;
+        .timeline{
+          width: 80%;
+          margin-left: 0;
+          .timeline__imege{
+            img{
+              width: 265px!important;
+            }
+          }
+        }
       }
     }
   }
@@ -488,7 +532,6 @@
     button{
       font-size: 15px;
     }
-    // #top_timeline{
       .row{
         justify-content: center;
         .timeline{
@@ -504,12 +547,43 @@
           }
         }
       }
-    }
     .copy-right{
       p{
         font-size: 13px;
         line-height: 30px;
       }
-    // }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    input{
+      font-size: 12px!important;
+    }
+    button{
+      font-size: 12px;
+    }
+      .row{
+        justify-content: center;
+        .timeline{
+          margin-left: 0px;
+          width: 75%;
+          height: 430px;
+          .timeline__imege{
+            img{
+                width: 245px;
+                margin-left: 6%;
+                border-radius: 10px;
+            }
+          }
+        }
+      }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
   }
 }
