@@ -54,10 +54,10 @@ class User::QuestionsController < ApplicationController
   def destroy
     if @question.destroy
       flash[:notice] = "削除に成功しました"
-      redirect_to homes_index_path
+      redirect_to user_path(@question.user_id)
     else
       flash[:alert] = "削除できませんでした"
-      redirect_to homes_index_path
+      redirect_to user_path(@question.user_id)
     end
   end
 
