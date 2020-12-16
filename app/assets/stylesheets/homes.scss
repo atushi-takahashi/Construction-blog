@@ -68,20 +68,18 @@
     }
     .main__link{
       min-height: 380px;
-      margin-left: 17%;
       text-align: center;
+      font-size: 20px;
       .a1{
-        background-color: whitesmoke;
         padding: 50px;
-        font-size: 20px;
         border-radius: 80px;
+        background-color: whitesmoke;
         color: black;
         margin-right: 15%;
       }
       .a2{
         background-color: whitesmoke;
         padding: 50px 80px;
-        font-size: 20px;
         border-radius: 80px;
         color: black;
       }
@@ -106,12 +104,12 @@
     .why__body{
       text-align: center;
       margin-bottom: 10%;
+      font-size: 20px;
       span{
         background-color: whitesmoke;
         border-radius: 15px;
         font-family: serif;
         padding: 10px;
-        font-size: 20px;
       }
     }
     .why__box{
@@ -174,12 +172,12 @@
     .link__body{
       text-align: center;
       margin-bottom: 5%;
+      font-size: 20px;
       span{
         background-color: whitesmoke;
         border-radius: 15px;
         font-family: serif;
         padding: 10px;
-        font-size: 20px;
       }
     }
     .link__title_smal{
@@ -222,12 +220,12 @@
     .newuser__body{
       text-align: center;
       margin-bottom: 5%;
+      font-size: 20px;
       span{
         background-color: whitesmoke;
         border-radius: 15px;
         font-family: serif;
         padding: 10px;
-        font-size: 20px;
       }
     }
   }
@@ -238,5 +236,280 @@
     background-color: whitesmoke;
     padding: 5px;
     border-radius: 10px;
+  }
+}
+// レスポンシブ対応
+// トップページ
+#homes-about{
+  @media screen and (max-width: 1024px) {
+    .main__title{
+      span{
+        font-size: 30px;
+      }
+    }
+    .why__title{
+      span{
+        font-size: 25px;
+      }
+    }
+    .why__body{
+      span{
+        font-size: 18px;
+      }
+    }
+    .link__title{
+      span{
+        font-size: 30px;
+      }
+    }
+    .link__body{
+      span{
+        font-size: 18px;
+      }
+    }
+    .link__timeline{
+      .row{
+        justify-content: center;
+        .timeline{
+          width: 32%;
+          margin-left: 1%;
+          .timeline__imege{
+            img{
+              width: 270px;
+            }
+          }
+        }
+      }
+    }
+    .newuser__title{
+      margin-top: 20px;
+      span{
+        font-size: 30px;
+      }
+    }
+    .newuser__body{
+      span{
+        font-size: 18px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .main__title{
+      span{
+        font-size: 30px;
+      }
+    }
+    .why__title{
+      span{
+        font-size: 25px;
+      }
+    }
+    .why__body{
+      span{
+        font-size: 14px;
+      }
+    }
+    .link__title{
+      span{
+        font-size: 30px;
+      }
+    }
+    .link__body{
+      span{
+        font-size: 14px;
+      }
+    }
+    .link__timeline{
+      .row{
+        justify-content: center;
+        .timeline{
+          width: 51%;
+          margin-left: 0;
+        }
+      }
+    }
+    .newuser__title{
+      margin-top: 20px;
+      span{
+        font-size: 30px;
+      }
+    }
+    .newuser__body{
+      span{
+        font-size: 14px;
+      }
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .main__title{
+      span{
+        font-size: 15px;
+      }
+    }
+    .main__link{
+      min-height: 225px!important;
+      .a1{
+        margin-right: 5%!important;
+        padding: 20px 20px!important;
+        font-size: 15px!important;
+      }
+      .a2{
+        padding: 20px 50px!important;
+        font-size: 15px!important;
+      }
+    }
+    .why__title{
+      span{
+        font-size: 15px;
+      }
+    }
+    .why__body{
+      span{
+        font-size: 12px!important;
+      }
+    }
+    .why__box{
+      margin-bottom: 30px!important;
+      .why__title_small{
+        span{
+          font-size: 15px!important;
+        }
+      }
+      p{
+        font-size: 13px;
+      }
+    }
+    .link{
+      margin-bottom: 20px;
+      .link__title{
+        margin-top: 20px;
+        span{
+          font-size: 15px;
+        }
+        a{
+          font-size: 15px;
+          padding: 20px 50px!important;
+        }
+      }
+      .link__body{
+        background-color: whitesmoke;
+        margin: 20px;
+        border-radius: 10px!important;
+        text-align: left!important;
+        span{
+          font-size: 12px;
+          background-color: transparent!important;
+        }
+      }
+      .link__timeline{
+        .row{
+          justify-content: center;
+          .timeline{
+            width: 80%;
+            margin-left: 0;
+          }
+        }
+      }
+      .link__title_smal{
+        span{
+          font-size: 15px;
+        }
+      }
+    }
+    .newuser__title{
+      margin-top: 15px;
+      span{
+        font-size: 15px;
+      }
+      a{
+        font-size: 15px!important;
+        padding: 20px 50px!important;
+      }
+    }
+    .newuser__body{
+      background-color: whitesmoke;
+      margin: 20px;
+      border-radius: 10px!important;
+      text-align: left!important;
+      span{
+        font-size: 12px;
+        background-color: transparent!important;
+      }
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+// 一覧ページ
+#homes-index,#users-show,#homes-search{
+  @media screen and (max-width: 1024px) {
+    .timeline{
+      width: 31%;
+      height: 430px;
+      margin-left: 20px;
+      .timeline__imege{
+        img{
+            margin-left: 6%;
+            border-radius: 10px;
+            width: 250px;
+            height: 170px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .timeline{
+      width: 45%;
+      height: 430px;
+      .timeline__imege{
+        img{
+            width: 285px;
+            margin-left: 6%;
+            border-radius: 10px;
+        }
+      }
+    }
+    .timeline:nth-child(odd){
+      margin-left: 0px;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    input{
+      font-size: 15px!important;
+    }
+    button{
+      font-size: 15px;
+    }
+    // #top_timeline{
+      .row{
+        justify-content: center;
+        .timeline{
+          margin-left: 0px;
+          width: 75%;
+          height: 430px;
+          .timeline__imege{
+            img{
+                width: 285px;
+                margin-left: 6%;
+                border-radius: 10px;
+            }
+          }
+        }
+      }
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    // }
   }
 }

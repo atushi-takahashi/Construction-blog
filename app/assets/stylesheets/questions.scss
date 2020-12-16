@@ -157,3 +157,37 @@
     }
   }
 }
+// レスポンシブ対応
+// 新規投稿
+#questions-new,#questions-edit{
+  @media screen and (max-width: 768px) {
+    .qform__image{
+      margin-left: 0!important;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    .qform{
+      margin: 0 10px;
+    }
+    .qform__image{
+      margin-left: 0!important;
+      width: 340px;
+    }
+    .qform__submit{
+      input{
+        margin-right: 0!important;
+        width: 90%!important;
+        margin-left: 15px!important;
+      }
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
