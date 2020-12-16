@@ -1,30 +1,30 @@
 <div class="row">
-  <div class="ushow col-lg-12">
+  <div class="ushow col-lg-12 col-md-12 col-11">
     <div class="ushow__box row">
-      <div class="ushow__image col-lg-2" data-toggle="modal" data-target="#image_Modal" style="cursor:pointer">
+      <div class="ushow__image col-lg-2 col-md-4 col-12" data-toggle="modal" data-target="#image_Modal" style="cursor:pointer">
         <%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no_image_user.jpg", size: "200x200" %>
       </div>
-      <div class="ushow__link col-lg-3">
+      <div class="ushow__link col-lg-3 col-md-6 col-12">
         <div class="ushow__link_box">
-          <div class="ushow__name col-lg-12"><%= @user.name %></div>
+          <div class="ushow__name col-lg-12 col-md-12 col-12"><%= @user.name %></div>
           <% if user_signed_in? %>
             <% unless @user == current_user %>
-            <div class="ushow__follow_btn col-lg-12" id="follow_botton_#{<%= @user.id %>}">
+            <div class="ushow__follow_btn col-lg-12 col-md-12 col-12" id="follow_botton_#{<%= @user.id %>}">
               <%= render "follow_botton" %>
             </div>
             <% end %>
-            <div class="ushow__follow_count col-lg-12" id="following-count_#{<%= @user.id %>}">
+            <div class="ushow__follow_count col-lg-12 col-md-12 col-12" id="following-count_#{<%= @user.id %>}">
               <%= link_to "フォロー#{ @user.follower.count }人", user_following_path(@user.id) %>
             </div>
-            <div class="ushow__follow_count col-lg-12" id="follower-count_#{<%= @user.id %>}">
+            <div class="ushow__follow_count col-lg-12 col-md-12 col-12" id="follower-count_#{<%= @user.id %>}">
               <%= link_to "フォロワー#{ @user.followed.count }人", user_follower_path(@user.id) %>
             </div>
           <% else %>
-            <div class="ushow__follow_count col-lg-12"><%= "フォロー#{ @user.follower.count }人" %></div>
-            <div class="ushow__follow_count col-lg-12"><%= "フォロワー#{ @user.followed.count }人" %></div>
+            <div class="ushow__follow_count col-lg-12 col-md-12 col-12"><%= "フォロー#{ @user.follower.count }人" %></div>
+            <div class="ushow__follow_count col-lg-12 col-md-12 col-12"><%= "フォロワー#{ @user.followed.count }人" %></div>
           <% end %>
           <% if user_signed_in? %>
-            <div class="ushow__message col-lg-12">
+            <div class="ushow__message col-lg-12 col-md-12 col-12">
               <% if @user.id == current_user.id %>
                 <%= link_to "ダイレクトメッセージ", rooms_path, class:"btn-sm btn-info btn-block" %>
               <% else %>
@@ -43,37 +43,37 @@
               <% end %>
             </div>
             <% if @user.id == current_user.id %>
-              <div class="ushow__edit col-lg-12">
+              <div class="ushow__edit col-lg-12 col-md-12 col-12">
                 <%= link_to "プロフィール編集", edit_user_path(@user), class:"btn-sm btn-primary btn-block" %>
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
-      <div class="ushow__detail_box col-lg-6">
+      <div class="ushow__detail_box col-lg-6 col-md-11 col-12">
         <div class="row">
-          <div class="ushow__detail col-lg-5">職種：　<%= @user.occupation %></div>
-          <div class="ushow__detail col-lg-5">経験年数：　<%= @user.work_history %></div>
+          <div class="ushow__detail col-lg-5 col-md-5 col-11">職種：　<%= @user.occupation %></div>
+          <div class="ushow__detail col-lg-5 col-md-5 col-11">経験年数：　<%= @user.work_history %></div>
         </div>
         <h5 class="ushow__profile_title">自己紹介</h5>
-        <div class="ushow__profile col-lg-12"><%= @user.profile %></div>
+        <div class="ushow__profile col-lg-12 col-12"><%= @user.profile %></div>
       </div>
     </div>
   </div>
-  <div class="col-lg-12">
+  <div class="col-lg-12 col-md-12 col-12">
     <div class="row">
-      <div class="col-lg-4 pr-0 pl-0">
+      <div class="col-lg-4 col-md-4 col-4 pr-0 pl-0">
         <%= button_to "これまでの投稿", user_post_index_path(@user), method: :get, remote: true, class:"text-light btn btn-secondary btn-lg btn-block" %>
       </div>
-      <div class="col-lg-4 pr-0 pl-0">
+      <div class="col-lg-4 col-md-4 col-4 pr-0 pl-0">
         <%= button_to "これまでの質問", user_question_index_path(@user), method: :get, remote: true, class:"text-light btn btn-secondary btn-lg btn-block" %>
       </div>
-      <div class="col-lg-4 pr-0 pl-0">
+      <div class="col-lg-4 col-md-4 col-4 pr-0 pl-0">
         <%= button_to "いいねした記事", user_like_index_path(@user), method: :get, remote: true, class:"text-light btn btn-secondary btn-lg btn-block" %>
       </div>
     </div>
   </div>
-  <div class="col-lg-12" id="timeline">
+  <div class="col-lg-12 col-md-12 col-12" id="timeline">
     <%= render 'shared/timeline' %>
   </div>
 </div>

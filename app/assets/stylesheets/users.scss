@@ -189,3 +189,56 @@
     }
   }
 }
+// レスポンシブ対応
+// ユーザー詳細
+#users-show{
+  @media screen and (max-width: 768px) {
+    .ushow__box{
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .modal-body{
+      img{
+        width: 465px;
+        height: 300px;
+      }
+    }
+    .ushow__box{
+      justify-content: center;
+    }
+    .ushow{
+      text-align: center;
+    }
+    .ushow__detail{
+      text-align: left;
+    }
+    .ushow__profile{
+      text-align: left;
+    }
+    #timeline{
+      .timeline:nth-child(odd){
+        margin-left: 35px;
+      }
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .modal-body{
+      img{
+        width: 375px;
+        height: 240px;
+      }
+    }
+    #timeline{
+      .timeline{
+        margin-left: 0!important;
+      }
+    }
+  }
+}
+// フォローフォロワー一覧
+#users-following,#users-follower{
+  @media screen and (max-width: 768px) {
+    
+  }
+}

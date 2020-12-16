@@ -100,6 +100,7 @@
   .pform{
     border-radius: 80px;
     background-color: whitesmoke;
+    justify-content: center;
     .pform__bigtitle{
       .pform__bigtitle_name{
       border-radius: 10px;
@@ -117,12 +118,6 @@
       }
       .pform__title{
         margin-bottom: 10px;
-      }
-    }
-    .pform__submit{
-      input{
-        margin-left: 65px;
-    width: 95%;
       }
     }
   }
@@ -145,6 +140,40 @@
       max-height: 75px;
       overflow: auto;
       text-overflow: ellipsis;
+    }
+  }
+}
+// レスポンシブ対応
+// 新規投稿
+#posts-new,#posts-edit{
+  @media screen and (max-width: 768px) {
+    .pform__image{
+      margin-left: 0!important;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    .pform{
+      margin: 0 10px;
+    }
+    .pform__image{
+      margin-left: 0!important;
+      width: 340px;
+    }
+    .pform__submit{
+      input{
+        margin-right: 0;
+        width: 90%;
+        margin-left: 15px;
+      }
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
     }
   }
 }

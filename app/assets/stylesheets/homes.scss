@@ -488,7 +488,7 @@
     button{
       font-size: 15px;
     }
-    #top_timeline{
+    // #top_timeline{
       .row{
         justify-content: center;
         .timeline{
@@ -505,5 +505,11 @@
         }
       }
     }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    // }
   }
 }
