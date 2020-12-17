@@ -123,3 +123,60 @@
     }
   }
 }
+// レスポンシブ対応
+// 新規通報
+#reports-post_report_new,#reports-question_report_new{
+  @media screen and (max-width: 768px) {
+    .reponew__box{
+      margin-left: 0!important;
+    }
+    .reponew__submit{
+      margin-left: 3%;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    .reponew{
+      margin: 0;
+      padding-right: 10px;
+    }
+    .reponew__title_name{
+      font-size: 20px;
+    }
+    form{
+      font-size: 13px!important;
+    }
+    select{
+      font-size: 13px;
+    }
+    input{
+      font-size: 13px;
+    }
+    .reponew__submit{
+      margin-left: 2%;
+      width: 95%;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .reponew__title_name{
+      font-size: 20px;
+    }
+    form{
+      font-size: 12px!important;
+    }
+    select{
+      font-size: 12px;
+    }
+    input{
+      font-size: 12px;
+    }
+  }
+}

@@ -1,32 +1,32 @@
 <%= form_with model:@user, local: true do |f| %>
 <div class="uedit row border border-dark">
-<h3 class="uedit__title col-lg-12 mt-4 text-center"><span class="uedit__title_name border border-dark">　プロフィール編集　</span></h3>
-  <div class="uedit__image col-lg-4 form-group">
+<h3 class="uedit__title col-lg-12 col-md-12 col-12 mt-4 text-center"><span class="uedit__title_name border border-dark">　プロフィール編集　</span></h3>
+  <div class="uedit__image col-lg-4 col-md-4 col-12 form-group">
     <%= f.label :プロフィール画像 %>
     <%= attachment_image_tag @user, :image, fallback: 'no_image_user.jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev' %>
     <%= f.attachment_field :image, class: 'img_field', style:"display: none" %>
   </div>
-  <div class="col-lg-7 form-group">
+  <div class="col-lg-7 col-md-7 col-11 form-group">
     <div class="uedit__box row">
-      <div class="uedit__name col-lg-11">
+      <div class="uedit__name col-lg-11 col-md-11 col-12">
         <%= f.label :ニックネーム %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
-      <div class="uedit__occupation col-lg-5">
+      <div class="uedit__occupation col-lg-5 col-md-5 col-6">
       <%= f.label :職種 %>
       <%= f.text_field :occupation, class: 'form-control'  %>
       </div>
-      <div class="uedit__history col-lg-5">
+      <div class="uedit__history col-lg-5 col-md-5 col-5">
         <%= f.label :経験年数 %>
         <%= f.text_field :work_history, class: 'form-control' %>
       </div>
-      <div class="uedit__profile col-lg-11">
+      <div class="uedit__profile col-lg-11 col-md-11 col-12">
         <%= f.label :自己紹介 %>
         <%= f.text_area :profile, rows: 7 ,class: 'form-control' %>
       </div>
     </div>
   </div>
-  <div class="uedit__btn col-lg-11">
+  <div class="uedit__btn col-lg-11 col-md-11 col-11">
     <%= f.submit "更新する", class: 'btn btn-outline-primary btn-block mb-3' %>
     <%= link_to "アカウント編集", edit_user_registration_path, class:"btn btn-outline-info btn-block" %>
   </div>
