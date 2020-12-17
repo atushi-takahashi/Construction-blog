@@ -1,15 +1,15 @@
 <div class="row ufollow">
-  <h4 class="ufollow__title col-lg-3 col-md-3">フォロワー</h4>
+  <h4 class="ufollow__title col-lg-3 col-md-3 col-4">フォロワー</h4>
   <% @followers.each do |follower|%>
-  <div class="col-lg-12">
+  <div class="col-lg-12 col-md-12 col-12">
     <div class="ufollow__box row">
-      <div class="col-lg-3">
+      <div class="col-lg-3 col-md-5 col-12">
         <div class="ufollow__user_box row">
-          <div class="ufollow__user col-lg-11">
+          <div class="ufollow__user col-lg-12 col-md-12 col-7">
             <%= attachment_image_tag follower, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %>
             <%= link_to "#{follower.name}",user_path(follower) %>
           </div>
-          <div class="ufollow__btn col-lg-11">
+          <div class="ufollow__btn col-lg-12 col-md-7 col-5">
             <% if follower.id != current_user.id %>
               <% if current_user.following?(follower) %>
                 <%= link_to "フォロー解除",user_unfollow_path(follower.id,follower.id), method: :post, class: 'btn-sm btn-danger btn-block', remote: true %>
@@ -20,17 +20,17 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-2">
+      <div class="col-lg-3 col-md-7">
         <div class="ufollow__ditail_box row">
-          <div class="ufollow__ditail col-lg-11">
-            <%= follower.occupation %>
+          <div class="ufollow__ditail col-lg-11 col-md-11">
+            職種：<%= follower.occupation %>
           </div>
-          <div class="ufollow__ditail col-lg-11">
-            <%= follower.work_history %>
+          <div class="ufollow__ditail col-lg-11 col-md-11">
+            経験年数：<%= follower.work_history %>
           </div>
         </div>
       </div>
-      <div class="col-lg-7">
+      <div class="col-lg-6">
         <div class="ufollow__profile row">
           <%= follower.profile %>
         </div>
