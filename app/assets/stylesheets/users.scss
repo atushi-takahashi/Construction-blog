@@ -270,5 +270,99 @@
         margin-top: 12px;
       }
     }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+// ユーザー編集
+#users-edit{
+  @media screen and (max-width: 768px) {
+    .uedit__image{
+      margin-left: 7%!important;
+    }
+    .uedit__history{
+      margin-left: 8%!important;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    .uedit{
+      justify-content: center;
+      margin: 0;
+    }
+    .uedit__title{
+      span{
+        font-size: 20px;
+      }
+    }
+    .uedit__image{
+      margin-left: 0!important;
+    }
+    .uedit__btn{
+      input{
+        margin-left: 0!important;
+        width: 100%!important;
+      }
+      a{
+        margin-left: 0!important;
+        width: 100%!important;
+      }
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+// アカウント登録、編集、
+#registrations-new,#registrations-edit,#sessions-new{
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    h1{
+      text-align: center;
+      font-size: 25px;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    h1{
+      text-align: center;
+      font-size: 25px;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
   }
 }
