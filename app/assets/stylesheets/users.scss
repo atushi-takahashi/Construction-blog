@@ -193,7 +193,7 @@
 // レスポンシブ対応
 // ユーザー詳細
 #users-show{
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     .ushow__box{
       justify-content: center;
     }

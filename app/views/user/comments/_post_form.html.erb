@@ -1,9 +1,9 @@
 <%= form_with(model: [post, comment], url: post_create_comment_path(@post) ) do |f| %>
   <div class="row">
-    <div class="pshow__comment_submit col-lg-2">
+    <div class="pshow__comment_submit col-lg-2 col-md-2 col-3">
       <%= f.submit "送信", class: "btn btn-outline-info btn-block btn-lg comment-submit float-right" %>
     </div>
-    <div class="pshow__comment_form col-lg-10">
+    <div class="pshow__comment_form col-lg-10 col-md-10 col-9">
       <%= f.text_area :message, class: "input-mysize form-control" %>
     </div>
   </div>
