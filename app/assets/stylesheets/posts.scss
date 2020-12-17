@@ -2,6 +2,7 @@
   .pshow{
     border-radius: 80px;
     background-color: whitesmoke;
+    justify-content: space-between;
     .pshow__box{
       margin: 10px auto 5px;
       .pshow__status{
@@ -32,7 +33,6 @@
         font-size: 20px;
         text-align: center;
         line-height: 50px;
-        margin-left: 13%;
       }
     }
     .pshow__title{
@@ -167,6 +167,175 @@
         margin-right: 0;
         width: 90%;
         margin-left: 15px;
+      }
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+// 投稿詳細
+#posts-show{
+  @media screen and (max-width: 768px) {
+    .modal-body{
+      img{
+        width: 465px;
+        height: 300px;
+      }
+    }
+    .pshow__status{
+      font-size: 15px!important;
+    }
+    .pshow__box{
+      padding: 0 30px;
+    }
+    .pshow__user{
+      line-height: 50px;
+      margin: 0!important;
+    }
+    .pshow__user_image{
+      img{
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .pshow__user_name{
+      font-size: 15px!important;
+    }
+    .pshow__category{
+      font-size: 15px!important;
+    }
+    .pshow__like{
+      padding: 0!important;
+    }
+    .pshow__image{
+      img{
+        margin-left: 5%!important;
+        width: 230px;
+        height: 160px;
+      }
+    }
+    .pshow__body{
+      min-height: 155px!important;
+      .pshow__body_hight{
+        min-height: 110px!important;
+      }
+    }
+    .pshow__comment_user{
+      a{
+        font-size: 15px!important;
+      }
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    .modal-body{
+      img{
+        width: 375px;
+        height: 240px;
+      }
+    }
+    .pshow{
+      margin: 0;
+    }
+    .pshow__status{
+      height: 35px;
+      line-height: 35px!important;
+    }
+    .pshow__user{
+      line-height: 35px!important;
+    }
+    .pshow__user_image{
+      img{
+        width: 35px;
+        height: 35px;
+      }
+    }
+    .pshow__category{
+      line-height: 35px!important;
+      height: 35px;
+      margin-top: 10px;
+    }
+    .pshow__like{
+      line-height: 35px!important;
+      margin-top: 10px;
+    }
+    .pshow__title{
+      line-height: 35px!important;
+      font-size: 15px!important;
+    }
+    .pshow__image{
+      padding-left: 18%;
+    }
+    .pshow__body{
+      min-height: 135px !important;
+      font-size: 13px!important;
+    }
+    .pshow__box{
+      padding: 0 15px;
+    }
+    .pshow__comment{
+      font-size: 13px;
+    }
+    .pshow__comment_user{
+      text-align: left;
+      img{
+        width: 30px;
+        height: 30px;
+      }
+      a{
+        padding: 0!important;
+      }
+    }
+    .pshow__comment_destroy{
+      a{
+        font-size: 10px;
+      }
+    }
+    .pshow__comment_body{
+      min-height: 50px!important;
+    }
+    .pshow__comment_submit{
+      padding: 0;
+      input{
+        font-size: 15px!important;
+      }
+    }
+    .pshow__link_box{
+      text-align: center;
+      a{
+        font-size: 14px;
+      }
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    .modal-body{
+      img{
+        width: 325px;
+        height: 240px;
+      }
+    }
+    .pshow__image{
+      padding-left: 13%;
+    }
+    .pshow__link_box{
+      text-align: center;
+      a{
+        font-size: 12px;
       }
     }
     .copy-right{
