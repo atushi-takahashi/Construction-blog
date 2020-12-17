@@ -21,7 +21,7 @@ module NotificationsHelper
       # @comment = Comment.find_by(id: @visiter_comment)&.message
       tag.a(@visiter.name, href: user_path(@visiter), style: "font-weight: bold;") + "が" + tag.a('あなたの質問', href: question_path(notification.question_id), style: "font-weight: bold;") + "にコメントしました"
     when "dm"
-      tag.a(@visiter.name, href: user_path(@visiter), style: "font-weight: bold;") + "から" + tag.a('ダイレクトメッセージ', href: room_path(notification.room_id), style: "font-weight: bold;") + "が届いています"
+      tag.a(@visiter.name, href: user_path(@visiter), style: "font-weight: bold;") + "から" + tag.a('メッセージ', href: room_path(notification.room_id), style: "font-weight: bold;") + "が届いています"
     end
   end
 

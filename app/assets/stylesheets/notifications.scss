@@ -11,3 +11,55 @@
     margin-bottom: 10px;
   }
 }
+// レスポシブ対応
+// 通知
+#notifications-index{
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    h3{
+      font-size: 20px;
+    }
+    h6{
+      font-size: 13px;
+    }
+    .users-index{
+      font-size: 13px;
+    }
+    img{
+      width: 35px;
+      height: 35px;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    h3{
+      font-size: 20px;
+    }
+    h6{
+      font-size: 13px;
+    }
+    .users-index{
+      font-size: 10px;
+    }
+    img{
+      width: 30px;
+      height: 30px;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
