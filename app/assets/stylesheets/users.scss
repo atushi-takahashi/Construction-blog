@@ -115,6 +115,7 @@
         margin: 10px auto 13px;
         padding: 5px;
         min-height: 85px;
+        max-height: 100px;
         overflow: hidden;
         text-overflow: ellipsis;
       }
@@ -235,10 +236,39 @@
       }
     }
   }
+  @media screen and (max-width: 375px) {
+    .modal-body{
+      img{
+        width: 325px;
+        height: 240px;
+      }
+    }
+  }
 }
 // フォローフォロワー一覧
 #users-following,#users-follower{
   @media screen and (max-width: 768px) {
-    
+    .ufollow__profile{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    .ufollow__title{
+      font-size: 18px!important;
+    }
+    .ufollow__ditail_box{
+      display: none!important;
+    }
+    .ufollow__user{
+      margin-bottom: 0!important;
+    }
+    .ufollow__btn{
+      a{
+        margin-top: 12px;
+      }
+    }
   }
 }

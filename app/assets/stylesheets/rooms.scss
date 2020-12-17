@@ -52,8 +52,149 @@
         }
       }
       .dm__link{
-        margin-top: 22px;
+        line-height: 100px;
       }
+    }
+  }
+}
+
+// レスポンシブ対応
+// DM詳細
+#rooms-show,#rooms-index{
+  @media screen and (max-width: 1024px) {
+    .dm__title{
+      font-size: 20px!important;
+    }
+    .dm__submit{
+      input{
+        font-size: 14px;
+      }
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    .dm{
+      margin: 0;
+      padding: 0;
+    }
+    .dm__title{
+      font-size: 12px!important;
+    }
+    .dm__submit{
+      input{
+        font-size: 12px;
+      }
+    }
+    .dm__box{
+      .col-md-4{
+        padding-right: 0!important;
+        text-align: center;
+      }
+    }
+    .dm__user{
+      padding: 0;
+      img{
+        width: 25px;
+        height: 25px;
+      }
+      a{
+        margin: 0!important;
+        font-size: 12px;
+      }
+    }
+    .dm__destroy{
+      margin: 0!important;
+      padding: 0!important;
+      a{
+        font-size: 10px!important;
+      }
+    }
+    .dm__message_box{
+      font-size: 10px;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    .dm{
+      margin: 0;
+      padding: 0;
+    }
+    .dm__title{
+      font-size: 10px!important;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+// DM一覧
+#rooms-index{
+  .dm__user{
+    margin-bottom: 10px;
+    a{
+      margin: 0!important;
+    }
+  }
+  .dm__message_box{
+    min-height: 95px!important;
+  }
+  @media screen and (max-width: 1024px) {
+    .dm__box{
+      .col-lg-3{
+        line-height: 45px;
+      }
+    }
+    .dm__user{
+      margin-bottom: 0;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .dm__box{
+      .col-lg-3{
+        line-height: 45px;
+      }
+    }
+    .dm__user{
+      img{
+        width: 40px;
+        height: 40px;
+      }
+      a{
+        font-size: 12px;
+      }
+    }
+    .dm__link{
+      padding-left: 0;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .dm__user{
+      img{
+        width: 40px;
+        height: 40px;
+      }
+      a{
+        font-size: 12px;
+      }
+    }
+    .col-lg-8{
+      display: none;
+    }
+    .dm__link{
+      line-height: 65px!important;
     }
   }
 }
