@@ -95,6 +95,16 @@
       margin-left: 30px;
     }
   }
+// admin側リンクボックス
+  .adminpshow__link_box{
+    text-align: end;
+    padding-right: 4%;
+    margin-bottom: 20px;
+    input{
+      width: 97%;
+      margin-left: 30px;
+    }
+  }
 }
 #posts-new,#posts-edit{
   .pform{
@@ -342,6 +352,104 @@
       p{
         font-size: 13px;
         line-height: 30px;
+      }
+    }
+  }
+}
+// admin 投稿一覧
+#posts-index{
+  @media screen and (max-width: 768px) {
+    .none{
+      display: none;
+    }
+    .table{
+      font-size: 13px;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    h4{
+      span{
+        font-size: 15px!important;
+      }
+    }
+    .table{
+      font-size: 10px;
+    }
+    img{
+      width: 40px;
+      height: 40px;
+    }
+    .none{
+      display: none;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    h4{
+      span{
+        font-size: 12px!important;
+      }
+    }
+    .table{
+      font-size: 10px;
+    }
+    img{
+      width: 35px;
+      height: 35px;
+    }
+    .none{
+      display: none;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+// admin posts-show
+#posts-show{
+  @media screen and (max-width: 1024px) {
+    .adminpshow__link_box{
+      input{
+        width: 97%!important;
+        margin-left: 24px!important;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .adminpshow__link_box{
+      input{
+        width: 96%!important;
+        margin-left: 24px!important;
+      }
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .adminpshow__link_box{
+      input{
+        width: 90% !important;
+        margin-left: 18px !important;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .adminpshow__link_box{
+      input{
+        width: 90% !important;
+        margin-left: 18px !important;
       }
     }
   }

@@ -1,36 +1,36 @@
 <div class="row qshow border border-dark">
-  <div class="qshow__box col-lg-11">
+  <div class="qshow__box col-lg-11 col-md-12 col-12">
     <div class="qshow__box row">
-      <div class="col-lg-2 qshow__status"><%= @question.status %></div>
-      <div class="col-lg-3 qshow__user">
+      <div class="col-lg-2 col-md-2 col-3 qshow__status"><%= @question.status %></div>
+      <div class="col-lg-4 col-md-4 col-9 qshow__user">
       <%= link_to admins_user_path(@question.user_id) do %>
         <span class="qshow__user_image"><%= attachment_image_tag @question.user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %></span>
         <span class="qshow__user_name ml-2"><%= @question.user.name %></span>
       <% end %>
       </div>
-      <div class="col-lg-4 qshow__category">カテゴリ：<%= @question.category.name %></div>
+      <div class="col-lg-4 col-md-5 col-12 qshow__category">カテゴリ：<%= @question.category.name %></div>
     </div>
   </div>
-  <div class="col-lg-11 qshow__title text-center">
+  <div class="col-lg-11 col-md-11 col-11 qshow__title text-center">
     <%= @question.title %>
   </div>
-  <div class="col-lg-4 qshow__image" data-toggle="modal" data-target="#image_Modal" style="cursor:pointer">
+  <div class="col-lg-4 col-md-5 col-11 qshow__image" data-toggle="modal" data-target="#image_Modal" style="cursor:pointer">
     <%= attachment_image_tag @question, :image, :fill, 300, 200, fallback: "no_image_toukou.jpg", size: "300x200" %>
   </div>
-  <div class="col-lg-7 qshow__body">
+  <div class="col-lg-7 col-md-6 col-11 qshow__body">
     <div class="qshow__body_hight"><%= @question.body %></div>
     <div class="text-right">投稿日時：<%= @question.updated_at.to_s(:datetime_jp) %></div>
   </div>
-  <div class="qshow__comment_box col-lg-11", id="question_comments_area">
+  <div class="qshow__comment_box col-lg-11 col-md-11 col-11", id="question_comments_area">
     <% @question.comments.each do |comment| %>
       <div class="qshow__comment row">
-        <div class="col-lg-2">
+        <div class="col-lg-2 col-md-3 col-4">
           <div class="qshow__comment_user">
             <%= attachment_image_tag comment.user, :image, fallback: "no_image_user.jpg", class:"comment-image", size: "40x40" %>
             <%= link_to "#{comment.user.name}", admins_user_path(comment.user.id) %>
           </div>
         </div>
-        <div class="col-lg-10">
+        <div class="col-lg-10 col-md-9 col-8">
           <div class="qshow__comment_body">
             <%= comment.message %>
           </div>
@@ -41,7 +41,7 @@
       </div>
     <% end %>
   </div>
-  <div class="qshow__link_box col-lg-12">
+  <div class="adminqshow__link_box col-lg-12 col-md-12 col-12">
   <%= form_with model: @question, url: admins_question_path(@question), method: :patch, local: true do |f|%>
     <% if @question.delete_flag == false %>
       <%= f.hidden_field :delete_flag, value: 'true' %>
