@@ -366,3 +366,63 @@
     }
   }
 }
+// admin レスポンシブ対応
+// ユーザー一覧
+#users-index{
+  @media screen and (max-width: 768px) {
+    .table{
+      font-size: 13px;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    h4{
+      span{
+        font-size: 15px!important;
+      }
+    }
+    .table{
+      font-size: 13px;
+    }
+    .row{
+      .col-md-4{
+        display: none;
+      }
+    }
+    img{
+      width: 40px;
+      height: 40px;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    h4{
+      span{
+        font-size: 12px!important;
+      }
+    }
+    .table{
+      font-size: 10px;
+    }
+    img{
+      width: 35px;
+      height: 35px;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}

@@ -1,31 +1,31 @@
-<h4 class="col-lg-3"><span>ユーザー一覧</span></h4>
+<h4 class="col-lg-3 col-md-4 col-5"><span>ユーザー一覧</span></h4>
 <table class="table">
   <thead class="thead-light">
     <tr class="row">
-      <th class="col-lg-3">ユーザー名</th>
-      <th class="col-lg-2">職種</th>
-      <th class="col-lg-2">職歴</th>
-      <th class="col-lg-4">自己紹介文</th>
-      <th class="col-lg-1">状態</th>
+      <th class="col-lg-3 col-md-2 col-4">ユーザー名</th>
+      <th class="col-lg-2 col-md-2 col-3">職種</th>
+      <th class="col-lg-2 col-md-2 col-3">職歴</th>
+      <th class="col-lg-4 col-md-4">自己紹介文</th>
+      <th class="col-lg-1 col-md-2 col-2">状態</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user|%>
     <tr class="admin-user row">
-      <td class="col-lg-3">
+      <td class="col-lg-3 col-md-2 col-4">
         <div><%= attachment_image_tag user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %></div>
         <div><%= link_to "#{user.name}",admins_user_path(user) %></div>
       </td>
-      <td class="col-lg-2">
+      <td class="col-lg-2 col-md-2 col-3">
         <%= user.occupation %>
       </td>
-      <td class="col-lg-2">
+      <td class="col-lg-2 col-md-2 col-3">
         <%= user.work_history %>
       </td>
-      <td class="col-lg-4">
+      <td class="col-lg-4 col-md-4">
         <%= user.profile %>
       </td>
-      <td class="col-lg-1">
+      <td class="col-lg-1 col-md-2 col-2">
         <% if user.withdrawal_status == true %>
           凍結
         <% elsif user.withdrawal_status == false %>

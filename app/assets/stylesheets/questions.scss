@@ -103,6 +103,20 @@
       margin-left: 30px;
     }
   }
+// admin show
+  .adminqshow__link_box{
+    text-align: end;
+    padding-right: 4%;
+    margin-bottom: 20px;
+    justify-content: center;
+    a{
+      margin-left: 10px;
+    }
+    input{
+      width: 97%;
+      margin-left: 30px;
+    }
+  }
 }
 
 #questions-new,#questions-edit{
@@ -372,6 +386,104 @@
       p{
         font-size: 13px;
         line-height: 30px;
+      }
+    }
+  }
+}
+// admin 質問一覧
+#questions-index{
+  @media screen and (max-width: 768px) {
+    .none{
+      display: none;
+    }
+    .table{
+      font-size: 13px;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    h4{
+      span{
+        font-size: 15px!important;
+      }
+    }
+    .table{
+      font-size: 10px;
+    }
+    img{
+      width: 40px;
+      height: 40px;
+    }
+    .none{
+      display: none;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    h4{
+      span{
+        font-size: 12px!important;
+      }
+    }
+    .table{
+      font-size: 10px;
+    }
+    img{
+      width: 35px;
+      height: 35px;
+    }
+    .none{
+      display: none;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+// admin questions-show
+#questions-show{
+  @media screen and (max-width: 1024px) {
+    .adminqshow__link_box{
+      input{
+        width: 97%!important;
+        margin-left: 24px!important;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .adminqshow__link_box{
+      input{
+        width: 96%!important;
+        margin-left: 24px!important;
+      }
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .adminqshow__link_box{
+      input{
+        width: 90% !important;
+        margin-left: 18px !important;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .adminqshow__link_box{
+      input{
+        width: 90% !important;
+        margin-left: 18px !important;
       }
     }
   }

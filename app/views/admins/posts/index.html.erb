@@ -2,30 +2,30 @@
 <table class="table">
   <thead class="thead-light">
     <tr class="row">
-      <th class="col-lg-3">ユーザー名</th>
-      <th class="col-lg-2">カテゴリ</th>
-      <th class="col-lg-4">タイトル</th>
-      <th class="col-lg-2">通報された数</th>
-      <th class="col-lg-1">状態</th>
+      <th class="col-lg-3 col-md-4 col-4">ユーザー名</th>
+      <th class="col-lg-2 none">カテゴリ</th>
+      <th class="col-lg-4 col-md-4 col-4">タイトル</th>
+      <th class="col-lg-2 col-md-2 col-2">通報数</th>
+      <th class="col-lg-1 col-md-2 col-2">状態</th>
     </tr>
   </thead>
   <tbody>
     <% @posts.each do |post|%>
     <tr class="admin-post row">
-      <td class="col-lg-3">
+      <td class="col-lg-3 col-md-4 col-4">
         <%= attachment_image_tag post.user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %>
         <%= link_to "#{post.user.name}",admins_user_path(post.user_id) %>
       </td>
-      <td class="col-lg-2">
+      <td class="col-lg-2 none">
         <%= post.category.name %>
       </td>
-      <td class="col-lg-4">
+      <td class="col-lg-4 col-md-4 col-4">
         <%= link_to "#{post.title}", admins_post_path(post) %>
       </td>
-      <td class="col-lg-2">
+      <td class="col-lg-2 col-md-2 col-2">
         <%= post.reports.count %>
       </td>
-      <td class="col-lg-1">
+      <td class="col-lg-1 col-md-2 col-2">
         <% if post.delete_flag == true %>
           非表示
         <% elsif post.delete_flag == false %>

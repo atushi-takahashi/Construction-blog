@@ -29,6 +29,9 @@
   .reposhow{
     border-radius: 80px;
     background-color: whitesmoke;
+    .reposhow__outline{
+      background-color: honeydew
+    }
     .reposhow__box{
       margin: 10px auto 5px;
       .reposhow__status{
@@ -39,7 +42,6 @@
         border-radius: 10px;
       }
       .reposhow__user{
-        margin: 0 15px;
         img{
           border-radius: 50%;
         }
@@ -177,6 +179,248 @@
     }
     input{
       font-size: 12px;
+    }
+  }
+}
+// admin 通報一覧
+#reports-index{
+  @media screen and (max-width: 768px) {
+    .none{
+      display: none;
+    }
+    .table{
+      font-size: 13px;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    h4{
+      span{
+        font-size: 15px!important;
+      }
+    }
+    .table{
+      font-size: 10px;
+    }
+    img{
+      width: 40px;
+      height: 40px;
+    }
+    .none{
+      display: none;
+    }
+    a{
+      font-size: 10px;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    h4{
+      span{
+        font-size: 12px!important;
+      }
+    }
+    .table{
+      font-size: 10px;
+    }
+    img{
+      width: 35px;
+      height: 35px;
+    }
+    .none{
+      display: none;
+    }
+    a{
+      font-size: 10px;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+// admin 通報詳細
+#reports-show{
+  @media screen and (max-width: 1024px) {
+    .reposhow__image{
+      img{
+        width: 260px;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .reposhow__outline{
+      margin: 20px auto;
+    }
+    .reposhow__status{
+      font-size: 18px!important;
+      padding: 0!important;
+    }
+    .reposhow__user_name{
+      font-size: 18px!important;
+    }
+    .reposhow__ditail_box{
+      padding: 0!important;
+    }
+    .reposhow__category{
+      font-size: 18px!important;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    .reposhow{
+      margin: 0;
+    }
+    .reposhow__outline{
+      margin: 20px 10px;
+    }
+    .reposhow__status{
+      font-size: 13px!important;
+      padding: 0!important;
+      line-height: 35px;
+    }
+    .reposhow__user_name{
+      font-size: 13px!important;
+    }
+    .reposhow__ditail_box{
+      padding: 0!important;
+    }
+    .reposhow__category{
+      margin-top: 10px;
+      font-size: 13px!important;
+    }
+    .reposhow__image{
+      text-align: center!important;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .back{
+      display: none;
+    }
+    .reposhow__bigtitle_name{
+      font-size: 20px!important;
+    }
+    .reposhow__title_name{
+      font-size: 17px!important;
+    }
+    .reposhow{
+      margin: 0;
+    }
+    .reposhow__outline{
+      margin: 20px 10px;
+    }
+    .reposhow__status{
+      font-size: 10px!important;
+      padding: 0!important;
+      line-height: 35px!important;
+    }
+    .reposhow__user_image{
+      img{
+        width: 35px;
+        height: 35px;
+      }
+    }
+    .reposhow__user_name{
+      font-size: 10px!important;
+    }
+    .reposhow__ditail_box{
+      padding: 0!important;
+    }
+    .reposhow__category{
+      margin-top: 10px;
+      font-size: 10px!important;
+      line-height: 35px!important;
+    }
+    .reposhow__title{
+      line-height: 35px!important;
+      font-size: 10px!important;
+    }
+    .reposhow__image{
+      text-align: center!important;
+    }
+    .reposhow__body{
+      font-size: 10px!important;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .back{
+      display: none;
+    }
+    .reposhow__bigtitle_name{
+      font-size: 20px!important;
+    }
+    .reposhow__title_name{
+      font-size: 17px!important;
+    }
+    .reposhow{
+      margin: 0;
+    }
+    .reposhow__outline{
+      margin: 20px 10px;
+    }
+    .reposhow__status{
+      font-size: 10px!important;
+      padding: 0!important;
+      line-height: 35px!important;
+    }
+    .reposhow__user_image{
+      img{
+        width: 35px;
+        height: 35px;
+      }
+    }
+    .reposhow__user_name{
+      font-size: 10px!important;
+    }
+    .reposhow__ditail_box{
+      padding: 0!important;
+    }
+    .reposhow__category{
+      margin-top: 10px;
+      font-size: 10px!important;
+      line-height: 35px!important;
+    }
+    .reposhow__title{
+      line-height: 35px!important;
+      font-size: 10px!important;
+    }
+    .reposhow__image{
+      text-align: center!important;
+    }
+    .reposhow__body{
+      font-size: 10px!important;
+    }
+    .copy-right{
+      p{
+        font-size: 13px;
+        line-height: 30px;
+      }
     }
   }
 }
