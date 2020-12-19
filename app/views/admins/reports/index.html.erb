@@ -2,43 +2,43 @@
 <table class="table">
   <thead class="thead-light">
     <tr class="row">
-      <th class="col-lg-2">通報したユーザー</th>
-      <th class="col-lg-2">通報されたユーザー</th>
-      <th class="col-lg-3">該当記事</th>
-      <th class="col-lg-2">カテゴリ</th>
-      <th class="col-lg-1">通報詳細</th>
-      <th class="col-lg-1">記事状態</th>
-      <th class="col-lg-1">処理状況</th>
+      <th class="col-lg-2 col-md-4 col-3">通報したユーザー</th>
+      <th class="col-lg-2 none">通報されたユーザー</th>
+      <th class="col-lg-3 none">該当記事</th>
+      <th class="col-lg-2 none">カテゴリ</th>
+      <th class="col-lg-1 col-md-2 col-3">通報詳細</th>
+      <th class="col-lg-1 col-md-3 col-3">記事状態</th>
+      <th class="col-lg-1 col-md-3 col-3">処理状況</th>
     </tr>
   </thead>
   <tbody>
     <% @reports.each do |report|%>
     <tr class="admin-report row">
-      <td class="col-lg-2">
+      <td class="col-lg-2 col-md-4 col-3">
         <%= attachment_image_tag report.user, :image, :fill, 50, 50, fallback: "no_image_user.jpg", size: "50x50" %>
         <%= link_to "#{report.user.name}",admins_user_path(report.user_id) %>
       </th>
-      <td class="col-lg-2">
+      <td class="col-lg-2 none">
         <% if report.question_id == nil %>
           <%= link_to "#{report.post.user.name}",admins_user_path(report.post.user.id) %>
         <% elsif report.post_id == nil %>
           <%= link_to "#{report.question.user.name}",admins_user_path(report.question.user.id) %>
         <% end %>
       </th>
-      <td class="col-lg-3">
+      <td class="col-lg-3 none">
         <% if report.question_id == nil %>
           <%= link_to "通報された記事", admins_post_path(report.post_id) %>
         <% elsif report.post_id == nil %>
           <%= link_to "通報された記事", admins_question_path(report.question_id) %>
         <% end %>
       </td>
-      <td class="col-lg-2">
+      <td class="col-lg-2 none">
         <%= report.category %>
       </td>
-      <td class="col-lg-1">
+      <td class="col-lg-1 col-md-2 col-3">
         <%= link_to "こちら", admins_report_path(report) %>
       </td>
-      <td class="col-lg-1">
+      <td class="col-lg-1 col-md-3 col-3">
         <% if report.question_id == nil %>
           <% if report.post.delete_flag == true %>
             非表示中
@@ -53,7 +53,7 @@
           <% end %>
         <% end %>
       </td>
-      <td class="col-lg-1">
+      <td class="col-lg-1 col-md-3 col-3">
         <% if report.processing_flag == false %>
           <%= link_to "未処理", admins_report_path(report), method: :patch, class:"btn btn-sm btn-danger"%>
         <% elsif report.processing_flag == true %>
