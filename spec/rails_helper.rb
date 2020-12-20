@@ -64,7 +64,5 @@ RSpec.configure do |config|
   
   # ログインヘルパーを利用可能
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::IntegrationHelpers, type: :request
-  config.include Devise::Test::IntegrationHelpers, type: :model
   config.include FactoryBot::Syntax::Methods
 end
