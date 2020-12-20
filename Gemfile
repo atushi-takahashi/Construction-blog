@@ -84,6 +84,9 @@ gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
 gem 'ransack'
 gem 'rubocop-airbnb'
+# テストGem
+gem 'rspec-rails'
+gem 'factory_bot_rails'
 
 gem 'dotenv-rails'
 group :production do
