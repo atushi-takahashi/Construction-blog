@@ -42,7 +42,7 @@ class User::PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       flash[:alert] = "入力に不備があります"
-      redirect_back(fallback_location: root_path)
+      redirect_to edit_post_path(@post)
     end
   end
 
