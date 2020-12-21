@@ -165,11 +165,11 @@ RSpec.describe User::PostsController, type: :controller do
         it '入力不備があった場合に編集ページにリダイレクトされているか' do
           post_params = {title: nil}
           patch :update, params: {id: @post.id, post: post_params}
-          expect(response).to redirect_to "/posts/#{@post.id}/edit"
+          expect(response).to redirect_to edit_post_path(@post)
         end
       end
     end
-    
+
     describe "#destroy" do
       context "投稿者の投稿削除" do
         before do
