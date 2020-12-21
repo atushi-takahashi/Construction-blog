@@ -43,8 +43,8 @@ class User::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user), notice: '更新に成功しました'
     else
-      flash.now[:alert] = '入力に不備があります'
-      render 'users/edit'
+      flash[:alert] = '入力に不備があります'
+      redirect_to edit_user_path(@user)
     end
   end
 

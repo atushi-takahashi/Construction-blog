@@ -165,7 +165,7 @@ RSpec.describe User::QuestionsController, type: :controller do
         it '入力不備があった場合に編集ページにリダイレクトされているか' do
           question_params = {title: nil}
           patch :update, params: {id: @question.id, question: question_params}
-          expect(response).to redirect_to "/questions/#{@question.id}/edit"
+          expect(response).to redirect_to edit_question_path(@question)
         end
       end
     end

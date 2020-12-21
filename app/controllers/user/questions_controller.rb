@@ -47,7 +47,7 @@ class User::QuestionsController < ApplicationController
       redirect_to question_path(@question)
     else
       flash[:alert] = "入力に不備があります"
-      redirect_to edit_question_path()
+      redirect_to edit_question_path(@question)
     end
   end
 
