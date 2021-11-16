@@ -15,18 +15,6 @@
 ### ターゲットユーザ
 建設業に従事している現場監督
 
-### 主な利用シーン
+### 主なシーン
 ・建設現場で発生した問題、疑問の質問及び回答
 ・仕事の達成感やヒヤリハット、業務効率化対策などを共有
-
-
-### 機能一覧
-<https://docs.google.com/spreadsheets/d/16SGJur8-TkvSWazUvtGVYI-i3Xt_ruUO7W8cgy4FerI/edit#gid=0>
-
-## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
-- 仮想環境：Vagrant,VirtualBox
-
